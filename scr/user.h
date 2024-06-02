@@ -1,31 +1,10 @@
 #ifndef USER_H
 #define USER_H
 
-#include <QWidget>
 #include <QString>
+#include "bankaccount.h"
 
-class User : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit User(QWidget *parent = nullptr);
-    void setName(QString name);
-    QString getName();
-    void setFamily(QString family);
-    QString getFamily();
-    void setNationalCode(QString nationalCode);
-    QString getNationalCode();
-    void setAge(int age);
-    int getAge();
-    void setUniqueUsername(QString uniqueUsername);
-    QString getUniqueUsername();
-    void setPassword(QString password);
-    QString getPassword();
-    void setSingleBankAccount(QString singleBankAccount);
-    QString getSingleBankAccount();
-
-signals:
-
+class User {
 private:
     QString name;
     QString family;
@@ -33,7 +12,24 @@ private:
     int age;
     QString uniqueUsername;
     QString password;
-    QString singleBankAccount;
+    BankAccount singleBankAccount;
+
+public:
+    User();
+    void setName(QString);
+    void setFamily(QString);
+    void setNationalCode(QString);
+    void setAge(int);
+    void setUniqueUsername(QString);
+    void setPassword(QString);
+    void setSingleBankAccount(BankAccount);
+    QString getName();
+    QString getFamily();
+    QString getNationalCode();
+    int getAge();
+    QString getUniqueUsername();
+    QString getPassword();
+    BankAccount getSingleBankAccount();
 };
 
 #endif // USER_H
