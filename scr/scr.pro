@@ -10,10 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     loginsignin.cpp \
-    main.cpp
+    main.cpp \
+    user.cpp
 
 HEADERS += \
-    loginsignin.h
+    loginsignin.h \
+    user.h
 
 FORMS += \
     loginsignin.ui

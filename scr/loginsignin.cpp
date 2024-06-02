@@ -1,14 +1,7 @@
 #include "loginsignin.h"
-#include "ui_loginsignin.h"
+#include <QString>
 
-LoginSignin::LoginSignin(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::LoginSignin)
-{
-    ui->setupUi(this);
-}
+LoginSignin::LoginSignin(QWidget *parent) : QWidget(parent) {}
 
-LoginSignin::~LoginSignin()
-{
-    delete ui;
-}
+
+LoginSignin::~LoginSignin() {}

@@ -2,6 +2,7 @@
 #define LOGINSIGNIN_H
 
 #include <QWidget>
+#include <QString>
 
 class LoginSignin : public QWidget
 {

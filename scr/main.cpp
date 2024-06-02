@@ -1,11 +1,10 @@
-#include "login.h"
-
+#include "loginsignin.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Login w;
+    LoginSignin w;
     w.show();
     return a.exec();
 }
