@@ -20,7 +20,8 @@ SOURCES += \
     main.cpp \
     mainpanel.cpp \
     transfer.cpp \
-    user.cpp
+    user.cpp \
+    viewbalance.cpp
 
 HEADERS += \
     bankaccount.h \
@@ -33,7 +34,8 @@ HEADERS += \
     loginsignin.h \
     mainpanel.h \
     transfer.h \
-    user.h
+    user.h \
+    viewbalance.h
 
 FORMS += \
     cardinfo.ui \
@@ -42,7 +44,8 @@ FORMS += \
     createbankaccount.ui \
     loginsignin.ui \
     mainpanel.ui \
-    transfer.ui
+    transfer.ui \
+    viewbalance.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
