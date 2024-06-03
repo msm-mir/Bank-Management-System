@@ -12,6 +12,7 @@ SOURCES += \
     bankaccount.cpp \
     card.cpp \
     cardinfo.cpp \
+    changepassword.cpp \
     confirmtransfer.cpp \
     createbankaccount.cpp \
     list.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     bankaccount.h \
     card.h \
     cardinfo.h \
+    changepassword.h \
     confirmtransfer.h \
     createbankaccount.h \
     list.h \
@@ -35,6 +37,7 @@ HEADERS += \
 
 FORMS += \
     cardinfo.ui \
+    changepassword.ui \
     confirmtransfer.ui \
     createbankaccount.ui \
     loginsignin.ui \
