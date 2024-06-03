@@ -1,8 +1,11 @@
-#ifndef LOGINSIGNIN_H
-#define LOGINSIGNIN_H
+#ifndef LOGINSIGNUP_H
+#define LOGINSIGNUP_H
 
 #include <QWidget>
-#include <QString>
+
+namespace Ui {
+class LoginSignin;
+}
 
 class LoginSignin : public QWidget
 {
@@ -13,7 +16,8 @@ public:
     ~LoginSignin();
 
 private:
-
+    Ui::LoginSignin *ui;
 };
 
-#endif // LOGINSIGNIN_H
+
+#endif // LOGINSIGNUP_H

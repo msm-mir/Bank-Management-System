@@ -12,7 +12,7 @@ SOURCES += \
     bankaccount.cpp \
     card.cpp \
     list.cpp \
-    loginsignin.cpp \
+    loginsignup.cpp \
     main.cpp \
     user.cpp
 
@@ -20,13 +20,16 @@ HEADERS += \
     bankaccount.h \
     card.h \
     list.h \
-    loginsignin.h \
+    loginsignup.h \
     user.h
 
 FORMS += \
-    loginsignin.ui
+    loginsignup.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    loginsignin.qrc
