@@ -2,6 +2,7 @@
 #include "mainpanel.h"
 #include "createbankaccount.h"
 #include "cardinfo.h"
+#include "transfer.h"
 #include <QApplication>
 #include <windows.h>
 
@@ -16,5 +17,7 @@ int main(int argc, char *argv[])
     c.show();
     CardInfo d;
     d.show();
+    Transfer e;
+    e.show();
     return a.exec();
 }
