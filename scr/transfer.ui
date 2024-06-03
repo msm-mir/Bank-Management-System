@@ -92,7 +92,7 @@ font: 10pt &quot;Tw Cen MT&quot;;
   <widget class="QPushButton" name="logoutPB">
    <property name="geometry">
     <rect>
-     <x>533</x>
+     <x>530</x>
      <y>329</y>
      <width>91</width>
      <height>31</height>
@@ -273,10 +273,10 @@ font: 10pt &quot;MRT_Sozar&quot;;
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="bankAccountTypeL_2">
+  <widget class="QLabel" name="yourCardNumberL">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>100</x>
      <y>190</y>
      <width>171</width>
      <height>41</height>
@@ -291,10 +291,10 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <string>Your Card Number :</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="initialBalanceLE">
+  <widget class="QLineEdit" name="yourCardNumberLE">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>330</x>
      <y>200</y>
      <width>191</width>
      <height>31</height>
@@ -306,13 +306,28 @@ color: rgb(0, 0, 0);
 </string>
    </property>
   </widget>
-  <widget class="QLabel" name="lastNameL_2">
+  <widget class="QLineEdit" name="destiCardNumberLE">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>234</y>
-     <width>101</width>
-     <height>51</height>
+     <x>330</x>
+     <y>240</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(158, 255, 174);
+color: rgb(0, 0, 0);
+</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="destiCardNumberL">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>230</y>
+     <width>221</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -321,16 +336,16 @@ font: 12pt &quot;Tw Cen MT&quot;;
 </string>
    </property>
    <property name="text">
-    <string>Last Name :</string>
+    <string>Destination Card Number :</string>
    </property>
   </widget>
-  <widget class="QLabel" name="firstNameL_2">
+  <widget class="QLabel" name="amountL">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>234</y>
-     <width>121</width>
-     <height>51</height>
+     <x>100</x>
+     <y>270</y>
+     <width>81</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -339,39 +354,52 @@ font: 12pt &quot;Tw Cen MT&quot;;
 </string>
    </property>
    <property name="text">
-    <string>to First Name :</string>
+    <string>Amount :</string>
    </property>
   </widget>
-  <widget class="QLabel" name="firstNameST_2">
+  <widget class="QLineEdit" name="amonutLE">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>250</y>
+     <x>330</x>
+     <y>280</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(158, 255, 174);
+color: rgb(0, 0, 0);
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="continuePB">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>329</y>
      <width>91</width>
-     <height>20</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(67, 67, 67);</string>
+    <string notr="true">color: rgb(0, 255, 21);
+background-color: rgb(36, 36, 36);
+font: 9pt &quot;MRT_Sozar&quot;;</string>
    </property>
    <property name="text">
-    <string/>
+    <string>Continue</string>
    </property>
-  </widget>
-  <widget class="QLabel" name="lastNameST_2">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>250</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
+   <property name="autoDefault">
+    <bool>false</bool>
    </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(67, 67, 67);</string>
+   <property name="default">
+    <bool>true</bool>
    </property>
-   <property name="text">
-    <string/>
+   <property name="flat">
+    <bool>false</bool>
    </property>
   </widget>
  </widget>

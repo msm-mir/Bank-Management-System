@@ -3,6 +3,7 @@
 #include "createbankaccount.h"
 #include "cardinfo.h"
 #include "transfer.h"
+#include "confirmtransfer.h"
 #include <QApplication>
 #include <windows.h>
 
@@ -19,5 +20,7 @@ int main(int argc, char *argv[])
     d.show();
     Transfer e;
     e.show();
+    ConfirmTransfer f;
+    f.show();
     return a.exec();
 }

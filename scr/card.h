@@ -11,6 +11,7 @@ private:
     QString expirationDate;
     QString fourDigitPassword;
     QString fixedPassword;
+    bool haveFixedPassword;
     QString oneTimePassword;
 public:
     Card();
@@ -21,12 +22,14 @@ public:
     void setFourDigitPassword(QString);
     void setFixedPassword(QString);
     void setOneTimePassword(QString);
+    void setHaveFixedPassword(bool);
     QString getCardNumber();
     QString getIbanNumber();
     QString getCvv2();
     QString getExpirationDate();
     QString getFourDigitPassword();
     QString getFixedPassword();
+    bool getHaveFixedPassword();
     QString getOneTimePassword();
 };
 

@@ -19,7 +19,7 @@
     border: none;
 }</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="background">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -38,7 +38,7 @@
   <widget class="QLabel" name="lastNameST">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>450</x>
      <y>46</y>
      <width>161</width>
      <height>20</height>
@@ -54,7 +54,7 @@
   <widget class="QLabel" name="nationalCodeST">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>450</x>
      <y>86</y>
      <width>161</width>
      <height>20</height>
@@ -90,7 +90,7 @@ font: 10pt &quot;MRT_Sozar&quot;;
    <property name="geometry">
     <rect>
      <x>533</x>
-     <y>330</y>
+     <y>350</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -116,7 +116,7 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
   <widget class="QLabel" name="nationalCodeL">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>320</x>
      <y>80</y>
      <width>111</width>
      <height>31</height>
@@ -152,7 +152,7 @@ color: rgb(64, 0, 255);</string>
   <widget class="QLabel" name="ageST">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>150</x>
      <y>86</y>
      <width>51</width>
      <height>20</height>
@@ -187,7 +187,7 @@ font: 10pt &quot;MRT_Sozar&quot;;
   <widget class="QLabel" name="ageL">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>100</x>
      <y>80</y>
      <width>41</width>
      <height>31</height>
@@ -205,7 +205,7 @@ font: 10pt &quot;Tw Cen MT&quot;;
   <widget class="QLabel" name="firstNameL">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>100</x>
      <y>30</y>
      <width>101</width>
      <height>51</height>
@@ -223,7 +223,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
   <widget class="QLabel" name="firstNameST">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>210</x>
      <y>46</y>
      <width>91</width>
      <height>20</height>
@@ -258,7 +258,7 @@ font: 10pt &quot;MRT_Sozar&quot;;
   <widget class="QLabel" name="lastNameL">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>320</x>
      <y>30</y>
      <width>101</width>
      <height>51</height>
@@ -323,7 +323,7 @@ selection-color: rgb(0, 255, 21);</string>
     </property>
    </item>
   </widget>
-  <widget class="QLabel" name="bankAccountTypeL_2">
+  <widget class="QLabel" name="initialBalanceL">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -360,7 +360,7 @@ color: rgb(0, 0, 0);
    <property name="geometry">
     <rect>
      <x>533</x>
-     <y>270</y>
+     <y>310</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -414,6 +414,39 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <string notr="true">background-color: rgb(158, 255, 174);
 color: rgb(0, 0, 0);
 </string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="fixedPasswordLE">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>310</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(158, 255, 174);
+color: rgb(0, 0, 0);
+</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fixedPasswordL">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>300</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 12pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Fixed Password :</string>
    </property>
   </widget>
  </widget>

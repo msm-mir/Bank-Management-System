@@ -54,12 +54,12 @@ font: 10pt &quot;MRT_Sozar&quot;;
     <string>View Balance</string>
    </property>
   </widget>
-  <widget class="QLabel" name="bankAccountTypeL">
+  <widget class="QLabel" name="cardNumberL">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>100</x>
      <y>180</y>
-     <width>171</width>
+     <width>131</width>
      <height>41</height>
     </rect>
    </property>
@@ -69,13 +69,13 @@ font: 12pt &quot;Tw Cen MT&quot;;
 </string>
    </property>
    <property name="text">
-    <string>Bank Account Type :</string>
+    <string>Card Number :</string>
    </property>
   </widget>
   <widget class="QLabel" name="firstNameL">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>100</x>
      <y>30</y>
      <width>101</width>
      <height>51</height>
@@ -139,7 +139,7 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
   <widget class="QLabel" name="nationalCodeST">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>450</x>
      <y>86</y>
      <width>161</width>
      <height>20</height>
@@ -155,7 +155,7 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
   <widget class="QLabel" name="nationalCodeL">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>320</x>
      <y>80</y>
      <width>111</width>
      <height>31</height>
@@ -173,7 +173,7 @@ font: 10pt &quot;Tw Cen MT&quot;;
   <widget class="QLabel" name="ageL">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>100</x>
      <y>80</y>
      <width>41</width>
      <height>31</height>
@@ -191,7 +191,7 @@ font: 10pt &quot;Tw Cen MT&quot;;
   <widget class="QLabel" name="firstNameST">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>210</x>
      <y>46</y>
      <width>91</width>
      <height>20</height>
@@ -226,7 +226,7 @@ font: 10pt &quot;MRT_Sozar&quot;;
   <widget class="QLabel" name="lastNameST">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>450</x>
      <y>46</y>
      <width>161</width>
      <height>20</height>
@@ -242,7 +242,7 @@ font: 10pt &quot;MRT_Sozar&quot;;
   <widget class="QLabel" name="lastNameL">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>320</x>
      <y>30</y>
      <width>101</width>
      <height>51</height>
@@ -260,7 +260,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
   <widget class="QLabel" name="ageST">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>150</x>
      <y>86</y>
      <width>51</width>
      <height>20</height>
@@ -289,6 +289,158 @@ color: rgb(64, 0, 255);</string>
    </property>
    <property name="text">
     <string>Creat New Bank Account</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="accountNumberL">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>220</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 12pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Account Number :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ibanNumberL">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>260</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 12pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>IBAN Number :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="cvv2L">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>300</y>
+     <width>71</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 12pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>CVV2 :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="expirationDateL">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>300</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 12pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Expiration Date :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="cardNumberST">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>192</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="accountNumberST">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>230</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ibanNumberST">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>270</y>
+     <width>221</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="cvv2ST">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>311</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="expirationDateST">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>311</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
