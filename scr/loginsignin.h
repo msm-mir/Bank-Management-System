@@ -1,5 +1,5 @@
-#ifndef LOGINSIGNUP_H
-#define LOGINSIGNUP_H
+#ifndef LOGINSIGNIN_H
+#define LOGINSIGNIN_H
 
 #include <QWidget>
 
@@ -20,4 +20,4 @@ private:
 };
 
 
-#endif // LOGINSIGNUP_H
+#endif // LOGINSIGNIN_H

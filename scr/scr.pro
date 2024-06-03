@@ -11,20 +11,26 @@ CONFIG += c++17
 SOURCES += \
     bankaccount.cpp \
     card.cpp \
+    createbankaccount.cpp \
     list.cpp \
-    loginsignup.cpp \
+    loginsignin.cpp \
     main.cpp \
+    mainpanel.cpp \
     user.cpp
 
 HEADERS += \
     bankaccount.h \
     card.h \
+    createbankaccount.h \
     list.h \
-    loginsignup.h \
+    loginsignin.h \
+    mainpanel.h \
     user.h
 
 FORMS += \
-    loginsignup.ui
+    createbankaccount.ui \
+    loginsignin.ui \
+    mainpanel.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -32,4 +38,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    loginsignin.qrc
+    Panel.qrc \
+    loginsignup.qrc

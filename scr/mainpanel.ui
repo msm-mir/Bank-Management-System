@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainPanel</class>
+ <widget class="QWidget" name="MainPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+    background-color: transparent;
+    border: none;
+}</string>
+  </property>
+  <widget class="QLabel" name="background">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>700</width>
+     <height>400</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="Panel.qrc">:/images/panel.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>147</y>
+     <width>191</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">gridline-color: rgb(0, 0, 0);
+text-decoration: underline;
+color: rgb(0, 0, 0);
+font: 10pt &quot;MRT_Sozar&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Creat New Bank Account</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>147</y>
+     <width>131</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">gridline-color: rgb(0, 0, 0);
+text-decoration: underline;
+color: rgb(0, 0, 0);
+font: 10pt &quot;MRT_Sozar&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Change Password</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>147</y>
+     <width>101</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">gridline-color: rgb(0, 0, 0);
+text-decoration: underline;
+color: rgb(0, 0, 0);
+font: 10pt &quot;MRT_Sozar&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>View Balance</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>147</y>
+     <width>71</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">gridline-color: rgb(0, 0, 0);
+text-decoration: underline;
+color: rgb(0, 0, 0);
+font: 10pt &quot;MRT_Sozar&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Transfer</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ageL">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>80</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 10pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Age :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="firstNameL">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>30</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 12pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>First Name :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lastNameL">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>30</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 12pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Last Name :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nationalCodeL">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>80</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 10pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>National Code :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="firstNameST">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>46</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string>maryam</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lastNameST">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>46</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string>mirdamadiyan</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ageST">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>86</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string>20</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nationalCodeST">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>86</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string>1274526841</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="loginPB">
+   <property name="geometry">
+    <rect>
+     <x>533</x>
+     <y>330</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 255, 21);
+selection-color: rgb(0, 0, 0);
+background-color: rgb(36, 36, 36);
+selection-background-color: rgb(0, 0, 0);
+font: 9pt &quot;MRT_Sozar&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Log out</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="default">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="Panel.qrc"/>
+ </resources>
+ <connections/>
+</ui>
