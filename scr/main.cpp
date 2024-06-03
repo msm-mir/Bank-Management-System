@@ -1,13 +1,20 @@
 #include "loginsignin.h"
 #include "mainpanel.h"
+#include "createbankaccount.h"
+#include "cardinfo.h"
 #include <QApplication>
+#include <windows.h>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    LoginSignin w;
-    // w.show();
-    MainPanel m;
-    m.show();
+    LoginSignin x;
+    x.show();
+    MainPanel b;
+    b.show();
+    CreateBankAccount c;
+    c.show();
+    CardInfo d;
+    d.show();
     return a.exec();
 }

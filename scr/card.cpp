@@ -19,6 +19,9 @@ void Card::setFourDigitPassword(QString fourDigitPassword) {
 void Card::setFixedPassword(QString fixedPassword) {
     this->fixedPassword = fixedPassword;
 }
+void Card::setHaveFixedPassword(bool haveFixedPassword) {
+    this->haveFixedPassword = haveFixedPassword;
+}
 void Card::setOneTimePassword(QString oneTimePassword) {
     this->oneTimePassword = oneTimePassword;
 }
@@ -39,6 +42,9 @@ QString Card::getFourDigitPassword() {
 }
 QString Card::getFixedPassword() {
     return this->fixedPassword;
+}
+bool Card::getHaveFixedPassword() {
+    return this->haveFixedPassword;
 }
 QString Card::getOneTimePassword() {
     return this->oneTimePassword;

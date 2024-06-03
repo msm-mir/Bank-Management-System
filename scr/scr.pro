@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     bankaccount.cpp \
     card.cpp \
+    cardinfo.cpp \
     createbankaccount.cpp \
     list.cpp \
     loginsignin.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 HEADERS += \
     bankaccount.h \
     card.h \
+    cardinfo.h \
     createbankaccount.h \
     list.h \
     loginsignin.h \
@@ -28,6 +30,7 @@ HEADERS += \
     user.h
 
 FORMS += \
+    cardinfo.ui \
     createbankaccount.ui \
     loginsignin.ui \
     mainpanel.ui
