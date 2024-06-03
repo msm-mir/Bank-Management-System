@@ -12,21 +12,21 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    LoginSignin x;
-    x.show();
-    MainPanel b;
-    b.show();
-    CreateBankAccount c;
-    c.show();
-    CardInfo d;
-    d.show();
-    Transfer e;
-    e.show();
-    ConfirmTransfer f;
-    f.show();
-    ChangePassword g;
-    g.show();
-    ViewBalance h;
+    ViewBalance i;
+    i.show();
+    ChangePassword h;
     h.show();
+    ConfirmTransfer g;
+    g.show();
+    Transfer f;
+    f.show();
+    CardInfo e;
+    e.show();
+    CreateBankAccount d;
+    d.show();
+    MainPanel c;
+    c.show();
+    LoginSignin b;
+    b.show();
     return a.exec();
 }

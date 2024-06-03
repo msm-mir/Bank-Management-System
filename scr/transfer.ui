@@ -19,7 +19,7 @@
     border: none;
 }</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="background">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -32,14 +32,14 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="Panel.qrc">:/images/panel.png</pixmap>
+    <pixmap resource="Panel.qrc">:/images/panel2.png</pixmap>
    </property>
   </widget>
-  <widget class="QPushButton" name="creatNewBankAccountPB">
+  <widget class="QPushButton" name="createNewBankAccountPB">
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>146</y>
+     <y>169</y>
      <width>191</width>
      <height>29</height>
     </rect>
@@ -50,14 +50,14 @@ font: 10pt &quot;MRT_Sozar&quot;;
 color: rgb(0, 0, 0);</string>
    </property>
    <property name="text">
-    <string>Creat New Bank Account</string>
+    <string>Create New Bank Account</string>
    </property>
   </widget>
   <widget class="QLabel" name="firstNameL">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>29</y>
+     <y>80</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -75,7 +75,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>79</y>
+     <y>114</y>
      <width>41</width>
      <height>31</height>
     </rect>
@@ -93,7 +93,7 @@ font: 10pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>530</x>
-     <y>329</y>
+     <y>330</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -120,7 +120,7 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>85</y>
+     <y>120</y>
      <width>51</width>
      <height>20</height>
     </rect>
@@ -136,7 +136,7 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>45</y>
+     <y>95</y>
      <width>91</width>
      <height>20</height>
     </rect>
@@ -152,7 +152,7 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>79</y>
+     <y>114</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -170,7 +170,7 @@ font: 10pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>146</y>
+     <y>169</y>
      <width>131</width>
      <height>29</height>
     </rect>
@@ -189,7 +189,7 @@ font: 10pt &quot;MRT_Sozar&quot;;
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>29</y>
+     <y>79</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -207,7 +207,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>430</x>
-     <y>146</y>
+     <y>169</y>
      <width>101</width>
      <height>29</height>
     </rect>
@@ -226,7 +226,7 @@ font: 10pt &quot;MRT_Sozar&quot;;
    <property name="geometry">
     <rect>
      <x>540</x>
-     <y>146</y>
+     <y>169</y>
      <width>71</width>
      <height>29</height>
     </rect>
@@ -244,8 +244,8 @@ font: 10pt &quot;MRT_Sozar&quot;;
   <widget class="QLabel" name="nationalCodeST">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>85</y>
+     <x>440</x>
+     <y>120</y>
      <width>161</width>
      <height>20</height>
     </rect>
@@ -260,8 +260,8 @@ font: 10pt &quot;MRT_Sozar&quot;;
   <widget class="QLabel" name="lastNameST">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>45</y>
+     <x>430</x>
+     <y>95</y>
      <width>161</width>
      <height>20</height>
     </rect>
@@ -273,11 +273,11 @@ font: 10pt &quot;MRT_Sozar&quot;;
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="yourCardNumberL">
+  <widget class="QLabel" name="originCardNumberL">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>190</y>
+     <y>220</y>
      <width>171</width>
      <height>41</height>
     </rect>
@@ -291,12 +291,12 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <string>Your Card Number :</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="yourCardNumberLE">
+  <widget class="QLineEdit" name="originCardNumberLE">
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>200</y>
-     <width>191</width>
+     <y>230</y>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -305,13 +305,16 @@ font: 12pt &quot;Tw Cen MT&quot;;
 color: rgb(0, 0, 0);
 </string>
    </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
   <widget class="QLineEdit" name="destiCardNumberLE">
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>240</y>
-     <width>191</width>
+     <y>270</y>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -325,7 +328,7 @@ color: rgb(0, 0, 0);
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>230</y>
+     <y>260</y>
      <width>221</width>
      <height>41</height>
     </rect>
@@ -343,7 +346,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>270</y>
+     <y>300</y>
      <width>81</width>
      <height>41</height>
     </rect>
@@ -361,8 +364,8 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>280</y>
-     <width>191</width>
+     <y>310</y>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -378,8 +381,8 @@ color: rgb(0, 0, 0);
   <widget class="QPushButton" name="continuePB">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>329</y>
+     <x>530</x>
+     <y>290</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -400,6 +403,24 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
    </property>
    <property name="flat">
     <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="transferL">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>10</y>
+     <width>151</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(64, 0, 255);
+font: 800 17pt &quot;Rockwell Extra Bold&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Transfer</string>
    </property>
   </widget>
  </widget>

@@ -40,27 +40,6 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <string>First Name :</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="firstNameLE">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>90</y>
-     <width>191</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>191</width>
-     <height>0</height>
-    </size>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(158, 255, 174);
-color: rgb(0, 0, 0);
-</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="signUpL">
    <property name="geometry">
     <rect>
@@ -119,8 +98,8 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>480</x>
-     <y>130</y>
-     <width>191</width>
+     <y>133</y>
+     <width>171</width>
      <height>31</height>
     </rect>
    </property>
@@ -128,6 +107,9 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <string notr="true">background-color: rgb(158, 255, 174);
 color: rgb(0, 0, 0);
 </string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="nationalCodeL">
@@ -152,8 +134,8 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>480</x>
-     <y>170</y>
-     <width>191</width>
+     <y>173</y>
+     <width>171</width>
      <height>31</height>
     </rect>
    </property>
@@ -161,6 +143,9 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <string notr="true">background-color: rgb(158, 255, 174);
 color: rgb(0, 0, 0);
 </string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="ageL">
@@ -185,8 +170,8 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>480</x>
-     <y>210</y>
-     <width>191</width>
+     <y>214</y>
+     <width>171</width>
      <height>31</height>
     </rect>
    </property>
@@ -194,6 +179,9 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <string notr="true">background-color: rgb(158, 255, 174);
 color: rgb(0, 0, 0);
 </string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="signUpUsernameL">
@@ -218,8 +206,8 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>480</x>
-     <y>250</y>
-     <width>191</width>
+     <y>253</y>
+     <width>171</width>
      <height>31</height>
     </rect>
    </property>
@@ -227,6 +215,9 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <string notr="true">background-color: rgb(158, 255, 174);
 color: rgb(0, 0, 0);
 </string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="signUpPasswordL">
@@ -251,8 +242,8 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>480</x>
-     <y>290</y>
-     <width>191</width>
+     <y>293</y>
+     <width>171</width>
      <height>31</height>
     </rect>
    </property>
@@ -285,7 +276,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <rect>
      <x>60</x>
      <y>126</y>
-     <width>191</width>
+     <width>171</width>
      <height>31</height>
     </rect>
    </property>
@@ -301,7 +292,7 @@ color: rgb(0, 0, 0);
     <rect>
      <x>60</x>
      <y>209</y>
-     <width>191</width>
+     <width>171</width>
      <height>31</height>
     </rect>
    </property>
@@ -332,7 +323,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
   <widget class="QPushButton" name="loginPB">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>140</x>
      <y>270</y>
      <width>91</width>
      <height>31</height>
@@ -359,7 +350,7 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
   <widget class="QPushButton" name="signUpPB">
    <property name="geometry">
     <rect>
-     <x>580</x>
+     <x>560</x>
      <y>340</y>
      <width>91</width>
      <height>31</height>
@@ -399,9 +390,26 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
     <pixmap resource="loginsignup.qrc">:/images/loginsignin.png</pixmap>
    </property>
   </widget>
+  <widget class="QLineEdit" name="firstNameLE">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>93</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(158, 255, 174);
+color: rgb(0, 0, 0);
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>background</zorder>
   <zorder>firstNameL</zorder>
-  <zorder>firstNameLE</zorder>
   <zorder>signUpL</zorder>
   <zorder>loginL</zorder>
   <zorder>lastNameL</zorder>
@@ -420,6 +428,7 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
   <zorder>loginUsernameL</zorder>
   <zorder>loginPB</zorder>
   <zorder>signUpPB</zorder>
+  <zorder>firstNameLE</zorder>
  </widget>
  <resources>
   <include location="loginsignup.qrc"/>
