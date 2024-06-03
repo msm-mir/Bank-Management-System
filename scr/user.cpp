@@ -21,8 +21,11 @@ void User::setUniqueUsername(QString uniqueUsername) {
 void User::setPassword(QString password) {
     this->password = password;
 }
-void User::setSingleBankAccount(BankAccount singleBankAccount) {
-    this->singleBankAccount = singleBankAccount;
+void User::setSingleBankAccount(BankAccount singleBankAccount, int idx) {
+    this->singleBankAccount[idx] = singleBankAccount;
+}
+void User::setBankAccountNum(int bankAccountNum) {
+    this->bankAccountNum = bankAccountNum;
 }
 QString User::getName() {
     return this->name;
@@ -42,6 +45,9 @@ QString User::getUniqueUsername() {
 QString User::getPassword() {
     return this->password;
 }
-BankAccount User::getSingleBankAccount() {
-    return this->singleBankAccount;
+BankAccount User::getSingleBankAccount(int idx) {
+    return this->singleBankAccount[idx];
+}
+int User::getBankAccountNum() {
+    return this->bankAccountNum;
 }

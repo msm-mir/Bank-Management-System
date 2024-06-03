@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     bankaccount.cpp \
+    card.cpp \
     list.cpp \
     loginsignin.cpp \
     main.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 
 HEADERS += \
     bankaccount.h \
+    card.h \
     list.h \
     loginsignin.h \
     user.h

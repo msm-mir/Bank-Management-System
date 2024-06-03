@@ -12,8 +12,8 @@ private:
     int age;
     QString uniqueUsername;
     QString password;
-    BankAccount singleBankAccount;
-
+    BankAccount singleBankAccount[5];
+    int bankAccountNum;
 public:
     User();
     void setName(QString);
@@ -22,14 +22,16 @@ public:
     void setAge(int);
     void setUniqueUsername(QString);
     void setPassword(QString);
-    void setSingleBankAccount(BankAccount);
+    void setSingleBankAccount(BankAccount, int);
+    void setBankAccountNum(int);
     QString getName();
     QString getFamily();
     QString getNationalCode();
     int getAge();
     QString getUniqueUsername();
     QString getPassword();
-    BankAccount getSingleBankAccount();
+    BankAccount getSingleBankAccount(int);
+    int getBankAccountNum();
 };
 
 #endif // USER_H
