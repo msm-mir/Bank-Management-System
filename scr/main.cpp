@@ -4,6 +4,8 @@
 #include "cardinfo.h"
 #include "transfer.h"
 #include "confirmtransfer.h"
+#include "changepassword.h"
+#include "viewbalance.h"
 #include <QApplication>
 #include <windows.h>
 
@@ -22,5 +24,9 @@ int main(int argc, char *argv[])
     e.show();
     ConfirmTransfer f;
     f.show();
+    ChangePassword g;
+    g.show();
+    ViewBalance h;
+    h.show();
     return a.exec();
 }
