@@ -3,6 +3,7 @@
 #include <QString>
 
 User::User() {}
+User::~User() {}
 void User::setName(QString name) {
     this->name = name;
 }

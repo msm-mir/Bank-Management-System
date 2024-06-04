@@ -16,6 +16,7 @@ private:
 
 public:
     BankAccount();
+    ~BankAccount();
     void setBankType(BankType);
     void setAccountNumber(QString);
     void setBalance(long long int);

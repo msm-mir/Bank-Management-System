@@ -98,6 +98,9 @@ font: 10pt &quot;Tw Cen MT&quot;;
      <height>31</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 255, 21);
 background-color: rgb(36, 36, 36);
@@ -386,6 +389,9 @@ color: rgb(0, 0, 0);
      <width>91</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 255, 21);

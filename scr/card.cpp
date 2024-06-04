@@ -1,6 +1,7 @@
 #include "card.h"
 
 Card::Card() {}
+Card::~Card() {}
 void Card::setCardNumber(QString cardNumber) {
     this->cardNumber = cardNumber;
 }

@@ -2,6 +2,8 @@
 #include <QString>
 
 BankAccount::BankAccount() {}
+BankAccount::~BankAccount() {}
+
 void BankAccount::setBankType(BankType bankType) {
     this->bankType = bankType;
 }

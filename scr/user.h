@@ -16,6 +16,7 @@ private:
     int bankAccountNum;
 public:
     User();
+    ~User();
     void setName(QString);
     void setFamily(QString);
     void setNationalCode(QString);

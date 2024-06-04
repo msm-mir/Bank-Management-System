@@ -15,6 +15,7 @@ private:
     QString oneTimePassword;
 public:
     Card();
+    ~Card();
     void setCardNumber(QString);
     void setIbanNumber(QString);
     void setCvv2(QString);
