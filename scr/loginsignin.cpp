@@ -10,15 +10,14 @@ LoginSignin::LoginSignin(QWidget *parent) : QWidget(parent), ui(new Ui::LoginSig
 
     hideError();
 
-    connect(ui->signUpPB, SIGNAL(clicked()), this, SLOT(signUpPBClick()));
+    connect(ui->signUpPB, SIGNAL(clicked()), this, SLOT(checkSignUp()));
 }
+
 LoginSignin::~LoginSignin() {
     delete ui;
 }
 
 void LoginSignin::signUpPBClick() {
-    checkSignUp();
-
     User users;
     users.setName(ui->firstNameLE->text());
     users.setFamily(ui->lastNameLE->text());
@@ -46,68 +45,111 @@ void LoginSignin::hideError() {
     ui->signupUsernameInvalidError->hide();
     ui->signupPasswordInvalidError->hide();
 
+    ui->loginUsernameEmptyError->hide();
+    ui->loginPasswordEmptyError->hide();
+
+    ui->loginUsernameInvalidError->hide();
+    ui->loginPasswordInvalidError->hide();
 }
 
 void LoginSignin::checkSignUp() {
-    bool checkError = true;
+    hideError();
+
+    bool checkError = false;
 
     //check first name field
-    if (ui->firstNameLE == "") {
-        checkError = false;
+    if (ui->firstNameLE->text() == "") {
+        checkError = true;
         ui->firstNameEmptyError->show();
     }
-    if (checkString(ui->firstNameLE->text())) {
-        checkError = false;
+    else if (checkString(ui->firstNameLE->text())) {
+        checkError = true;
         ui->firstNameInvalidError->show();
     }
 
     //check last name field
-    if (ui->lastNameLE == "") {
-        checkError = false;
-        ui->firstNameEmptyError->show();
+    if (ui->lastNameLE->text() == "") {
+        checkError = true;
+        ui->lastNameEmptyError->show();
     }
-    if (checkString(ui->lastNameLE->text())) {
-        checkError = false;
-        ui->firstNameInvalidError->show();
+    else if (checkString(ui->lastNameLE->text())) {
+        checkError = true;
+        ui->lastNameInvalidError->show();
     }
 
     //check national code field
-    if (ui->nationalCodeLE == "") {
-        checkError = false;
-        ui->firstNameEmptyError->show();
+    if (ui->nationalCodeLE->text() == "") {
+        checkError = true;
+        ui->nationalCodeEmptyError->show();
     }
-    if (checkString(ui->nationalCodeLE->text())) {
-        checkError = false;
-        ui->firstNameInvalidError->show();
+    else if (checkInt(ui->nationalCodeLE->text()) || checkNationalCode(ui->nationalCodeLE->text())) {
+        checkError = true;
+        ui->nationalCodeInvalidError->show();
     }
 
     //check age field
-    if (ui->ageLE == "") {
-        checkError = false;
-        ui->firstNameEmptyError->show();
+    if (ui->ageLE->text() == "") {
+        checkError = true;
+        ui->ageEmptyError->show();
     }
-    if (checkString(ui->ageLE->text().toStdString())) {
-        checkError = false;
-        ui->firstNameInvalidError->show();
+    else if (checkInt(ui->ageLE->text()) || checkAge(ui->ageLE->text())) {
+        checkError = true;
+        ui->ageInvalidError->show();
     }
 
     //check username field
-    if (ui->signUpUsernameLE == "") {
-        checkError = false;
-        ui->firstNameEmptyError->show();
+    if (ui->signUpUsernameLE->text() == "") {
+        checkError = true;
+        ui->signupUsernameEmptyError->show();
     }
-    if (checkString(ui->signUpUsernameLE->text())) {
-        checkError = false;
-        ui->firstNameInvalidError->show();
+    else if (checkString(ui->signUpUsernameLE->text())) {
+        checkError = true;
+        ui->signupUsernameInvalidError->show();
     }
 
     //check password field
-    if (ui->signUpPasswordLE == "") {
-        checkError = false;
-        ui->firstNameEmptyError->show();
+    if (ui->signUpPasswordLE->text() == "") {
+        checkError = true;
+        ui->signupPasswordEmptyError->show();
     }
-    if (checkString(ui->signUpPasswordLE->text())) {
-        checkError = false;
-        ui->firstNameInvalidError->show();
+    else if (checkString(ui->signUpPasswordLE->text())) {
+        checkError = true;
+        ui->signupPasswordInvalidError->show();
     }
+
+    if (!checkError) {
+        signUpPBClick();
+    }
+}
+
+bool LoginSignin::checkString(QString text) {
+    for (int i = 0; i < text.length(); i++) {
+        if ((text[i] < 'A') || (text[i] > 'z') || ((text[i] < 'a') && (text[i] > 'Z'))) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool LoginSignin::checkInt(QString text) {
+    for (int i = 0; i < text.length(); i++) {
+        if ((text[i] < '0') || (text[i] > '9')) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool LoginSignin::checkAge(QString text) {
+    if (text.size() == 1 || text.size() == 2) {
+        return false;
+    }
+    return true;
+}
+
+bool LoginSignin::checkNationalCode(QString text) {
+    if (text.size() == 10) {
+        return false;
+    }
+    return true;
 }

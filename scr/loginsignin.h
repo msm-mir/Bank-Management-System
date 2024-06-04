@@ -2,6 +2,7 @@
 #define LOGINSIGNIN_H
 
 #include <QWidget>
+#include <QString>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -12,15 +13,19 @@ QT_END_NAMESPACE
 class LoginSignin : public QWidget { Q_OBJECT
 
 private slots:
-    void signUpPBClick();
+    void checkSignUp();
 private:
     Ui::LoginSignin *ui;
 public:
     explicit LoginSignin(QWidget *parent = nullptr);
     ~LoginSignin();
 
+    void signUpPBClick();
     void hideError();
-    void checkSignUp();
+    bool checkString(QString);
+    bool checkInt(QString);
+    bool checkAge(QString);
+    bool checkNationalCode(QString);
 };
 
 #endif // LOGINSIGNIN_H
