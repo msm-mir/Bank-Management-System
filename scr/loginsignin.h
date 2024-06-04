@@ -19,6 +19,8 @@ public:
     explicit LoginSignin(QWidget *parent = nullptr);
     ~LoginSignin();
 
+    void hideError();
+    void checkSignUp();
 };
 
 #endif // LOGINSIGNIN_H
