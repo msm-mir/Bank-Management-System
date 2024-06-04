@@ -26,6 +26,7 @@ public:
     bool checkInt(QString);
     bool checkAge(QString);
     bool checkNationalCode(QString);
+    bool checkUsernameAndPassword(QString);
 };
 
 #endif // LOGINSIGNIN_H

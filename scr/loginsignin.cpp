@@ -55,69 +55,69 @@ void LoginSignin::hideError() {
 void LoginSignin::checkSignUp() {
     hideError();
 
-    bool checkError = false;
+    bool checkError = true;
 
     //check first name field
     if (ui->firstNameLE->text() == "") {
-        checkError = true;
+        checkError = false;
         ui->firstNameEmptyError->show();
     }
     else if (checkString(ui->firstNameLE->text())) {
-        checkError = true;
+        checkError = false;
         ui->firstNameInvalidError->show();
     }
 
     //check last name field
     if (ui->lastNameLE->text() == "") {
-        checkError = true;
+        checkError = false;
         ui->lastNameEmptyError->show();
     }
     else if (checkString(ui->lastNameLE->text())) {
-        checkError = true;
+        checkError = false;
         ui->lastNameInvalidError->show();
     }
 
     //check national code field
     if (ui->nationalCodeLE->text() == "") {
-        checkError = true;
+        checkError = false;
         ui->nationalCodeEmptyError->show();
     }
     else if (checkInt(ui->nationalCodeLE->text()) || checkNationalCode(ui->nationalCodeLE->text())) {
-        checkError = true;
+        checkError = false;
         ui->nationalCodeInvalidError->show();
     }
 
     //check age field
     if (ui->ageLE->text() == "") {
-        checkError = true;
+        checkError = false;
         ui->ageEmptyError->show();
     }
     else if (checkInt(ui->ageLE->text()) || checkAge(ui->ageLE->text())) {
-        checkError = true;
+        checkError = false;
         ui->ageInvalidError->show();
     }
 
     //check username field
     if (ui->signUpUsernameLE->text() == "") {
-        checkError = true;
+        checkError = false;
         ui->signupUsernameEmptyError->show();
     }
     else if (checkString(ui->signUpUsernameLE->text())) {
-        checkError = true;
+        checkError = false;
         ui->signupUsernameInvalidError->show();
     }
 
     //check password field
     if (ui->signUpPasswordLE->text() == "") {
-        checkError = true;
+        checkError = false;
         ui->signupPasswordEmptyError->show();
     }
     else if (checkString(ui->signUpPasswordLE->text())) {
-        checkError = true;
+        checkError = false;
         ui->signupPasswordInvalidError->show();
     }
 
-    if (!checkError) {
+    if (checkError) {
         signUpPBClick();
     }
 }
@@ -150,6 +150,15 @@ bool LoginSignin::checkAge(QString text) {
 bool LoginSignin::checkNationalCode(QString text) {
     if (text.size() == 10) {
         return false;
+    }
+    return true;
+}
+
+bool LoginSignin::checkUsernameAndPassword(QString text) {
+    for (int i = 0; i < text.length(); i++) {
+        if ((text[i] != '.') || (text[i] != '_')) {
+            return false;
+        }
     }
     return true;
 }
