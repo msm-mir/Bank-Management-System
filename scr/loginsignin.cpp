@@ -8,6 +8,8 @@ using namespace std;
 LoginSignin::LoginSignin(QWidget *parent) : QWidget(parent), ui(new Ui::LoginSignin) {
     ui->setupUi(this);
 
+    hideError();
+
     connect(ui->signUpPB, SIGNAL(clicked()), this, SLOT(signUpPBClick()));
 }
 LoginSignin::~LoginSignin() {
@@ -25,4 +27,13 @@ void LoginSignin::signUpPBClick() {
 
     List<User> listUsers;
     listUsers.pushBack(users);
+}
+
+void LoginSignin::hideError() {
+    ui->firstNameEmptyError->hide();
+    ui->lastNameEmptyError->hide();
+    ui->nationalCodeEmptyError->hide();
+    ui->ageEmptyError->hide();
+    ui->signupUsernameEmptyError->hide();
+    ui->signupPasswordEmptyError->hide();
 }

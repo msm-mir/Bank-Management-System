@@ -18,6 +18,7 @@ private:
 public:
     explicit LoginSignin(QWidget *parent = nullptr);
     ~LoginSignin();
+
 };
 
 #endif // LOGINSIGNIN_H
