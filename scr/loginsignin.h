@@ -11,6 +11,8 @@ QT_END_NAMESPACE
 
 class LoginSignin : public QWidget { Q_OBJECT
 
+private slots:
+    void signUpPBClick();
 private:
     Ui::LoginSignin *ui;
 public:
