@@ -16,14 +16,16 @@ private:
 public:
     Card();
     ~Card();
+
     void setCardNumber(QString);
     void setIbanNumber(QString);
     void setCvv2(QString);
     void setExpirationDate(QString);
     void setFourDigitPassword(QString);
     void setFixedPassword(QString);
-    void setOneTimePassword(QString);
     void setHaveFixedPassword(bool);
+    void setOneTimePassword(QString);
+
     QString getCardNumber();
     QString getIbanNumber();
     QString getCvv2();

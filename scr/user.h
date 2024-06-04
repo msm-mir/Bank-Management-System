@@ -3,6 +3,7 @@
 
 #include <QString>
 #include "bankaccount.h"
+#include "list.h"
 
 class User {
 private:
@@ -15,8 +16,11 @@ private:
     BankAccount singleBankAccount[5];
     int bankAccountNum;
 public:
+    List<User> listUsers;
+
     User();
     ~User();
+
     void setName(QString);
     void setFamily(QString);
     void setNationalCode(QString);
@@ -25,6 +29,7 @@ public:
     void setPassword(QString);
     void setSingleBankAccount(BankAccount, int);
     void setBankAccountNum(int);
+
     QString getName();
     QString getFamily();
     QString getNationalCode();
@@ -33,6 +38,9 @@ public:
     QString getPassword();
     BankAccount getSingleBankAccount(int);
     int getBankAccountNum();
+
+    void addUser();
+    bool find(QString, QString);
 };
 
 #endif // USER_H

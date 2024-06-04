@@ -28,7 +28,6 @@ public:
     Node<T>* getHeadNode();
     Node<T>* getTailNode();
     void pushBack(T data);
-    bool popBack();
     int getSize();
     ~List();
 };

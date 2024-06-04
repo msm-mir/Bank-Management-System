@@ -17,10 +17,12 @@ private:
 public:
     BankAccount();
     ~BankAccount();
+
     void setBankType(BankType);
     void setAccountNumber(QString);
     void setBalance(long long int);
     void setBankCard(Card);
+
     BankType getBankType();
     QString getAccountNumber();
     long long int getBalance();

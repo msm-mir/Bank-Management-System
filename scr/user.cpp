@@ -1,4 +1,5 @@
 #include "user.h"
+#include "list.h"
 #include "bankaccount.h"
 #include <QString>
 
@@ -51,4 +52,17 @@ BankAccount User::getSingleBankAccount(int idx) {
 }
 int User::getBankAccountNum() {
     return this->bankAccountNum;
+}
+void User::addUser() {
+    listUsers.pushBack(*this);
+}
+bool User::find(QString username, QString password) {
+    Node<User> *tmp = listUsers.getHeadNode();
+        while (tmp) {
+        if (tmp->getData().getUniqueUsername() == username)
+            if (tmp->getData().getPassword() == password)
+                return true;
+        tmp = tmp->getNextNode();
+    }
+    return false;
 }

@@ -2,6 +2,7 @@
 #include "ui_loginsignin.h"
 #include "list.h"
 #include "user.h"
+#include "mainpanel.h"
 
 using namespace std;
 
@@ -11,6 +12,7 @@ LoginSignin::LoginSignin(QWidget *parent) : QWidget(parent), ui(new Ui::LoginSig
     hideError();
 
     connect(ui->signUpPB, SIGNAL(clicked()), this, SLOT(checkSignUp()));
+    connect(ui->loginPB, SIGNAL(clicked()), this, SLOT(checkLogIn()));
 }
 
 LoginSignin::~LoginSignin() {
@@ -18,7 +20,6 @@ LoginSignin::~LoginSignin() {
 }
 
 void LoginSignin::signUpPBClick() {
-    User users;
     users.setName(ui->firstNameLE->text());
     users.setFamily(ui->lastNameLE->text());
     users.setNationalCode(ui->nationalCodeLE->text());
@@ -26,8 +27,12 @@ void LoginSignin::signUpPBClick() {
     users.setUniqueUsername(ui->signUpUsernameLE->text());
     users.setPassword(ui->signUpPasswordLE->text());
 
-    List<User> listUsers;
-    listUsers.pushBack(users);
+    users.addUser();
+}
+
+void LoginSignin::logInPBClick() {
+    MainPanel(users).show();
+    this->close();
 }
 
 void LoginSignin::hideError() {
@@ -50,6 +55,16 @@ void LoginSignin::hideError() {
 
     ui->loginUsernameInvalidError->hide();
     ui->loginPasswordInvalidError->hide();
+
+    ui->loginUsernameIncorrectError->hide();
+    ui->loginPasswordIncorrectError->hide();
+
+    ui->firstNameIncorrectError->hide();
+    ui->lastNameIncorrectError->hide();
+    ui->nationalCodeIncorrectError->hide();
+    ui->ageIncorrectError->hide();
+    ui->signupUsernameIncorrectError->hide();
+    ui->signupPasswordIncorrectError->hide();
 }
 
 void LoginSignin::checkSignUp() {
@@ -119,6 +134,46 @@ void LoginSignin::checkSignUp() {
 
     if (checkError) {
         signUpPBClick();
+    }
+}
+
+void LoginSignin::checkLogIn() {
+    hideError();
+
+    bool checkError = true;
+
+    //check username field
+    if (ui->loginUsernameLE->text() == "") {
+        checkError = false;
+        ui->loginUsernameEmptyError->show();
+    }
+    else if (checkString(ui->loginUsernameLE->text())) {
+        checkError = false;
+        ui->loginUsernameInvalidError->show();
+    }
+
+    //check password field
+    if (ui->loginPasswordLE->text() == "") {
+        checkError = false;
+        ui->loginPasswordEmptyError->show();
+    }
+    else if (checkString(ui->loginPasswordLE->text())) {
+        checkError = false;
+        ui->loginPasswordInvalidError->show();
+    }
+
+    //check username password
+    if (users.find(ui->loginUsernameLE->text(), ui->loginPasswordLE->text())) {
+        checkError = false;
+        ui->loginUsernameIncorrectError->show();
+        ui->loginPasswordIncorrectError->show();
+    }
+
+    users.setUniqueUsername(ui->loginUsernameLE->text());
+    users.setPassword(ui->loginPasswordLE->text());
+
+    if (checkError) {
+        logInPBClick();
     }
 }
 
