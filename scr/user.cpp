@@ -18,7 +18,7 @@ void User::setAge(int age) {
     this->age = age;
 }
 void User::setUniqueUsername(QString uniqueUsername) {
-    this->uniqueUsername = uniqueUsername;
+    this->username = uniqueUsername;
 }
 void User::setPassword(QString password) {
     this->password = password;
@@ -42,7 +42,7 @@ int User::getAge() {
     return this->age;
 }
 QString User::getUniqueUsername() {
-    return this->uniqueUsername;
+    return this->username;
 }
 QString User::getPassword() {
     return this->password;
@@ -56,12 +56,63 @@ int User::getBankAccountNum() {
 void User::addUser() {
     listUsers.pushBack(*this);
 }
+
 bool User::find(QString username, QString password) {
     Node<User> *tmp = listUsers.getHeadNode();
-        while (tmp) {
+    while (tmp) {
         if (tmp->getData().getUniqueUsername() == username)
             if (tmp->getData().getPassword() == password)
-                return true;
+                return false;
+        tmp = tmp->getNextNode();
+    }
+    return true;
+}
+
+bool User::uniqueName(QString name) {
+    Node<User> *tmp = listUsers.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getName() == name)
+            return true;
+        tmp = tmp->getNextNode();
+    }
+    return false;
+}
+
+bool User::uniqueFamily(QString family) {
+    Node<User> *tmp = listUsers.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getFamily() == family)
+            return true;
+        tmp = tmp->getNextNode();
+    }
+    return false;
+}
+
+bool User::uniqueNationalCode(QString nationalCode) {
+    Node<User> *tmp = listUsers.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getNationalCode() == nationalCode)
+            return true;
+        tmp = tmp->getNextNode();
+    }
+    return false;
+}
+
+bool User::uniqueAge(int age) {
+    Node<User> *tmp = listUsers.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getAge() == age)
+            return true;
+        tmp = tmp->getNextNode();
+    }
+    return false;
+}
+
+bool User::uniqueUsername(QString username) {
+    Node<User> *tmp = listUsers.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getUniqueUsername() == username)
+            return true;
         tmp = tmp->getNextNode();
     }
     return false;

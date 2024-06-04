@@ -10,8 +10,9 @@ LoginSignin::LoginSignin(QWidget *parent) : QWidget(parent), ui(new Ui::LoginSig
     ui->setupUi(this);
 
     hideError();
-
     connect(ui->signUpPB, SIGNAL(clicked()), this, SLOT(checkSignUp()));
+
+    hideError();
     connect(ui->loginPB, SIGNAL(clicked()), this, SLOT(checkLogIn()));
 }
 
@@ -28,6 +29,13 @@ void LoginSignin::signUpPBClick() {
     users.setPassword(ui->signUpPasswordLE->text());
 
     users.addUser();
+
+    ui->firstNameLE->clear();
+    ui->lastNameLE->clear();
+    ui->nationalCodeLE->clear();
+    ui->ageLE->clear();
+    ui->signUpUsernameLE->clear();
+    ui->signUpPasswordLE->clear();
 }
 
 void LoginSignin::logInPBClick() {
@@ -50,6 +58,13 @@ void LoginSignin::hideError() {
     ui->signupUsernameInvalidError->hide();
     ui->signupPasswordInvalidError->hide();
 
+    ui->firstNameIncorrectError->hide();
+    ui->lastNameIncorrectError->hide();
+    ui->nationalCodeIncorrectError->hide();
+    ui->ageIncorrectError->hide();
+    ui->signupUsernameIncorrectError->hide();
+    ui->signupPasswordIncorrectError->hide();
+
     ui->loginUsernameEmptyError->hide();
     ui->loginPasswordEmptyError->hide();
 
@@ -58,13 +73,6 @@ void LoginSignin::hideError() {
 
     ui->loginUsernameIncorrectError->hide();
     ui->loginPasswordIncorrectError->hide();
-
-    ui->firstNameIncorrectError->hide();
-    ui->lastNameIncorrectError->hide();
-    ui->nationalCodeIncorrectError->hide();
-    ui->ageIncorrectError->hide();
-    ui->signupUsernameIncorrectError->hide();
-    ui->signupPasswordIncorrectError->hide();
 }
 
 void LoginSignin::checkSignUp() {
@@ -101,6 +109,19 @@ void LoginSignin::checkSignUp() {
         checkError = false;
         ui->nationalCodeInvalidError->show();
     }
+    else if (users.uniqueNationalCode(ui->nationalCodeLE->text())) {
+        checkError = false;
+        ui->nationalCodeIncorrectError->show();
+        if (users.uniqueName(ui->firstNameLE->text())) {
+            if (users.uniqueFamily(ui->lastNameLE->text())) {
+                if (users.uniqueAge(ui->ageLE->text().toInt())) {
+                    ui->firstNameIncorrectError->show();
+                    ui->lastNameIncorrectError->show();
+                    ui->ageIncorrectError->show();
+                }
+            }
+        }
+    }
 
     //check age field
     if (ui->ageLE->text() == "") {
@@ -120,6 +141,10 @@ void LoginSignin::checkSignUp() {
     else if (checkString(ui->signUpUsernameLE->text())) {
         checkError = false;
         ui->signupUsernameInvalidError->show();
+    }
+    else if (users.uniqueUsername(ui->signUpUsernameLE->text())) {
+        checkError = false;
+        ui->signupUsernameIncorrectError->show();
     }
 
     //check password field
@@ -163,7 +188,7 @@ void LoginSignin::checkLogIn() {
     }
 
     //check username password
-    if (users.find(ui->loginUsernameLE->text(), ui->loginPasswordLE->text())) {
+    else if (users.find(ui->loginUsernameLE->text(), ui->loginPasswordLE->text())) {
         checkError = false;
         ui->loginUsernameIncorrectError->show();
         ui->loginPasswordIncorrectError->show();
@@ -196,7 +221,7 @@ bool LoginSignin::checkInt(QString text) {
 }
 
 bool LoginSignin::checkAge(QString text) {
-    if (text.size() == 1 || text.size() == 2) {
+    if ((text.size() == 1 || text.size() == 2) && (text.toInt() != 0)) {
         return false;
     }
     return true;
@@ -217,3 +242,4 @@ bool LoginSignin::checkUsernameAndPassword(QString text) {
     }
     return true;
 }
+

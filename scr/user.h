@@ -11,7 +11,7 @@ private:
     QString family;
     QString nationalCode;
     int age;
-    QString uniqueUsername;
+    QString username;
     QString password;
     BankAccount singleBankAccount[5];
     int bankAccountNum;
@@ -41,6 +41,11 @@ public:
 
     void addUser();
     bool find(QString, QString);
+    bool uniqueName(QString);
+    bool uniqueFamily(QString);
+    bool uniqueNationalCode(QString);
+    bool uniqueAge(int);
+    bool uniqueUsername(QString);
 };
 
 #endif // USER_H
