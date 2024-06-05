@@ -22,6 +22,11 @@ public:
     ~MainPanel();
 
     void addInfo();
+    void openCreateBankAccountPage();
+    void openChangePasswordPage();
+    void openViewBalancePage();
+    void openTransferPage();
+    void logoutPBClick();
 };
 
 #endif // MAINPANEL_H
