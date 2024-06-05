@@ -28,11 +28,18 @@ public:
     void logInPBClick();
     void hideError();
     bool checkString(QString);
-    bool checkInt(QString);
+    bool checkName(QString);
     bool checkAge(QString);
     bool checkNationalCode(QString);
-    bool checkUsernameAndPassword(QString);
     void clearLineEdits();
+    bool checkFirstNameField();
+    bool checkLastNameField();
+    bool checkNationalCodeField();
+    bool checkAgeField();
+    bool checkSignupUsernameField();
+    bool checkSignupPasswordField();
+    bool checkLoginUsernameField();
+    bool checkLoginPasswordField();
 };
 
 #endif // LOGINSIGNIN_H

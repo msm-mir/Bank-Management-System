@@ -414,296 +414,7 @@ color: rgb(0, 0, 0);
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="firstNameEmptyError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>86</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The first name field is empty</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lastNameEmptyError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>132</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The last name field is empty</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="nationalCodeEmptyError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>178</y>
-     <width>181</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The national code field is empty</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="ageEmptyError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>224</y>
-     <width>121</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The age field is empty</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="signupUsernameEmptyError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>272</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The username field is empty</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="signupPasswordEmptyError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>320</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The password field is empty</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="loginUsernameEmptyError">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>128</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The username field is empty</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="loginPasswordEmptyError">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>226</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The password field is empty</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="signupUsernameInvalidError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>272</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The username field is invalid</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="nationalCodeInvalidError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>178</y>
-     <width>181</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The national code field is invalid</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="loginPasswordInvalidError">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>226</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The password field is invalid</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="loginUsernameInvalidError">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>128</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The username field is invalid</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="signupPasswordInvalidError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>320</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The password field is invalid</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="ageInvalidError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>224</y>
-     <width>121</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The age field is invalid</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lastNameInvalidError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>132</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The last name field is invalid</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="firstNameInvalidError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>86</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The first name field is invalid</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="nationalCodeIncorrectError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>178</y>
-     <width>181</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The national code field is incorrect</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="firstNameIncorrectError">
+  <widget class="QLabel" name="firstNameError">
    <property name="geometry">
     <rect>
      <x>480</x>
@@ -717,44 +428,10 @@ font: 7pt &quot;Segoe UI&quot;;</string>
 font: 7pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
-    <string>The first name field is incorrect</string>
+    <string>first name error</string>
    </property>
   </widget>
-  <widget class="QLabel" name="ageIncorrectError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>224</y>
-     <width>141</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The age field is incorrect</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="signupUsernameIncorrectError">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>272</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The username field is incorrect</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lastNameIncorrectError">
+  <widget class="QLabel" name="lastNameError">
    <property name="geometry">
     <rect>
      <x>480</x>
@@ -768,10 +445,61 @@ font: 7pt &quot;Segoe UI&quot;;</string>
 font: 7pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
-    <string>The last name field is incorrect</string>
+    <string>last name error</string>
    </property>
   </widget>
-  <widget class="QLabel" name="signupPasswordIncorrectError">
+  <widget class="QLabel" name="nationalCodeError">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>178</y>
+     <width>181</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 7pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>national code error</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ageError">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>224</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 7pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>age error</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="signupUsernameError">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>272</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 7pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>username error</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="signupPasswordError">
    <property name="geometry">
     <rect>
      <x>480</x>
@@ -785,32 +513,15 @@ font: 7pt &quot;Segoe UI&quot;;</string>
 font: 7pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
-    <string>The password field is incorrect</string>
+    <string>password error</string>
    </property>
   </widget>
-  <widget class="QLabel" name="loginPasswordIncorrectError">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>226</y>
-     <width>171</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);
-font: 7pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>The password field is incorrect</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="loginUsernameIncorrectError">
+  <widget class="QLabel" name="loginUsernameError">
    <property name="geometry">
     <rect>
      <x>60</x>
      <y>128</y>
-     <width>171</width>
+     <width>161</width>
      <height>20</height>
     </rect>
    </property>
@@ -819,7 +530,24 @@ font: 7pt &quot;Segoe UI&quot;;</string>
 font: 7pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
-    <string>The username field is incorrect</string>
+    <string>username error</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="loginPasswordError">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>226</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 7pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>password error</string>
    </property>
   </widget>
   <zorder>background</zorder>
@@ -843,30 +571,14 @@ font: 7pt &quot;Segoe UI&quot;;</string>
   <zorder>loginPB</zorder>
   <zorder>signUpPB</zorder>
   <zorder>firstNameLE</zorder>
-  <zorder>firstNameEmptyError</zorder>
-  <zorder>lastNameEmptyError</zorder>
-  <zorder>nationalCodeEmptyError</zorder>
-  <zorder>ageEmptyError</zorder>
-  <zorder>signupUsernameEmptyError</zorder>
-  <zorder>signupPasswordEmptyError</zorder>
-  <zorder>loginUsernameEmptyError</zorder>
-  <zorder>loginPasswordEmptyError</zorder>
-  <zorder>signupUsernameInvalidError</zorder>
-  <zorder>nationalCodeInvalidError</zorder>
-  <zorder>loginPasswordInvalidError</zorder>
-  <zorder>loginUsernameInvalidError</zorder>
-  <zorder>signupPasswordInvalidError</zorder>
-  <zorder>ageInvalidError</zorder>
-  <zorder>lastNameInvalidError</zorder>
-  <zorder>firstNameInvalidError</zorder>
-  <zorder>nationalCodeIncorrectError</zorder>
-  <zorder>firstNameIncorrectError</zorder>
-  <zorder>ageIncorrectError</zorder>
-  <zorder>signupUsernameIncorrectError</zorder>
-  <zorder>lastNameIncorrectError</zorder>
-  <zorder>signupPasswordIncorrectError</zorder>
-  <zorder>loginPasswordIncorrectError</zorder>
-  <zorder>loginUsernameIncorrectError</zorder>
+  <zorder>firstNameError</zorder>
+  <zorder>lastNameError</zorder>
+  <zorder>nationalCodeError</zorder>
+  <zorder>ageError</zorder>
+  <zorder>signupUsernameError</zorder>
+  <zorder>signupPasswordError</zorder>
+  <zorder>loginUsernameError</zorder>
+  <zorder>loginPasswordError</zorder>
  </widget>
  <resources>
   <include location="loginsignup.qrc"/>

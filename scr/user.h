@@ -40,11 +40,10 @@ public:
     int getBankAccountNum();
 
     void addUser();
-    bool find(QString, QString);
+    QString find(QString, QString);
     bool uniqueName(QString);
     bool uniqueFamily(QString);
     bool uniqueNationalCode(QString);
-    bool uniqueAge(int);
     bool uniqueUsername(QString);
     void setUserInfo(QString, QString);
 };

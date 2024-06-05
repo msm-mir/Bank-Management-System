@@ -57,15 +57,17 @@ void User::addUser() {
     listUsers.pushBack(*this);
 }
 
-bool User::find(QString username, QString password) {
+QString User::find(QString username, QString password) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
-        if (tmp->getData().getUniqueUsername() == username)
+        if (tmp->getData().getUniqueUsername() == username) {
             if (tmp->getData().getPassword() == password)
-                return false;
+                return "true";
+            return "incorrect password";
+        }
         tmp = tmp->getNextNode();
     }
-    return true;
+    return "non-existence of username";
 }
 
 bool User::uniqueName(QString name) {
@@ -92,16 +94,6 @@ bool User::uniqueNationalCode(QString nationalCode) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
         if (tmp->getData().getNationalCode() == nationalCode)
-            return true;
-        tmp = tmp->getNextNode();
-    }
-    return false;
-}
-
-bool User::uniqueAge(int age) {
-    Node<User> *tmp = listUsers.getHeadNode();
-    while (tmp) {
-        if (tmp->getData().getAge() == age)
             return true;
         tmp = tmp->getNextNode();
     }
