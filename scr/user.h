@@ -46,6 +46,7 @@ public:
     bool uniqueNationalCode(QString);
     bool uniqueAge(int);
     bool uniqueUsername(QString);
+    void setUserInfo(QString, QString);
 };
 
 #endif // USER_H

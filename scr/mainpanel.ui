@@ -118,142 +118,6 @@ font: 10pt &quot;MRT_Sozar&quot;;
     <string>Transfer</string>
    </property>
   </widget>
-  <widget class="QLabel" name="ageL">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>114</y>
-     <width>41</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: black;
-font: 10pt &quot;Tw Cen MT&quot;;
-</string>
-   </property>
-   <property name="text">
-    <string>Age :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="firstNameL">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>80</y>
-     <width>101</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: black;
-font: 12pt &quot;Tw Cen MT&quot;;
-</string>
-   </property>
-   <property name="text">
-    <string>First Name :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lastNameL">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>80</y>
-     <width>101</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: black;
-font: 12pt &quot;Tw Cen MT&quot;;
-</string>
-   </property>
-   <property name="text">
-    <string>Last Name :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="nationalCodeL">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>114</y>
-     <width>111</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: black;
-font: 10pt &quot;Tw Cen MT&quot;;
-</string>
-   </property>
-   <property name="text">
-    <string>National Code :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="firstNameST">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>90</y>
-     <width>91</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(67, 67, 67);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lastNameST">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>90</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(67, 67, 67);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="ageST">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>120</y>
-     <width>51</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(67, 67, 67);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="nationalCodeST">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>120</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(67, 67, 67);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QPushButton" name="logoutPB">
    <property name="geometry">
     <rect>
@@ -302,6 +166,142 @@ font: 800 17pt &quot;Rockwell Extra Bold&quot;;
    </property>
    <property name="text">
     <string>Main Panel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ageL">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>114</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 10pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Age :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="firstNameL">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>80</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 12pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>First Name :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lastNameL">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>79</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 12pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Last Name :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ageST">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>120</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nationalCodeL">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>114</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 10pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>National Code :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="firstNameST">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>95</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lastNameST">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>95</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nationalCodeST">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>120</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

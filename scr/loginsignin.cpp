@@ -39,8 +39,10 @@ void LoginSignin::signUpPBClick() {
 }
 
 void LoginSignin::logInPBClick() {
-    MainPanel(users).show();
+    MainPanel *np = new MainPanel(users);
+    np->show();
     this->close();
+
 }
 
 void LoginSignin::hideError() {
@@ -194,8 +196,7 @@ void LoginSignin::checkLogIn() {
         ui->loginPasswordIncorrectError->show();
     }
 
-    users.setUniqueUsername(ui->loginUsernameLE->text());
-    users.setPassword(ui->loginPasswordLE->text());
+    users.setUserInfo(ui->loginUsernameLE->text(), ui->loginPasswordLE->text());
 
     if (checkError) {
         logInPBClick();
@@ -242,4 +243,3 @@ bool LoginSignin::checkUsernameAndPassword(QString text) {
     }
     return true;
 }
-

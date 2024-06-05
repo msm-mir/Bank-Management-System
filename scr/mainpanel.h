@@ -16,9 +16,12 @@ private:
     Ui::MainPanel *ui;
 private slots:
 public:
+    User user;
+
     explicit MainPanel(User, QWidget *parent = nullptr);
     ~MainPanel();
 
+    void addInfo();
 };
 
 #endif // MAINPANEL_H

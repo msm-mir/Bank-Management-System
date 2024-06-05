@@ -117,3 +117,21 @@ bool User::uniqueUsername(QString username) {
     }
     return false;
 }
+
+void User::setUserInfo(QString username, QString password) {
+    this->setUniqueUsername(username);
+    this->setPassword(password);
+
+    Node<User> *tmp = listUsers.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getUniqueUsername() == username)
+            if (tmp->getData().getPassword() == password) {
+                this->setName(tmp->getData().getName());
+                this->setFamily(tmp->getData().getFamily());
+                this->setNationalCode(tmp->getData().getNationalCode());
+                this->setAge(tmp->getData().getAge());
+                return;
+            }
+        tmp = tmp->getNextNode();
+    }
+}
