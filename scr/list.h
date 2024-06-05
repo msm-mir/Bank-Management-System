@@ -29,7 +29,6 @@ public:
     Node<T>* getTailNode();
     void pushBack(T data);
     int getSize();
-    ~List();
 };
 
 template<typename T>
@@ -97,20 +96,6 @@ void List<T>::pushBack(T data) {
 template<typename T>
 int List<T>::getSize() {
     return size;
-}
-template<typename T>
-List<T>::~List() {
-    Node<T> *tmp = this->headNode;
-
-    while (tmp != nullptr) {
-        Node<T> *tp = tmp;
-        tmp = tmp->getNextNode();
-        delete tp;
-    }
-
-    this->size = 0;
-    this->headNode = nullptr;
-    this->tailNode = nullptr;
 }
 
 

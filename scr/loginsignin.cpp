@@ -56,12 +56,19 @@ void LoginSignin::checkSignUp() {
 
     bool checkError = true;
 
-    checkError = checkFirstNameField();
-    checkError = checkLastNameField();
-    checkError = checkNationalCodeField();
-    checkError = checkAgeField();
-    checkError = checkSignupUsernameField();
-    checkError = checkSignupPasswordField();
+    //for not changing checkError from false to true
+    if (checkFirstNameField() == false)
+        checkError = false;
+    if (checkLastNameField() == false)
+        checkError = false;
+    if (checkNationalCodeField() == false)
+        checkError = false;
+    if (checkAgeField() == false)
+        checkError = false;
+    if (checkSignupUsernameField() == false)
+        checkError = false;
+    if (checkSignupPasswordField() == false)
+        checkError = false;
 
     if (checkError) {
         signUpPBClick();
@@ -73,8 +80,11 @@ void LoginSignin::checkLogIn() {
 
     bool checkError = true;
 
-    checkError = checkLoginUsernameField();
-    checkError = checkLoginPasswordField();
+    //for not changing checkError from false to true
+    if (checkLoginUsernameField() == false)
+        checkError = false;
+    if (checkLoginPasswordField() == false)
+        checkError = false;
 
     users.setUserInfo(ui->loginUsernameLE->text(), ui->loginPasswordLE->text());
 
