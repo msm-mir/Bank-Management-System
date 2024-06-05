@@ -2,21 +2,32 @@
 #define VIEWBALANCE_H
 
 #include <QWidget>
+#include "user.h"
 
+QT_BEGIN_NAMESPACE
 namespace Ui {
 class ViewBalance;
 }
+QT_END_NAMESPACE
 
 class ViewBalance : public QWidget
 {
     Q_OBJECT
 
-public:
-    explicit ViewBalance(QWidget *parent = nullptr);
-    ~ViewBalance();
-
 private:
     Ui::ViewBalance *ui;
+private slots:
+    void addInfo();
+    void openCreateBankAccountPage();
+    void openChangePasswordPage();
+    void openTransferPage();
+    void openLogoutPage();
+public:
+    User users;
+
+    explicit ViewBalance(User, QWidget *parent = nullptr);
+    ~ViewBalance();
+
 };
 
 #endif // VIEWBALANCE_H

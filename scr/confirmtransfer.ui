@@ -62,6 +62,9 @@ font: 12pt &quot;Tw Cen MT&quot;;
      <height>29</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">text-decoration: underline;
 font: 10pt &quot;MRT_Sozar&quot;;
@@ -190,6 +193,9 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
      <height>29</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">text-decoration: underline;
 color: rgb(0, 0, 0);
@@ -242,6 +248,9 @@ font: 12pt &quot;Tw Cen MT&quot;;
      <width>131</width>
      <height>29</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">text-decoration: underline;
@@ -345,6 +354,9 @@ font: 10pt &quot;Tw Cen MT&quot;;
      <width>71</width>
      <height>29</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">text-decoration: underline;

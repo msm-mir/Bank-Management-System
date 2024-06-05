@@ -47,6 +47,9 @@
      <height>29</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">gridline-color: rgb(0, 0, 0);
 text-decoration: underline;
@@ -66,6 +69,9 @@ font: 10pt &quot;MRT_Sozar&quot;;
      <width>131</width>
      <height>29</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">gridline-color: rgb(0, 0, 0);
@@ -87,6 +93,9 @@ font: 10pt &quot;MRT_Sozar&quot;;
      <height>29</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">gridline-color: rgb(0, 0, 0);
 text-decoration: underline;
@@ -106,6 +115,9 @@ font: 10pt &quot;MRT_Sozar&quot;;
      <width>71</width>
      <height>29</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">gridline-color: rgb(0, 0, 0);

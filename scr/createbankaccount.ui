@@ -44,6 +44,9 @@
      <height>29</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">text-decoration: underline;
 color: rgb(0, 0, 0);
@@ -111,6 +114,9 @@ color: rgb(64, 0, 255);</string>
      <height>29</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">text-decoration: underline;
 color: rgb(0, 0, 0);
@@ -129,6 +135,9 @@ font: 10pt &quot;MRT_Sozar&quot;;
      <width>71</width>
      <height>29</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">text-decoration: underline;
