@@ -30,15 +30,12 @@ void LoginSignin::signUpPBClick() {
 
     users.addUser();
 
-    ui->firstNameLE->clear();
-    ui->lastNameLE->clear();
-    ui->nationalCodeLE->clear();
-    ui->ageLE->clear();
-    ui->signUpUsernameLE->clear();
-    ui->signUpPasswordLE->clear();
+    clearLineEdits();
 }
 
 void LoginSignin::logInPBClick() {
+    clearLineEdits();
+
     MainPanel *np = new MainPanel(users);
     np->show();
     this->close();
@@ -242,4 +239,13 @@ bool LoginSignin::checkUsernameAndPassword(QString text) {
         }
     }
     return true;
+}
+
+void LoginSignin::clearLineEdits() {
+    ui->firstNameLE->clear();
+    ui->lastNameLE->clear();
+    ui->nationalCodeLE->clear();
+    ui->ageLE->clear();
+    ui->signUpUsernameLE->clear();
+    ui->signUpPasswordLE->clear();
 }

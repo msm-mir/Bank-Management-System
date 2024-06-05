@@ -32,6 +32,7 @@ public:
     bool checkAge(QString);
     bool checkNationalCode(QString);
     bool checkUsernameAndPassword(QString);
+    void clearLineEdits();
 };
 
 #endif // LOGINSIGNIN_H
