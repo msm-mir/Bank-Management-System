@@ -153,7 +153,7 @@ font: 10pt &quot;MRT_Sozar&quot;;
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>210</y>
+     <y>207</y>
      <width>171</width>
      <height>41</height>
     </rect>
@@ -171,7 +171,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>220</y>
+     <y>217</y>
      <width>91</width>
      <height>28</height>
     </rect>
@@ -206,7 +206,7 @@ selection-color: rgb(0, 255, 21);</string>
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>250</y>
+     <y>244</y>
      <width>131</width>
      <height>41</height>
     </rect>
@@ -224,7 +224,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>260</y>
+     <y>252</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -241,8 +241,8 @@ color: rgb(0, 0, 0);
   <widget class="QPushButton" name="createPB">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>340</y>
+     <x>533</x>
+     <y>290</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -273,7 +273,7 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
     <rect>
      <x>110</x>
      <y>290</y>
-     <width>171</width>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
@@ -290,7 +290,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>300</y>
+     <y>298</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -305,7 +305,7 @@ color: rgb(0, 0, 0);
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>340</y>
+     <y>346</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -323,7 +323,7 @@ color: rgb(0, 0, 0);
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>330</y>
+     <y>339</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -489,6 +489,74 @@ font: 10pt &quot;Tw Cen MT&quot;;
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="balanceError">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>278</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 7pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>initial balance error</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fourDigitPasswordError">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>324</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 7pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>4 digit password error</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fixedPasswordError">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>372</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 7pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>fixed password error</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="optionalL">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>366</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 7pt &quot;Segoe UI&quot;;
+color: rgb(74, 74, 74);</string>
+   </property>
+   <property name="text">
+    <string>This field is optional</string>
    </property>
   </widget>
  </widget>

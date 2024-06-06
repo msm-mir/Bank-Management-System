@@ -59,17 +59,17 @@ void LoginSignin::checkSignUp() {
     bool checkError = true;
 
     //for not changing checkError from false to true
-    if (checkFirstNameField() == false)
+    if (checkFirstNameField())
         checkError = false;
-    if (checkLastNameField() == false)
+    if (checkLastNameField())
         checkError = false;
-    if (checkNationalCodeField() == false)
+    if (checkNationalCodeField())
         checkError = false;
     if (checkAgeField() == false)
         checkError = false;
-    if (checkSignupUsernameField() == false)
+    if (checkSignupUsernameField())
         checkError = false;
-    if (checkSignupPasswordField() == false)
+    if (checkSignupPasswordField())
         checkError = false;
 
     if (checkError) {
@@ -83,9 +83,9 @@ void LoginSignin::checkLogIn() {
     bool checkError = true;
 
     //for not changing checkError from false to true
-    if (checkLoginUsernameField() == false)
+    if (checkLoginUsernameField())
         checkError = false;
-    if (checkLoginPasswordField() == false)
+    if (checkLoginPasswordField())
         checkError = false;
 
     users.setUserInfo(ui->loginUsernameLE->text(), ui->loginPasswordLE->text());
@@ -161,40 +161,40 @@ bool LoginSignin::checkFirstNameField() {
     if (ui->firstNameLE->text() == "") {
         ui->firstNameError->setText("This field is empty");
         ui->firstNameError->show();
-        return false;
+        return true;
     }
     else if (checkName(ui->firstNameLE->text())) {
         ui->firstNameError->setText("This field is invalid");
         ui->firstNameError->show();
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 bool LoginSignin::checkLastNameField() {
     if (ui->lastNameLE->text() == "") {
         ui->lastNameError->setText("This field is empty");
         ui->lastNameError->show();
-        return false;
+        return true;
     }
     else if (checkName(ui->lastNameLE->text())) {
         ui->lastNameError->setText("This field is invalid");
         ui->lastNameError->show();
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 bool LoginSignin::checkNationalCodeField() {
     if (ui->nationalCodeLE->text() == "") {
         ui->nationalCodeError->setText("This field is empty");
         ui->nationalCodeError->show();
-        return false;
+        return true;
     }
     else if (checkNationalCode(ui->nationalCodeLE->text())) {
         ui->nationalCodeError->setText("This field is invalid");
         ui->nationalCodeError->show();
-        return false;
+        return true;
     }
     else if (users.uniqueNationalCode(ui->nationalCodeLE->text())) {
         ui->nationalCodeError->setText("The national code already exists");
@@ -209,56 +209,56 @@ bool LoginSignin::checkNationalCodeField() {
                 ui->lastNameError->show();
             }
         }
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 bool LoginSignin::checkAgeField() {
     if (ui->ageLE->text() == "") {
         ui->ageError->setText("This field is empty");
         ui->ageError->show();
-        return false;
+        return true;
     }
     else if (checkAge(ui->ageLE->text())) {
         ui->ageError->setText("This field is invalid");
         ui->ageError->show();
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 bool LoginSignin::checkSignupUsernameField() {
     if (ui->signUpUsernameLE->text() == "") {
         ui->signupUsernameError->setText("This field is empty");
         ui->signupUsernameError->show();
-        return false;
+        return true;
     }
     else if (checkString(ui->signUpUsernameLE->text())) {
         ui->signupUsernameError->setText("This field is invalid");
         ui->signupUsernameError->show();
-        return false;
+        return true;
     }
     else if (users.uniqueUsername(ui->signUpUsernameLE->text())) {
         ui->signupUsernameError->setText("The username already exists");
         ui->signupUsernameError->show();
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 bool LoginSignin::checkSignupPasswordField() {
     if (ui->signUpPasswordLE->text() == "") {
         ui->signupPasswordError->setText("This field is empty");
         ui->signupPasswordError->show();
-        return false;
+        return true;
     }
     else if (checkString(ui->signUpPasswordLE->text())) {
         ui->signupPasswordError->setText("This field is invalid");
         ui->signupPasswordError->show();
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 bool LoginSignin::checkLoginUsernameField() {
@@ -269,19 +269,19 @@ bool LoginSignin::checkLoginUsernameField() {
     if (ui->loginUsernameLE->text() == "") {
         ui->loginUsernameError->setText("This field is empty");
         ui->loginUsernameError->show();
-        return false;
+        return true;
     }
     else if (checkString(ui->loginUsernameLE->text())) {
         ui->loginUsernameError->setText("This field is invalid");
         ui->loginUsernameError->show();
-        return false;
+        return true;
     }
     else if (output == "non-existence of username") {
         ui->loginUsernameError->setText("The username doesn't exist");
         ui->loginUsernameError->show();
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 bool LoginSignin::checkLoginPasswordField() {
@@ -292,17 +292,17 @@ bool LoginSignin::checkLoginPasswordField() {
     if (ui->loginPasswordLE->text() == "") {
         ui->loginPasswordError->setText("This field is empty");
         ui->loginPasswordError->show();
-        return false;
+        return true;
     }
     else if (checkString(ui->loginPasswordLE->text())) {
         ui->loginPasswordError->setText("This field is invalid");
         ui->loginPasswordError->show();
-        return false;
+        return true;
     }
     else if (output == "incorrect password") {
         ui->loginPasswordError->setText("The password is incorrect");
         ui->loginPasswordError->show();
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }

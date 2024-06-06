@@ -18,13 +18,25 @@ private:
     Ui::CreateBankAccount *ui;
 private slots:
     void addInfo();
+    void createPBClick();
+    void hideError();
+    void checkCreateAccount();
+    bool checkBalanceField();
+    bool check4DigitPasswordField();
+    bool checkFixedPasswordField();
+    bool checkNumber(QString);
+    bool checkBalance(int);
+    bool checkFourDigitPassword(QString);
+    bool checkFixedPassword(QString);
+    void setUserBankAccountData();
     void openChangePasswordPage();
     void openViewBalancePage();
     void openTransferPage();
-    void openMainPanelPage();
     void openLogoutPage();
 public:
     User users;
+    BankAccount bankAccounts;
+    Card cards;
 
     explicit CreateBankAccount(User, QWidget *parent = nullptr);
     ~CreateBankAccount();

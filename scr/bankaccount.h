@@ -10,7 +10,7 @@ enum BankType {
 class BankAccount {
 private:
     BankType bankType;
-    QString accountNumber;
+    QString bankAccountNum;
     long long int balance;
     Card bankCard;
 
@@ -19,12 +19,12 @@ public:
     ~BankAccount();
 
     void setBankType(BankType);
-    void setAccountNumber(QString);
+    void setBankAccountNumber(QString);
     void setBalance(long long int);
     void setBankCard(Card);
 
     BankType getBankType();
-    QString getAccountNumber();
+    QString getBankAccountNumber();
     long long int getBalance();
     Card getBankCard();
 };

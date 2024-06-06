@@ -14,7 +14,7 @@ private:
     QString username;
     QString password;
     BankAccount singleBankAccount[5];
-    int bankAccountNum;
+    int bankAccountNum = 0;
 public:
     List<User> listUsers;
 
@@ -46,6 +46,7 @@ public:
     bool uniqueNationalCode(QString);
     bool uniqueUsername(QString);
     void setUserInfo(QString, QString);
+    void updateUserDataInList(QString);
 };
 
 #endif // USER_H

@@ -25,6 +25,7 @@ void User::setPassword(QString password) {
 }
 void User::setSingleBankAccount(BankAccount singleBankAccount, int idx) {
     this->singleBankAccount[idx] = singleBankAccount;
+    this->bankAccountNum++;
 }
 void User::setBankAccountNum(int bankAccountNum) {
     this->bankAccountNum = bankAccountNum;
@@ -53,6 +54,7 @@ BankAccount User::getSingleBankAccount(int idx) {
 int User::getBankAccountNum() {
     return this->bankAccountNum;
 }
+
 void User::addUser() {
     listUsers.pushBack(*this);
 }
@@ -124,6 +126,17 @@ void User::setUserInfo(QString username, QString password) {
                 this->setAge(tmp->getData().getAge());
                 return;
             }
+        tmp = tmp->getNextNode();
+    }
+}
+
+void User::updateUserDataInList(QString nationalCode) {
+    Node<User> *tmp = listUsers.getHeadNode();
+    while (tmp) {
+        if (tmp->getData().getNationalCode() == nationalCode) {
+            tmp->setData(*this);
+            return;
+        }
         tmp = tmp->getNextNode();
     }
 }
