@@ -11,6 +11,7 @@ Transfer::Transfer(User users, QWidget *parent) : QWidget(parent) , ui(new Ui::T
     ui->setupUi(this);
 
     this->users = users;
+    addInfo();
 
     connect(ui->createNewBankAccountPB, SIGNAL(clicked()), this, SLOT(openCreateBankAccountPage()));
     connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
@@ -48,7 +49,7 @@ void Transfer::openConfirmTransferPage() {
     this->close();
 }
 void Transfer::openLogoutPage() {
-    LoginSignin *np = new LoginSignin;
+    LoginSignin *np = new LoginSignin(users);
     np->show();
     this->close();
 }

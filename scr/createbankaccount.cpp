@@ -11,12 +11,20 @@ CreateBankAccount::CreateBankAccount(User users, QWidget *parent) : QWidget(pare
     ui->setupUi(this);
 
     this->users = users;
+    addInfo();
 
+    //click to open pages
     connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
     connect(ui->viewBalancePB, SIGNAL(clicked()), this, SLOT(openViewBalancePage()));
     connect(ui->transferPB, SIGNAL(clicked()), this, SLOT(openTransferPage()));
+
+    //click create push button
     connect(ui->createPB, SIGNAL(clicked()), this, SLOT(openMainPanelPage()));
+
+    //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
+
+
 }
 CreateBankAccount::~CreateBankAccount() {
     delete ui;
@@ -48,7 +56,7 @@ void CreateBankAccount::openMainPanelPage() {
     this->close();
 }
 void CreateBankAccount::openLogoutPage() {
-    LoginSignin *np = new LoginSignin;
+    LoginSignin *np = new LoginSignin(users);
     np->show();
     this->close();
 }

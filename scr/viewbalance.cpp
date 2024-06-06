@@ -10,6 +10,7 @@ ViewBalance::ViewBalance(User users, QWidget *parent) : QWidget(parent) , ui(new
     ui->setupUi(this);
 
     this->users = users;
+    addInfo();
 
     connect(ui->createNewBankAccountPB, SIGNAL(clicked()), this, SLOT(openCreateBankAccountPage()));
     connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
@@ -42,7 +43,7 @@ void ViewBalance::openTransferPage() {
     this->close();
 }
 void ViewBalance::openLogoutPage() {
-    LoginSignin *np = new LoginSignin;
+    LoginSignin *np = new LoginSignin(users);
     np->show();
     this->close();
 }

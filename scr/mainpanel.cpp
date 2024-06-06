@@ -1,6 +1,7 @@
 #include "mainpanel.h"
 #include "ui_mainpanel.h"
 #include "user.h"
+#include "list.h"
 #include "loginsignin.h"
 #include "createbankaccount.h"
 #include "changepassword.h"
@@ -49,7 +50,7 @@ void MainPanel::openTransferPage() {
     this->close();
 }
 void MainPanel::openLogoutPage() {
-    LoginSignin *np = new LoginSignin;
+    LoginSignin *np = new LoginSignin(users);
     np->show();
     this->close();
 }

@@ -6,8 +6,10 @@
 
 using namespace std;
 
-LoginSignin::LoginSignin(QWidget *parent) : QWidget(parent), ui(new Ui::LoginSignin) {
+LoginSignin::LoginSignin(User users, QWidget *parent) : QWidget(parent), ui(new Ui::LoginSignin) {
     ui->setupUi(this);
+
+    this->users = users;
 
     hideError();
     connect(ui->signUpPB, SIGNAL(clicked()), this, SLOT(checkSignUp()));
@@ -298,8 +300,8 @@ bool LoginSignin::checkLoginPasswordField() {
         return false;
     }
     else if (output == "incorrect password") {
-        ui->loginUsernameError->setText("The password is incorrect");
-        ui->loginUsernameError->show();
+        ui->loginPasswordError->setText("The password is incorrect");
+        ui->loginPasswordError->show();
         return false;
     }
     return true;

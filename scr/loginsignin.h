@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QString>
 #include "user.h"
+#include "list.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,7 +22,7 @@ private:
 public:
     User users;
 
-    explicit LoginSignin(QWidget *parent = nullptr);
+    explicit LoginSignin(User, QWidget *parent = nullptr);
     ~LoginSignin();
 
     void signUpPBClick();

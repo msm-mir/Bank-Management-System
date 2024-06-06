@@ -12,6 +12,7 @@ ConfirmTransfer::ConfirmTransfer(User users, QWidget *parent) : QWidget(parent) 
     ui->setupUi(this);
 
     this->users = users;
+    addInfo();
 
     connect(ui->createNewBankAccountPB, SIGNAL(clicked()), this, SLOT(openCreateBankAccountPage()));
     connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
@@ -56,7 +57,7 @@ void ConfirmTransfer::openMainPanelPage() {
     this->close();
 }
 void ConfirmTransfer::openLogoutPage() {
-    LoginSignin *np = new LoginSignin;
+    LoginSignin *np = new LoginSignin(users);
     np->show();
     this->close();
 }
