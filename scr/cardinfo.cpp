@@ -8,11 +8,23 @@
 #include "viewbalance.h"
 #include "transfer.h"
 
+#include <bits/stdc++.h>
+#include <ctime>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
 CardInfo::CardInfo(User users, QWidget *parent) : QWidget(parent) , ui(new Ui::CardInfo) {
     ui->setupUi(this);
 
     this->users = users;
+    this->bankAccounts = users.getSingleBankAccount(users.getBankAccountNum() - 1);
+    this->cards = users.getSingleBankAccount(users.getBankAccountNum() - 1).getBankCard();
     addInfo();
+
+    //create card info
+    createCardInfo();
 
     //click to open pages
     connect(ui->createNewBankAccountPB, SIGNAL(clicked()), this, SLOT(openCreateBankAccountPage()));
@@ -35,6 +47,103 @@ void CardInfo::addInfo() {
     ui->lastNameST->setText(users.getFamily());
     ui->nationalCodeST->setText(users.getNationalCode());
     ui->ageST->setText(QString::number(users.getAge()));
+}
+
+void CardInfo::createCardInfo() {
+    createCardNumber();
+    createAccountNumber();
+    createCardCvv2();
+    createCardExpirationDate();
+
+    //set to user
+    bankAccounts.setBankCard(cards);
+    users.setSingleBankAccount(bankAccounts, users.getBankAccountNum() - 1);
+
+    //set to list of users
+    users.updateUserDataInList(users.getNationalCode());
+}
+
+//shuffle national code digits
+void CardInfo::createCardNumber() {
+    string cardNumber = "603799";
+    string nationalCode = users.getNationalCode().toStdString();
+
+    srand(time(0));
+    vector<int> arr;
+
+    for (int i = 0; i < 10; i++)
+        arr.push_back(nationalCode[i] - 48);
+
+    random_shuffle(arr.begin(), arr.end());
+
+    for (int i = 0; i < 10; i++)
+        cardNumber += arr[i] + 48;
+
+    cards.setCardNumber(QString::fromStdString(cardNumber));
+    ui->cardNumberST->setText(QString::fromStdString(cardNumber));
+}
+
+void CardInfo::createAccountNumber() {
+    string accountNumber = "";
+
+    srand(time(0));
+    vector<int> arr = {0,1,2,3,4,5,6,7,8,9};
+
+    random_shuffle(arr.begin(), arr.end());
+    for (int i = 0; i < 10; i++)
+        accountNumber += arr[i] + 48;
+
+    random_shuffle(arr.begin(), arr.end());
+    for (int i = 0; i < 3; i++)
+        accountNumber += arr[i] + 48;
+
+    bankAccounts.setBankAccountNumber(QString::fromStdString(accountNumber));
+
+    createCardIbanNumber(accountNumber);
+    ui->accountNumberST->setText(QString::fromStdString(accountNumber));
+}
+
+void CardInfo::createCardIbanNumber(string accountNumber) {
+    string ibanNumber = "IR98018";
+
+    BankAccount tmpBank = users.getSingleBankAccount(users.getBankAccountNum() - 1);
+
+    ibanNumber += tmpBank.getBankType() + 48;
+    ibanNumber += "000000";
+    ibanNumber += accountNumber;
+
+    cards.setIbanNumber(QString::fromStdString(ibanNumber));
+    ui->ibanNumberST->setText(QString::fromStdString(ibanNumber));
+}
+
+void CardInfo::createCardCvv2() {
+    string cvv2 = "";
+
+    srand(time(0));
+    vector<int> arr = {0,1,2,3,4,5,6,7,8,9};
+
+    random_shuffle(arr.begin(), arr.end());
+    for (int i = 0; i < 4; i++)
+        cvv2 += arr[i] + 48;
+
+    cards.setCvv2(QString::fromStdString(cvv2));
+    ui->cvv2ST->setText(QString::fromStdString(cvv2));
+}
+
+void CardInfo::createCardExpirationDate() {
+    tm futureDate = calculateFutureDate(3);
+    QString expirationDate = "";
+
+    expirationDate += QString::number(getYear(futureDate));
+    expirationDate += '/';
+    expirationDate += QString::number(getMonth(futureDate));
+
+    ui->expirationDateST->setText(expirationDate);
+
+    expirationDate += '/';
+    expirationDate += QString::number(getDay(futureDate));
+
+    cards.setExpirationDate(expirationDate);
 }
 
 void CardInfo::openCreateBankAccountPage() {
@@ -71,4 +180,28 @@ void CardInfo::openLogoutPage() {
     LoginSignin *np = new LoginSignin(users);
     np->show();
     this->close();
+}
+
+tm CardInfo::getCurrentTime() {
+    time_t now = time(nullptr);
+    return *localtime(&now);
+}
+
+tm CardInfo::calculateFutureDate(int years) {
+    tm currentDate = getCurrentTime();
+    currentDate.tm_year += years;
+    mktime(&currentDate);
+    return currentDate;
+}
+
+int CardInfo::getYear(const tm& date) {
+    return date.tm_year + 1900;
+}
+
+int CardInfo::getMonth(const tm& date) {
+    return date.tm_mon + 1;
+}
+
+int CardInfo::getDay(const tm& date) {
+    return date.tm_mday;
 }

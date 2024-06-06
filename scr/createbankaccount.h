@@ -25,7 +25,7 @@ private slots:
     bool check4DigitPasswordField();
     bool checkFixedPasswordField();
     bool checkNumber(QString);
-    bool checkBalance(int);
+    bool checkBalance(QString);
     bool checkFourDigitPassword(QString);
     bool checkFixedPassword(QString);
     void setUserBankAccountData();

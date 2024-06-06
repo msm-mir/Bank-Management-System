@@ -26,10 +26,23 @@ private slots:
     void openLogoutPage();
 public:
     User users;
+    BankAccount bankAccounts;
+    Card cards;
 
     explicit CardInfo(User, QWidget *parent = nullptr);
     ~CardInfo();
 
+    void createCardInfo();
+    void createCardNumber();
+    void createAccountNumber();
+    void createCardIbanNumber(std::string);
+    void createCardCvv2();
+    void createCardExpirationDate();
+    tm getCurrentTime();
+    tm calculateFutureDate(int);
+    int getYear(const tm&);
+    int getMonth(const tm&);
+    int getDay(const tm&);
 };
 
 #endif // CARDINFO_H

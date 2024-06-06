@@ -7,12 +7,12 @@
 
 class User {
 private:
-    QString name;
-    QString family;
-    QString nationalCode;
-    int age;
-    QString username;
-    QString password;
+    QString name = "";
+    QString family = "";
+    QString nationalCode = "";
+    int age = 0;
+    QString username = "";
+    QString password = "";
     BankAccount singleBankAccount[5];
     int bankAccountNum = 0;
 public:

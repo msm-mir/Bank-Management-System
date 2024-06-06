@@ -119,7 +119,7 @@ bool LoginSignin::checkString(QString text) {
 bool LoginSignin::checkName(QString text) {
     for (int i = 0; i < text.length(); i++) {
         if (((text[i] >= 'A') && (text[i] <= 'Z')) || ((text[i] >= 'a') && (text[i] <= 'z'))) {
-            if (text.size() >= 3)
+            if (text.size() >= 3 && text.size() <= 12)
                 return false;
         }
     }

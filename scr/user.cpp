@@ -25,7 +25,6 @@ void User::setPassword(QString password) {
 }
 void User::setSingleBankAccount(BankAccount singleBankAccount, int idx) {
     this->singleBankAccount[idx] = singleBankAccount;
-    this->bankAccountNum++;
 }
 void User::setBankAccountNum(int bankAccountNum) {
     this->bankAccountNum = bankAccountNum;

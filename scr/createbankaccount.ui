@@ -559,6 +559,40 @@ color: rgb(74, 74, 74);</string>
     <string>This field is optional</string>
    </property>
   </widget>
+  <widget class="QLabel" name="accountsNumST">
+   <property name="geometry">
+    <rect>
+     <x>601</x>
+     <y>218</y>
+     <width>21</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(67, 67, 67);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="accountsNumL">
+   <property name="geometry">
+    <rect>
+     <x>496</x>
+     <y>207</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 10pt &quot;Tw Cen MT&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Accounts Num :</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="Panel.qrc"/>

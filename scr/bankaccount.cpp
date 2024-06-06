@@ -10,7 +10,7 @@ void BankAccount::setBankType(BankType bankType) {
 void BankAccount::setBankAccountNumber(QString accountNumber) {
     this->bankAccountNum = accountNumber;
 }
-void BankAccount::setBalance(long long int balance) {
+void BankAccount::setBalance(QString balance) {
     this->balance = balance;
 }
 void BankAccount::setBankCard(Card bankCard) {
@@ -22,7 +22,7 @@ BankType BankAccount::getBankType() {
 QString BankAccount::getBankAccountNumber() {
     return this->bankAccountNum;
 }
-long long int BankAccount::getBalance() {
+QString BankAccount::getBalance() {
     return this->balance;
 }
 Card BankAccount::getBankCard() {

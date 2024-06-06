@@ -5,14 +5,14 @@
 
 class Card {
 private:
-    QString cardNumber;
-    QString ibanNumber;
-    QString cvv2;
-    QString expirationDate;
-    QString fourDigitPassword;
-    QString fixedPassword;
+    QString cardNumber = "";
+    QString ibanNumber = "";
+    QString cvv2 = "";
+    QString expirationDate = "";
+    QString fourDigitPassword = "";
+    QString fixedPassword = "";
     bool haveFixedPassword;
-    QString oneTimePassword;
+    QString oneTimePassword = "";
 public:
     Card();
     ~Card();

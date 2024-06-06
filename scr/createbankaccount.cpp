@@ -36,6 +36,7 @@ void CreateBankAccount::addInfo() {
     ui->lastNameST->setText(users.getFamily());
     ui->nationalCodeST->setText(users.getNationalCode());
     ui->ageST->setText(QString::number(users.getAge()));
+    ui->accountsNumST->setText(QString::number(users.getBankAccountNum()));
 }
 
 void CreateBankAccount::createPBClick() {
@@ -86,7 +87,7 @@ bool CreateBankAccount::checkBalanceField() {
         ui->balanceError->show();
         return true;
     }
-    else if (checkBalance(ui->initialBalanceLE->text().toInt())) {
+    else if (checkBalance(ui->initialBalanceLE->text())) {
         ui->balanceError->setText("This field must above 50,000T");
         ui->balanceError->show();
         return true;
@@ -138,9 +139,14 @@ bool CreateBankAccount::checkNumber(QString text) {
     return true;
 }
 
-bool CreateBankAccount::checkBalance(int number) {
-    if (number >= 50000)
+bool CreateBankAccount::checkBalance(QString text) {
+    if (text.size() >= 5) {
+        if (text.size() == 5) {
+            if (text[0] >= '5') return false;
+            else return true;
+        }
         return false;
+    }
     return true;
 }
 
@@ -158,19 +164,36 @@ bool CreateBankAccount::checkFixedPassword(QString text) {
 }
 
 void CreateBankAccount::setUserBankAccountData() {
+    //set bank account number
+    users.setBankAccountNum(users.getBankAccountNum() + 1);
+
     //set bank account type
-    if (ui->bankAccountTypeCB->currentText() == "saving")
+    if (ui->bankAccountTypeCB->currentText() == "Saving")
         bankAccounts.setBankType(saving);
-    else if (ui->bankAccountTypeCB->currentText() == "current")
+    else if (ui->bankAccountTypeCB->currentText() == "Current")
         bankAccounts.setBankType(current);
-    else if (ui->bankAccountTypeCB->currentText() == "loan")
+    else if (ui->bankAccountTypeCB->currentText() == "Loan")
         bankAccounts.setBankType(loan);
 
     //set initial balance
-    bankAccounts.setBalance(ui->initialBalanceLE->text().toLongLong());
+    bankAccounts.setBalance(ui->initialBalanceLE->text());
+
+    //set 4 digit password
+    cards.setFourDigitPassword(ui->fourDigitPasswordLE->text());
+
+    //set fixed password
+    if (ui->fixedPasswordLE->text() != "") {
+        cards.setFixedPassword(ui->fixedPasswordLE->text());
+        cards.setHaveFixedPassword(true);
+    }
+    else
+        cards.setHaveFixedPassword(false);
+
+    //set to bank account
+    bankAccounts.setBankCard(cards);
 
     //set to user
-    users.setSingleBankAccount(bankAccounts, users.getBankAccountNum());
+    users.setSingleBankAccount(bankAccounts, users.getBankAccountNum() - 1);
 
     //set to list of users
     users.updateUserDataInList(users.getNationalCode());
