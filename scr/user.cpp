@@ -2,6 +2,9 @@
 #include "list.h"
 #include "bankaccount.h"
 #include <QString>
+#include <ctime>
+
+using namespace std;
 
 User::User() {}
 User::~User() {}
@@ -58,7 +61,7 @@ void User::addUser() {
     listUsers.pushBack(*this);
 }
 
-QString User::find(QString username, QString password) {
+QString User::loginFind(QString username, QString password) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
         if (tmp->getData().getUniqueUsername() == username) {
@@ -138,4 +141,41 @@ void User::updateUserDataInList(QString nationalCode) {
         }
         tmp = tmp->getNextNode();
     }
+}
+
+bool User::findCardNumber(QString cardNumber) {
+    Node<User> *tmp = listUsers.getHeadNode();
+    while (tmp) {
+        for (int i = 0; i < tmp->getData().getBankAccountNum(); i++) {
+            if (tmp->getData().getSingleBankAccount(i).getBankCard().getCardNumber() == cardNumber)
+                return false;
+        }
+        tmp = tmp->getNextNode();
+    }
+    return true;
+}
+
+bool User::checkDestiExpire(QString cardNumber) {
+    Node<User> *tmp = listUsers.getHeadNode();
+    while (tmp) {
+        for (int i = 0; i < tmp->getData().getBankAccountNum(); i++) {
+            if (tmp->getData().getSingleBankAccount(i).getBankCard().getCardNumber() == cardNumber) {
+                tm expirationDate = tmp->getData().getSingleBankAccount(i).getBankCard().getExpirationDate();
+
+                if (isBeforeNow(expirationDate)) {
+                    return true;
+                }
+
+                return false;
+            }
+        }
+        tmp = tmp->getNextNode();
+    }
+    return true;
+}
+
+bool User::isBeforeNow(const tm& date) {
+    time_t now = time(nullptr);
+    time_t inputTime = mktime(const_cast<tm*>(&date));
+    return inputTime < now;
 }

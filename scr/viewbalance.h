@@ -17,7 +17,6 @@ class ViewBalance : public QWidget
 private:
     Ui::ViewBalance *ui;
 private slots:
-    void addInfo();
     void viewBalancePBClick();
     void openCreateBankAccountPage();
     void openChangePasswordPage();
@@ -25,12 +24,11 @@ private slots:
     void openLogoutPage();
 public:
     User users;
-    BankAccount bankAccounts;
-    Card cards;
 
     explicit ViewBalance(User, QWidget *parent = nullptr);
     ~ViewBalance();
 
+    void addInfo();
 };
 
 #endif // VIEWBALANCE_H

@@ -17,7 +17,6 @@ class ConfirmTransfer : public QWidget
 private:
     Ui::ConfirmTransfer *ui;
 private slots:
-    void addInfo();
     void openCreateBankAccountPage();
     void openChangePasswordPage();
     void openViewBalancePage();
@@ -26,10 +25,14 @@ private slots:
     void openLogoutPage();
 public:
     User users;
+    BankAccount bankAccounts;
+    Card cards;
+    int bankAccountIdx;
 
     explicit ConfirmTransfer(User, QWidget *parent = nullptr);
     ~ConfirmTransfer();
 
+    void addInfo();
 };
 
 #endif // CONFIRMTRANSFER_H

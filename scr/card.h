@@ -8,7 +8,7 @@ private:
     QString cardNumber = "";
     QString ibanNumber = "";
     QString cvv2 = "";
-    QString expirationDate = "";
+    tm expirationDate;
     QString fourDigitPassword = "";
     QString fixedPassword = "";
     bool haveFixedPassword;
@@ -20,7 +20,7 @@ public:
     void setCardNumber(QString);
     void setIbanNumber(QString);
     void setCvv2(QString);
-    void setExpirationDate(QString);
+    void setExpirationDate(tm);
     void setFourDigitPassword(QString);
     void setFixedPassword(QString);
     void setHaveFixedPassword(bool);
@@ -29,7 +29,7 @@ public:
     QString getCardNumber();
     QString getIbanNumber();
     QString getCvv2();
-    QString getExpirationDate();
+    tm getExpirationDate();
     QString getFourDigitPassword();
     QString getFixedPassword();
     bool getHaveFixedPassword();

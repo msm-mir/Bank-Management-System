@@ -11,8 +11,6 @@ ViewBalance::ViewBalance(User users, QWidget *parent) : QWidget(parent) , ui(new
     ui->setupUi(this);
 
     this->users = users;
-    this->bankAccounts = users.getSingleBankAccount(users.getBankAccountNum() - 1);
-    this->cards = users.getSingleBankAccount(users.getBankAccountNum() - 1).getBankCard();
     addInfo();
 
     //click to open pages
@@ -45,7 +43,8 @@ void ViewBalance::addInfo() {
 void ViewBalance::viewBalancePBClick() {
     for (int i = 0; i < users.getBankAccountNum(); i++) {
         if (users.getSingleBankAccount(i).getBankCard().getCardNumber() == ui->cardNumberCB->currentText()) {
-            ui->balanceST->setText(users.getSingleBankAccount(i).getBalance());
+            ui->balanceST->setText(QString::number(users.getSingleBankAccount(i).getBalance()) + " T");
+            return;
         }
     }
 }

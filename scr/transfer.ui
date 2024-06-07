@@ -303,29 +303,11 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <string>Your Card Number :</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="originCardNumberLE">
-   <property name="geometry">
-    <rect>
-     <x>330</x>
-     <y>230</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(158, 255, 174);
-color: rgb(0, 0, 0);
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="destiCardNumberLE">
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>270</y>
+     <y>282</y>
      <width>141</width>
      <height>31</height>
     </rect>
@@ -340,7 +322,7 @@ color: rgb(0, 0, 0);
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>260</y>
+     <y>274</y>
      <width>221</width>
      <height>41</height>
     </rect>
@@ -358,7 +340,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>300</y>
+     <y>323</y>
      <width>81</width>
      <height>41</height>
     </rect>
@@ -372,11 +354,11 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <string>Amount :</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="amonutLE">
+  <widget class="QLineEdit" name="amountLE">
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>310</y>
+     <y>331</y>
      <width>141</width>
      <height>31</height>
     </rect>
@@ -423,10 +405,10 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
   <widget class="QLabel" name="transferL">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>275</x>
      <y>10</y>
-     <width>151</width>
-     <height>61</height>
+     <width>150</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -436,6 +418,77 @@ font: 800 17pt &quot;Rockwell Extra Bold&quot;;
    </property>
    <property name="text">
     <string>Transfer</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="originCardNumberCB">
+   <property name="geometry">
+    <rect>
+     <x>325</x>
+     <y>230</y>
+     <width>151</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 255, 21);
+selection-background-color: rgb(36, 36, 36);
+background-color: rgb(36, 36, 36);
+font: 9pt &quot;MRT_Sozar&quot;;
+selection-color: rgb(0, 255, 21);</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="destiCardNmuberError">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>308</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 7pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>destination card number error</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="amountError">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>356</y>
+     <width>191</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 7pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>amount error</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="originCardNumberError">
+   <property name="geometry">
+    <rect>
+     <x>325</x>
+     <y>254</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 7pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>origin card number error</string>
    </property>
   </widget>
  </widget>

@@ -463,8 +463,8 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <rect>
      <x>130</x>
      <y>10</y>
-     <width>441</width>
-     <height>61</height>
+     <width>440</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">

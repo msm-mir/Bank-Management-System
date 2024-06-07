@@ -17,7 +17,6 @@ class CardInfo : public QWidget
 private:
     Ui::CardInfo *ui;
 private slots:
-    void addInfo();
     void openCreateBankAccountPage();
     void openChangePasswordPage();
     void openViewBalancePage();
@@ -32,6 +31,7 @@ public:
     explicit CardInfo(User, QWidget *parent = nullptr);
     ~CardInfo();
 
+    void addInfo();
     void createCardInfo();
     void createCardNumber();
     void createAccountNumber();
@@ -43,6 +43,7 @@ public:
     int getYear(const tm&);
     int getMonth(const tm&);
     int getDay(const tm&);
+    void setUserCardInfo();
 };
 
 #endif // CARDINFO_H

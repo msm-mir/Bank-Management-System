@@ -110,7 +110,7 @@ color: rgb(0, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>533</x>
-     <y>330</y>
+     <y>328</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -157,8 +157,8 @@ font: 12pt &quot;Tw Cen MT&quot;;
   <widget class="QPushButton" name="confirmPB">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>330</y>
+     <x>533</x>
+     <y>256</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -478,7 +478,7 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="geometry">
     <rect>
      <x>463</x>
-     <y>290</y>
+     <y>220</y>
      <width>161</width>
      <height>31</height>
     </rect>
@@ -507,10 +507,10 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
   <widget class="QLabel" name="transferL">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>275</x>
      <y>10</y>
-     <width>161</width>
-     <height>61</height>
+     <width>150</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -520,6 +520,36 @@ font: 800 17pt &quot;Rockwell Extra Bold&quot;;
    </property>
    <property name="text">
     <string>Transfer</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelPB">
+   <property name="geometry">
+    <rect>
+     <x>533</x>
+     <y>292</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 255, 21);
+background-color: rgb(36, 36, 36);
+font: 9pt &quot;MRT_Sozar&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="default">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
    </property>
   </widget>
  </widget>

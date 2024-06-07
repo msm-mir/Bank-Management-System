@@ -11,7 +11,7 @@ void Card::setIbanNumber(QString ibanNumber) {
 void Card::setCvv2(QString cvv2) {
     this->cvv2 = cvv2;
 }
-void Card::setExpirationDate(QString expirationDate) {
+void Card::setExpirationDate(tm expirationDate) {
     this->expirationDate = expirationDate;
 }
 void Card::setFourDigitPassword(QString fourDigitPassword) {
@@ -35,7 +35,7 @@ QString Card::getIbanNumber() {
 QString Card::getCvv2() {
     return this->cvv2;
 }
-QString Card::getExpirationDate() {
+tm Card::getExpirationDate() {
     return this->expirationDate;
 }
 QString Card::getFourDigitPassword() {

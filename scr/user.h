@@ -40,13 +40,16 @@ public:
     int getBankAccountNum();
 
     void addUser();
-    QString find(QString, QString);
+    QString loginFind(QString, QString);
     bool uniqueName(QString);
     bool uniqueFamily(QString);
     bool uniqueNationalCode(QString);
     bool uniqueUsername(QString);
     void setUserInfo(QString, QString);
     void updateUserDataInList(QString);
+    bool findCardNumber(QString);
+    bool checkDestiExpire(QString);
+    bool isBeforeNow(const tm&);
 };
 
 #endif // USER_H

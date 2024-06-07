@@ -118,34 +118,39 @@ bool LoginSignin::checkString(QString text) {
     return true;
 }
 
-bool LoginSignin::checkName(QString text) {
-    for (int i = 0; i < text.length(); i++) {
-        if (((text[i] >= 'A') && (text[i] <= 'Z')) || ((text[i] >= 'a') && (text[i] <= 'z'))) {
-            if (text.size() >= 3 && text.size() <= 12)
-                return false;
-        }
-    }
-    return true;
-}
-
-bool LoginSignin::checkAge(QString text) {
-    for (int i = 0; i < text.length(); i++) {
-        if ((text[i] >= '0') && (text[i] <= '9')) {
-            int number = text.toInt();
-            if (number >= 18 && number <= 100)
-                return false;
-        }
-    }
-    return true;
-}
-
-bool LoginSignin::checkNationalCode(QString text) {
-    if (text.size() == 10) {
-        for (int i = 0; i < text.length(); i++) {
-            if ((text[i] >= '0') && (text[i] <= '9')) {
-                return false;
+bool LoginSignin::checkName(QString name) {
+    if (name.size() >= 3 && name.size() <= 12) {
+        for (int i = 0; i < name.length(); i++) {
+            if ((name[i] < 'A') || (name[i] > 'z') || ((name[i] < 'a') && (name[i] > 'Z'))) {
+                return true;
             }
         }
+        return false;
+    }
+    return true;
+}
+
+bool LoginSignin::checkAge(QString age) {
+    int number = age.toInt();
+    if (number >= 18 && number <= 100) {
+        for (int i = 0; i < age.length(); i++) {
+            if ((age[i] < '0') || (age[i] > '9')) {
+                return true;
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+bool LoginSignin::checkNationalCode(QString nationalCode) {
+    if (nationalCode.size() == 10) {
+        for (int i = 0; i < nationalCode.length(); i++) {
+            if ((nationalCode[i] < '0') || (nationalCode[i] > '9')) {
+                return true;
+            }
+        }
+        return false;
     }
     return true;
 }
@@ -266,7 +271,7 @@ bool LoginSignin::checkSignupPasswordField() {
 bool LoginSignin::checkLoginUsernameField() {
     QString username = ui->loginUsernameLE->text();
     QString password = ui->loginPasswordLE->text();
-    QString output = users.find(username, password);
+    QString output = users.loginFind(username, password);
 
     if (ui->loginUsernameLE->text() == "") {
         ui->loginUsernameError->setText("This field is empty");
@@ -289,7 +294,7 @@ bool LoginSignin::checkLoginUsernameField() {
 bool LoginSignin::checkLoginPasswordField() {
     QString username = ui->loginUsernameLE->text();
     QString password = ui->loginPasswordLE->text();
-    QString output = users.find(username, password);
+    QString output = users.loginFind(username, password);
 
     if (ui->loginPasswordLE->text() == "") {
         ui->loginPasswordError->setText("This field is empty");

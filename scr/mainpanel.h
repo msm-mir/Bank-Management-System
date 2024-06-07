@@ -16,7 +16,6 @@ class MainPanel : public QWidget { Q_OBJECT
 private:
     Ui::MainPanel *ui;
 private slots:
-    void addInfo();
     void openCreateBankAccountPage();
     void openChangePasswordPage();
     void openViewBalancePage();
@@ -28,6 +27,7 @@ public:
     explicit MainPanel(User, QWidget *parent = nullptr);
     ~MainPanel();
 
+    void addInfo();
 };
 
 #endif // MAINPANEL_H

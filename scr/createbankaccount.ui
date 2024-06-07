@@ -342,8 +342,8 @@ font: 12pt &quot;Tw Cen MT&quot;;
     <rect>
      <x>130</x>
      <y>10</y>
-     <width>441</width>
-     <height>61</height>
+     <width>440</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -496,7 +496,7 @@ font: 10pt &quot;Tw Cen MT&quot;;
     <rect>
      <x>290</x>
      <y>278</y>
-     <width>121</width>
+     <width>241</width>
      <height>20</height>
     </rect>
    </property>

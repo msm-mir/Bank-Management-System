@@ -17,18 +17,7 @@ class CreateBankAccount : public QWidget
 private:
     Ui::CreateBankAccount *ui;
 private slots:
-    void addInfo();
-    void createPBClick();
-    void hideError();
     void checkCreateAccount();
-    bool checkBalanceField();
-    bool check4DigitPasswordField();
-    bool checkFixedPasswordField();
-    bool checkNumber(QString);
-    bool checkBalance(QString);
-    bool checkFourDigitPassword(QString);
-    bool checkFixedPassword(QString);
-    void setUserBankAccountData();
     void openChangePasswordPage();
     void openViewBalancePage();
     void openTransferPage();
@@ -41,6 +30,17 @@ public:
     explicit CreateBankAccount(User, QWidget *parent = nullptr);
     ~CreateBankAccount();
 
+    void addInfo();
+    void createPBClick();
+    void hideError();
+    bool checkBalanceField();
+    bool check4DigitPasswordField();
+    bool checkFixedPasswordField();
+    bool checkNumber(QString);
+    bool checkBalance(long long int);
+    bool checkFourDigitPassword(QString);
+    bool checkFixedPassword(QString);
+    void setUserBankAccountData();
 };
 
 #endif // CREATEBANKACCOUNT_H

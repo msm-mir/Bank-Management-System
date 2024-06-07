@@ -55,12 +55,7 @@ void CardInfo::createCardInfo() {
     createCardCvv2();
     createCardExpirationDate();
 
-    //set to user
-    bankAccounts.setBankCard(cards);
-    users.setSingleBankAccount(bankAccounts, users.getBankAccountNum() - 1);
-
-    //set to list of users
-    users.updateUserDataInList(users.getNationalCode());
+    setUserCardInfo();
 }
 
 //shuffle national code digits
@@ -79,7 +74,6 @@ void CardInfo::createCardNumber() {
     for (int i = 0; i < 10; i++)
         cardNumber += arr[i] + 48;
 
-    cards.setCardNumber(QString::fromStdString(cardNumber));
     ui->cardNumberST->setText(QString::fromStdString(cardNumber));
 }
 
@@ -97,10 +91,8 @@ void CardInfo::createAccountNumber() {
     for (int i = 0; i < 3; i++)
         accountNumber += arr[i] + 48;
 
-    bankAccounts.setBankAccountNumber(QString::fromStdString(accountNumber));
-
-    createCardIbanNumber(accountNumber);
     ui->accountNumberST->setText(QString::fromStdString(accountNumber));
+    createCardIbanNumber(accountNumber);
 }
 
 void CardInfo::createCardIbanNumber(string accountNumber) {
@@ -112,7 +104,6 @@ void CardInfo::createCardIbanNumber(string accountNumber) {
     ibanNumber += "000000";
     ibanNumber += accountNumber;
 
-    cards.setIbanNumber(QString::fromStdString(ibanNumber));
     ui->ibanNumberST->setText(QString::fromStdString(ibanNumber));
 }
 
@@ -126,7 +117,6 @@ void CardInfo::createCardCvv2() {
     for (int i = 0; i < 4; i++)
         cvv2 += arr[i] + 48;
 
-    cards.setCvv2(QString::fromStdString(cvv2));
     ui->cvv2ST->setText(QString::fromStdString(cvv2));
 }
 
@@ -143,7 +133,7 @@ void CardInfo::createCardExpirationDate() {
     expirationDate += '/';
     expirationDate += QString::number(getDay(futureDate));
 
-    cards.setExpirationDate(expirationDate);
+    cards.setExpirationDate(futureDate);
 }
 
 void CardInfo::openCreateBankAccountPage() {
@@ -204,4 +194,21 @@ int CardInfo::getMonth(const tm& date) {
 
 int CardInfo::getDay(const tm& date) {
     return date.tm_mday;
+}
+
+void CardInfo::setUserCardInfo() {
+    //set to card
+    cards.setCardNumber(ui->cardNumberST->text());
+    cards.setIbanNumber(ui->ibanNumberST->text());
+    cards.setCvv2(ui->cvv2ST->text());
+
+    //set to bank account
+    bankAccounts.setBankAccountNumber(ui->accountNumberST->text());
+
+    //set to user
+    bankAccounts.setBankCard(cards);
+    users.setSingleBankAccount(bankAccounts, users.getBankAccountNum() - 1);
+
+    //set to list of users
+    users.updateUserDataInList(users.getNationalCode());
 }

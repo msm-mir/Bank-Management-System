@@ -234,10 +234,10 @@ font: 10pt &quot;MRT_Sozar&quot;;
   <widget class="QLabel" name="viewBalanceL">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>230</x>
      <y>10</y>
-     <width>241</width>
-     <height>61</height>
+     <width>240</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="styleSheet">

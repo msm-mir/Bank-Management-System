@@ -11,8 +11,6 @@ ChangePassword::ChangePassword(User users, QWidget *parent) : QWidget(parent) , 
     ui->setupUi(this);
 
     this->users = users;
-    this->bankAccounts = users.getSingleBankAccount(users.getBankAccountNum() - 1);
-    this->cards = users.getSingleBankAccount(users.getBankAccountNum() - 1).getBankCard();
     addInfo();
 
     hideError();
@@ -66,6 +64,9 @@ void ChangePassword::checkChange4DigitPassword() {
 
     bool checkError = true;
 
+    //set user bank account idx
+    setIdx();
+
     //for not changing checkError from false to true
     if (checkNew4DigitPasswordField())
         checkError = false;
@@ -80,12 +81,24 @@ void ChangePassword::checkChangeFixedPassword() {
 
     bool checkError = true;
 
+    //set user bank account idx
+    setIdx();
+
     //for not changing checkError from false to true
     if (checkNewFixedPasswordField())
         checkError = false;
 
     if (checkError) {
         changeFixedPasswordPBClick();
+    }
+}
+
+void ChangePassword::setIdx() {
+    for (int i = 0; i < users.getBankAccountNum(); i++) {
+        if (users.getSingleBankAccount(i).getBankCard().getCardNumber() == ui->cardNumberCB->currentText()) {
+            this->bankAccountIdx = i;
+            return;
+        }
     }
 }
 
@@ -97,6 +110,11 @@ bool ChangePassword::checkNew4DigitPasswordField() {
     }
     else if (checkNumber(ui->new4DigitPasswordLE->text())) {
         ui->new4DigitPasswordError->setText("This field is invalid");
+        ui->new4DigitPasswordError->show();
+        return true;
+    }
+    else if (checkFourDigitPassword(ui->new4DigitPasswordLE->text())) {
+        ui->new4DigitPasswordError->setText("This field must be 4 digits");
         ui->new4DigitPasswordError->show();
         return true;
     }
@@ -119,6 +137,11 @@ bool ChangePassword::checkNewFixedPasswordField() {
         ui->newFixedPasswordError->show();
         return true;
     }
+    else if (checkFixedPassword(ui->newFixedPasswordLE->text())) {
+        ui->newFixedPasswordError->setText("This field must be 4 to 12 digits");
+        ui->newFixedPasswordError->show();
+        return true;
+    }
     else if (equalFixedPassword(ui->newFixedPasswordLE->text())) {
         ui->newFixedPasswordError->setText("This password is already available");
         ui->newFixedPasswordError->show();
@@ -129,30 +152,35 @@ bool ChangePassword::checkNewFixedPasswordField() {
 
 bool ChangePassword::checkNumber(QString text) {
     for (int i = 0; i < text.length(); i++) {
-        if ((text[i] >= '0') && (text[i] <= '9')) {
-            return false;
-        }
-    }
-    return true;
-}
-
-bool ChangePassword::equal4DigitPassword(QString text) {
-    for (int i = 0; i < users.getBankAccountNum(); i++) {
-        if (users.getSingleBankAccount(i).getBankCard().getCardNumber() == ui->cardNumberCB->currentText()) {
-            if (users.getSingleBankAccount(i).getBankCard().getFourDigitPassword() == text)
+        if ((text[i] < '0') || (text[i] > '9')) {
             return true;
         }
     }
     return false;
 }
 
-bool ChangePassword::equalFixedPassword(QString text) {
-    for (int i = 0; i < users.getBankAccountNum(); i++) {
-        if (users.getSingleBankAccount(i).getBankCard().getCardNumber() == ui->cardNumberCB->currentText()) {
-            if (users.getSingleBankAccount(i).getBankCard().getFixedPassword() == text)
-                return true;
-        }
+bool ChangePassword::checkFourDigitPassword(QString fourDigitPassword) {
+    if (fourDigitPassword.size() == 4)
+        return false;
+    return true;
+}
+
+bool ChangePassword::checkFixedPassword(QString fixedPassword) {
+    if (fixedPassword.size() >= 4 && fixedPassword.size() <= 12) {
+        return false;
     }
+    return true;
+}
+
+bool ChangePassword::equal4DigitPassword(QString fourDigitPassword) {
+    if (users.getSingleBankAccount(bankAccountIdx).getBankCard().getFourDigitPassword() == fourDigitPassword)
+        return true;
+    return false;
+}
+
+bool ChangePassword::equalFixedPassword(QString fixedPassword) {
+    if (users.getSingleBankAccount(bankAccountIdx).getBankCard().getFixedPassword() == fixedPassword)
+        return true;
     return false;
 }
 
@@ -187,6 +215,10 @@ void ChangePassword::openLogoutPage() {
 }
 
 void ChangePassword::setUserChange4DigitPasswordData() {
+    //set bank account and card to this
+    bankAccounts = users.getSingleBankAccount(bankAccountIdx);
+    cards = users.getSingleBankAccount(bankAccountIdx).getBankCard();
+
     //set 4 digit password
     cards.setFourDigitPassword(ui->new4DigitPasswordLE->text());
 
@@ -194,13 +226,17 @@ void ChangePassword::setUserChange4DigitPasswordData() {
     bankAccounts.setBankCard(cards);
 
     //set to user
-    users.setSingleBankAccount(bankAccounts, users.getBankAccountNum() - 1);
+    users.setSingleBankAccount(bankAccounts, bankAccountIdx);
 
     //set to list of users
     users.updateUserDataInList(users.getNationalCode());
 }
 
 void ChangePassword::setUserChangeFixedPasswordData() {
+    //set bank account and card to this
+    bankAccounts = users.getSingleBankAccount(bankAccountIdx);
+    cards = users.getSingleBankAccount(bankAccountIdx).getBankCard();
+
     //set fixed password
     cards.setFixedPassword(ui->newFixedPasswordLE->text());
 
@@ -208,7 +244,7 @@ void ChangePassword::setUserChangeFixedPasswordData() {
     bankAccounts.setBankCard(cards);
 
     //set to user
-    users.setSingleBankAccount(bankAccounts, users.getBankAccountNum() - 1);
+    users.setSingleBankAccount(bankAccounts, bankAccountIdx);
 
     //set to list of users
     users.updateUserDataInList(users.getNationalCode());
