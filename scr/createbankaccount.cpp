@@ -15,17 +15,18 @@ CreateBankAccount::CreateBankAccount(User users, QWidget *parent) : QWidget(pare
 
     hideError();
 
-    //click to open pages
-    connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
-    connect(ui->viewBalancePB, SIGNAL(clicked()), this, SLOT(openViewBalancePage()));
-    connect(ui->transferPB, SIGNAL(clicked()), this, SLOT(openTransferPage()));
+    if (users.getBankAccountNum() != 0) {
+        //click to open pages
+        connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
+        connect(ui->viewBalancePB, SIGNAL(clicked()), this, SLOT(openViewBalancePage()));
+        connect(ui->transferPB, SIGNAL(clicked()), this, SLOT(openTransferPage()));
+    }
 
     //click create push button
     connect(ui->createPB, SIGNAL(clicked()), this, SLOT(checkCreateAccount()));
 
     //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
-
 
 }
 CreateBankAccount::~CreateBankAccount() {
@@ -51,6 +52,7 @@ void CreateBankAccount::hideError() {
     ui->balanceError->hide();
     ui->fourDigitPasswordError->hide();
     ui->fixedPasswordError->hide();
+    ui->createNewBankAccountError->hide();
 }
 
 void CreateBankAccount::checkCreateAccount() {
@@ -61,8 +63,10 @@ void CreateBankAccount::checkCreateAccount() {
     //for not changing checkError from false to true
 
     //if user has less than 5 bank accounts
-    if (users.getBankAccountNum() >= 5)
-        checkError = false;
+    if (users.getBankAccountNum() >= 5) {
+        ui->createNewBankAccountError->show();
+        return;
+    }
 
     if (checkBalanceField())
         checkError = false;

@@ -593,6 +593,23 @@ font: 10pt &quot;Tw Cen MT&quot;;
     <string>Accounts Num :</string>
    </property>
   </widget>
+  <widget class="QLabel" name="createNewBankAccountError">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>240</y>
+     <width>181</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);
+font: 7pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>You are unable to create account</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="Panel.qrc"/>

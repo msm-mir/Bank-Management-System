@@ -13,10 +13,17 @@ Transfer::Transfer(User users, QWidget *parent) : QWidget(parent) , ui(new Ui::T
     this->users = users;
     addInfo();
 
-    connect(ui->createNewBankAccountPB, SIGNAL(clicked()), this, SLOT(openCreateBankAccountPage()));
+    //click to open pages
     connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
+    connect(ui->createNewBankAccountPB, SIGNAL(clicked()), this, SLOT(openCreateBankAccountPage()));
+
+    //click view balance push button
     connect(ui->viewBalancePB, SIGNAL(clicked()), this, SLOT(openViewBalancePage()));
+
+    //click continue push button
     connect(ui->continuePB, SIGNAL(clicked()), this, SLOT(openConfirmTransferPage()));
+
+    //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
 }
 Transfer::~Transfer() {

@@ -14,12 +14,19 @@ ConfirmTransfer::ConfirmTransfer(User users, QWidget *parent) : QWidget(parent) 
     this->users = users;
     addInfo();
 
-    connect(ui->createNewBankAccountPB, SIGNAL(clicked()), this, SLOT(openCreateBankAccountPage()));
+    //click to open pages
     connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
     connect(ui->viewBalancePB, SIGNAL(clicked()), this, SLOT(openViewBalancePage()));
     connect(ui->transferPB, SIGNAL(clicked()), this, SLOT(openTransferPage()));
+    connect(ui->createNewBankAccountPB, SIGNAL(clicked()), this, SLOT(openCreateBankAccountPage()));
+
+    //click password request push button
     connect(ui->PasswordReqPB, SIGNAL(clicked()), this, SLOT());
+
+    //click confirm push button
     connect(ui->confirmPB, SIGNAL(clicked()), this, SLOT(openMainPanelPage()));
+
+    //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
 }
 ConfirmTransfer::~ConfirmTransfer() {

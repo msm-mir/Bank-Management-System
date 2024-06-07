@@ -12,9 +12,11 @@ LoginSignin::LoginSignin(User users, QWidget *parent) : QWidget(parent), ui(new 
     this->users = users;
 
     hideError();
+
+    //click to sign up
     connect(ui->signUpPB, SIGNAL(clicked()), this, SLOT(checkSignUp()));
 
-    hideError();
+    //click to log in
     connect(ui->loginPB, SIGNAL(clicked()), this, SLOT(checkLogIn()));
 }
 

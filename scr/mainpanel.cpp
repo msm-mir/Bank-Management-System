@@ -14,10 +14,17 @@ MainPanel::MainPanel(User users, QWidget *parent) : QWidget(parent) , ui(new Ui:
     this->users = users;
     addInfo();
 
+    if (users.getBankAccountNum() != 0) {
+        //click to open pages
+        connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
+        connect(ui->viewBalancePB, SIGNAL(clicked()), this, SLOT(openViewBalancePage()));
+        connect(ui->transferPB, SIGNAL(clicked()), this, SLOT(openTransferPage()));
+    }
+
+    //click to open page
     connect(ui->createNewBankAccountPB, SIGNAL(clicked()), this, SLOT(openCreateBankAccountPage()));
-    connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
-    connect(ui->viewBalancePB, SIGNAL(clicked()), this, SLOT(openViewBalancePage()));
-    connect(ui->transferPB, SIGNAL(clicked()), this, SLOT(openTransferPage()));
+
+    //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
 }
 MainPanel::~MainPanel() {

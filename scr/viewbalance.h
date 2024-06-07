@@ -24,6 +24,8 @@ private slots:
     void openLogoutPage();
 public:
     User users;
+    BankAccount bankAccounts;
+    Card cards;
 
     explicit ViewBalance(User, QWidget *parent = nullptr);
     ~ViewBalance();
