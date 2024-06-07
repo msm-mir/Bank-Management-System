@@ -74,24 +74,6 @@ color: rgb(0, 0, 0);</string>
     <string>Create New Bank Account</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="cardNumberLE">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>228</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(158, 255, 174);
-color: rgb(0, 0, 0);
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QPushButton" name="logoutPB">
    <property name="geometry">
     <rect>
@@ -236,7 +218,7 @@ font: 10pt &quot;MRT_Sozar&quot;;
   <widget class="QLabel" name="balanceST">
    <property name="geometry">
     <rect>
-     <x>250</x>
+     <x>240</x>
      <y>285</y>
      <width>141</width>
      <height>31</height>
@@ -401,6 +383,26 @@ font: 10pt &quot;Tw Cen MT&quot;;
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cardNumberCB">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>230</y>
+     <width>151</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 255, 21);
+selection-background-color: rgb(36, 36, 36);
+background-color: rgb(36, 36, 36);
+font: 9pt &quot;MRT_Sozar&quot;;
+selection-color: rgb(0, 255, 21);</string>
    </property>
   </widget>
  </widget>

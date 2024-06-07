@@ -18,6 +18,7 @@ private:
     Ui::ViewBalance *ui;
 private slots:
     void addInfo();
+    void viewBalancePBClick();
     void openCreateBankAccountPage();
     void openChangePasswordPage();
     void openTransferPage();

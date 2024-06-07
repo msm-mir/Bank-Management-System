@@ -2,6 +2,7 @@
 #include "ui_viewbalance.h"
 #include "user.h"
 #include "loginsignin.h"
+#include "mainpanel.h"
 #include "createbankaccount.h"
 #include "changepassword.h"
 #include "transfer.h"
@@ -10,13 +11,17 @@ ViewBalance::ViewBalance(User users, QWidget *parent) : QWidget(parent) , ui(new
     ui->setupUi(this);
 
     this->users = users;
+    this->bankAccounts = users.getSingleBankAccount(users.getBankAccountNum() - 1);
+    this->cards = users.getSingleBankAccount(users.getBankAccountNum() - 1).getBankCard();
     addInfo();
 
     //click to open pages
     connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
     connect(ui->transferPB, SIGNAL(clicked()), this, SLOT(openTransferPage()));
-    connect(ui->viewBalancePB, SIGNAL(clicked()), this, SLOT());
     connect(ui->createNewBankAccountPB, SIGNAL(clicked()), this, SLOT(openCreateBankAccountPage()));
+
+    //click view balance push button
+    connect(ui->balancePB, SIGNAL(clicked()), this, SLOT(viewBalancePBClick()));
 
     //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
@@ -24,27 +29,45 @@ ViewBalance::ViewBalance(User users, QWidget *parent) : QWidget(parent) , ui(new
 ViewBalance::~ViewBalance() {
     delete ui;
 }
+
 void ViewBalance::addInfo() {
     ui->firstNameST->setText(users.getName());
     ui->lastNameST->setText(users.getFamily());
     ui->nationalCodeST->setText(users.getNationalCode());
     ui->ageST->setText(QString::number(users.getAge()));
+
+    //card number combo box
+    for (int i = 0; i < users.getBankAccountNum(); i++) {
+        ui->cardNumberCB->addItem(users.getSingleBankAccount(i).getBankCard().getCardNumber());
+    }
 }
+
+void ViewBalance::viewBalancePBClick() {
+    for (int i = 0; i < users.getBankAccountNum(); i++) {
+        if (users.getSingleBankAccount(i).getBankCard().getCardNumber() == ui->cardNumberCB->currentText()) {
+            ui->balanceST->setText(users.getSingleBankAccount(i).getBalance());
+        }
+    }
+}
+
 void ViewBalance::openCreateBankAccountPage() {
     CreateBankAccount *np = new CreateBankAccount(users);
     np->show();
     this->close();
 }
+
 void ViewBalance::openChangePasswordPage() {
     ChangePassword *np = new ChangePassword(users);
     np->show();
     this->close();
 }
+
 void ViewBalance::openTransferPage() {
     Transfer *np = new Transfer(users);
     np->show();
     this->close();
 }
+
 void ViewBalance::openLogoutPage() {
     LoginSignin *np = new LoginSignin(users);
     np->show();

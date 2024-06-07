@@ -14,8 +14,8 @@ MainPanel::MainPanel(User users, QWidget *parent) : QWidget(parent) , ui(new Ui:
     this->users = users;
     addInfo();
 
+    //click to open pages
     if (users.getBankAccountNum() != 0) {
-        //click to open pages
         connect(ui->changePasswordPB, SIGNAL(clicked()), this, SLOT(openChangePasswordPage()));
         connect(ui->viewBalancePB, SIGNAL(clicked()), this, SLOT(openViewBalancePage()));
         connect(ui->transferPB, SIGNAL(clicked()), this, SLOT(openTransferPage()));

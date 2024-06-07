@@ -11,10 +11,8 @@ ChangePassword::ChangePassword(User users, QWidget *parent) : QWidget(parent) , 
     ui->setupUi(this);
 
     this->users = users;
-    if (users.getBankAccountNum() != 0) {
-        this->bankAccounts = users.getSingleBankAccount(users.getBankAccountNum() - 1);
-        this->cards = users.getSingleBankAccount(users.getBankAccountNum() - 1).getBankCard();
-    }
+    this->bankAccounts = users.getSingleBankAccount(users.getBankAccountNum() - 1);
+    this->cards = users.getSingleBankAccount(users.getBankAccountNum() - 1).getBankCard();
     addInfo();
 
     hideError();
@@ -103,7 +101,7 @@ bool ChangePassword::checkNew4DigitPasswordField() {
         return true;
     }
     else if (equal4DigitPassword(ui->new4DigitPasswordLE->text())) {
-        ui->new4DigitPasswordError->setText("This field is duplicate");
+        ui->new4DigitPasswordError->setText("This password is already available");
         ui->new4DigitPasswordError->show();
         return true;
     }
@@ -122,7 +120,7 @@ bool ChangePassword::checkNewFixedPasswordField() {
         return true;
     }
     else if (equalFixedPassword(ui->newFixedPasswordLE->text())) {
-        ui->newFixedPasswordError->setText("This field is duplicate");
+        ui->newFixedPasswordError->setText("This password is already available");
         ui->newFixedPasswordError->show();
         return true;
     }
