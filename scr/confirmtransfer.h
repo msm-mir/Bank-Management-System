@@ -21,18 +21,38 @@ private slots:
     void openChangePasswordPage();
     void openViewBalancePage();
     void openTransferPage();
-    void openMainPanelPage();
+    void passwordReqPBClick();
+    void checkConfirmTransfer();
     void openLogoutPage();
 public:
-    User users;
-    BankAccount bankAccounts;
-    Card cards;
-    int bankAccountIdx;
+    User originUser;
+    BankAccount originBankAccount;
+    Card originCard;
+    int originBankAccountIdx;
 
-    explicit ConfirmTransfer(User, QWidget *parent = nullptr);
+    User destiUser;
+    BankAccount destiBankAccount;
+    Card destiCard;
+    int destiBankAccountIdx;
+
+    long long int amount;
+
+    explicit ConfirmTransfer(User, int, QString, long long int, QWidget *parent = nullptr);
     ~ConfirmTransfer();
 
+    void setUsersDataToThis(User, int, QString, long long int);
     void addInfo();
+    void confirmPBClick();
+    void hideError();
+    bool checkCvv2Field();
+    bool checkFixedPasswordField();
+    bool checkOneTimePasswordField();
+    bool checkNumber(QString);
+    bool checkCvv2(QString);
+    bool checkFixedPassword(QString);
+    bool checkOneTimePassword(QString);
+    tm getCurrentTime();
+    void setUsersTransferData();
 };
 
 #endif // CONFIRMTRANSFER_H

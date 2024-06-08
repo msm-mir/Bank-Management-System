@@ -10,8 +10,6 @@
 
 #include <bits/stdc++.h>
 #include <ctime>
-#include <vector>
-#include <iostream>
 
 using namespace std;
 
@@ -64,32 +62,21 @@ void CardInfo::createCardNumber() {
     string nationalCode = users.getNationalCode().toStdString();
 
     srand(time(0));
-    vector<int> arr;
+    random_shuffle(nationalCode.begin(), nationalCode.end());
 
-    for (int i = 0; i < 10; i++)
-        arr.push_back(nationalCode[i] - 48);
-
-    random_shuffle(arr.begin(), arr.end());
-
-    for (int i = 0; i < 10; i++)
-        cardNumber += arr[i] + 48;
+    cardNumber += nationalCode;
 
     ui->cardNumberST->setText(QString::fromStdString(cardNumber));
 }
 
 void CardInfo::createAccountNumber() {
-    string accountNumber = "";
-
     srand(time(0));
-    vector<int> arr = {0,1,2,3,4,5,6,7,8,9};
 
-    random_shuffle(arr.begin(), arr.end());
-    for (int i = 0; i < 10; i++)
-        accountNumber += arr[i] + 48;
+    string accountNumber = "00112233445566778899";
+    random_shuffle(accountNumber.begin(), accountNumber.end());
 
-    random_shuffle(arr.begin(), arr.end());
-    for (int i = 0; i < 3; i++)
-        accountNumber += arr[i] + 48;
+    for (int i = 0; i < 7; i++)
+        accountNumber.pop_back();
 
     ui->accountNumberST->setText(QString::fromStdString(accountNumber));
     createCardIbanNumber(accountNumber);
@@ -108,14 +95,13 @@ void CardInfo::createCardIbanNumber(string accountNumber) {
 }
 
 void CardInfo::createCardCvv2() {
-    string cvv2 = "";
+    string cvv2 = "0123456789";
 
     srand(time(0));
-    vector<int> arr = {0,1,2,3,4,5,6,7,8,9};
+    random_shuffle(cvv2.begin(), cvv2.end());
 
-    random_shuffle(arr.begin(), arr.end());
-    for (int i = 0; i < 4; i++)
-        cvv2 += arr[i] + 48;
+    for (int i = 0; i < 6; i++)
+        cvv2.pop_back();
 
     ui->cvv2ST->setText(QString::fromStdString(cvv2));
 }

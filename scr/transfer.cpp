@@ -46,10 +46,10 @@ void Transfer::addInfo() {
     }
 }
 
-void Transfer::confirmPBClick() {
+void Transfer::continuePBClick() {
     setUserTransferData();
 
-    ConfirmTransfer *np = new ConfirmTransfer(users);
+    ConfirmTransfer *np = new ConfirmTransfer(users, bankAccountIdx, ui->destiCardNumberLE->text(), ui->amountLE->text().toLongLong());
     np->show();
     this->close();
 }
@@ -83,7 +83,7 @@ void Transfer::checkTransfer() {
         checkError = false;
 
     if (checkError) {
-        confirmPBClick();
+        continuePBClick();
     }
 }
 
@@ -98,7 +98,7 @@ void Transfer::setIdx() {
 
 bool Transfer::checkSameCardNumbers() {
     if (ui->originCardNumberCB->currentText() == ui->destiCardNumberLE->text()) {
-        ui->destiCardNmuberError->setText("Origin and destination card number can't be the same");
+        ui->destiCardNmuberError->setText("Card numbers can't be the same");
         ui->destiCardNmuberError->show();
         return true;
     }
@@ -155,7 +155,7 @@ bool Transfer::checkAmountField() {
         return true;
     }
     else if (checkAmount(ui->amountLE->text().toLongLong())) {
-        ui->amountError->setText("This field must be lower than 3,000,000T");
+        ui->amountError->setText("This field must be less than 3,000,000T");
         ui->amountError->show();
         return true;
     }

@@ -115,9 +115,6 @@ bool User::uniqueUsername(QString username) {
 }
 
 void User::setUserInfo(QString username, QString password) {
-    this->setUniqueUsername(username);
-    this->setPassword(password);
-
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
         if (tmp->getData().getUniqueUsername() == username)
@@ -126,6 +123,8 @@ void User::setUserInfo(QString username, QString password) {
                 this->setFamily(tmp->getData().getFamily());
                 this->setNationalCode(tmp->getData().getNationalCode());
                 this->setAge(tmp->getData().getAge());
+                this->setUniqueUsername(username);
+                this->setPassword(password);
                 return;
             }
         tmp = tmp->getNextNode();
@@ -178,4 +177,28 @@ bool User::isBeforeNow(const tm& date) {
     time_t now = time(nullptr);
     time_t inputTime = mktime(const_cast<tm*>(&date));
     return inputTime < now;
+}
+
+int User::findDestiUserIdx(QString cardNumber) {
+    Node<User> *tmp = listUsers.getHeadNode();
+    while (tmp) {
+        for (int i = 0; i < tmp->getData().getBankAccountNum(); i++) {
+            if (tmp->getData().getSingleBankAccount(i).getBankCard().getCardNumber() == cardNumber) {
+                return i;
+            }
+        }
+        tmp = tmp->getNextNode();
+    }
+}
+
+User User::findDestiUser(QString cardNumber) {
+    Node<User> *tmp = listUsers.getHeadNode();
+    while (tmp) {
+        for (int i = 0; i < tmp->getData().getBankAccountNum(); i++) {
+            if (tmp->getData().getSingleBankAccount(i).getBankCard().getCardNumber() == cardNumber) {
+                return tmp->getData();
+            }
+        }
+        tmp = tmp->getNextNode();
+    }
 }

@@ -32,7 +32,7 @@ public:
     ~Transfer();
 
     void addInfo();
-    void confirmPBClick();
+    void continuePBClick();
     void hideError();
     void setIdx();
     bool checkSameCardNumbers();

@@ -50,6 +50,8 @@ public:
     bool findCardNumber(QString);
     bool checkDestiExpire(QString);
     bool isBeforeNow(const tm&);
+    int findDestiUserIdx(QString);
+    User findDestiUser(QString);
 };
 
 #endif // USER_H
