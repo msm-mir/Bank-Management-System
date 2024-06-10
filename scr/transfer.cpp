@@ -14,6 +14,9 @@ using namespace std;
 Transfer::Transfer(User users, QWidget *parent) : QWidget(parent) , ui(new Ui::Transfer) {
     ui->setupUi(this);
 
+    //disable maximize
+    setWindowFlags(windowFlags() & ~Qt::WindowMaximizeButtonHint);
+
     this->users = users;
     addInfo();
 
@@ -25,10 +28,17 @@ Transfer::Transfer(User users, QWidget *parent) : QWidget(parent) , ui(new Ui::T
     connect(ui->viewBalancePB, SIGNAL(clicked()), this, SLOT(openViewBalancePage()));
 
     //click continue push button
-    connect(ui->continuePB, SIGNAL(clicked()), this, SLOT(checkTransfer()));
+    connect(ui->continuePB, SIGNAL(clicked()), this, SLOT(confirmTransferPBClick()));
 
     //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
+
+    //click enter for log in
+    connect(ui->destiCardNumberLE, SIGNAL(returnPressed()), ui->continuePB, SLOT(click()));
+    connect(ui->amountLE, SIGNAL(returnPressed()), ui->continuePB, SLOT(click()));
+
+    //set cursor
+    ui->originCardNumberCB->setFocus();
 }
 Transfer::~Transfer() {
     delete ui;
@@ -46,21 +56,13 @@ void Transfer::addInfo() {
     }
 }
 
-void Transfer::continuePBClick() {
-    setUserTransferData();
-
-    ConfirmTransfer *np = new ConfirmTransfer(users, bankAccountIdx, ui->destiCardNumberLE->text(), ui->amountLE->text().toLongLong());
-    np->show();
-    this->close();
-}
-
 void Transfer::hideError() {
     ui->originCardNumberError->hide();
     ui->destiCardNmuberError->hide();
     ui->amountError->hide();
 }
 
-void Transfer::checkTransfer() {
+void Transfer::confirmTransferPBClick() {
     hideError();
 
     bool checkError = true;
@@ -83,7 +85,7 @@ void Transfer::checkTransfer() {
         checkError = false;
 
     if (checkError) {
-        continuePBClick();
+        openConfirmTransferPage();
     }
 }
 
@@ -201,7 +203,7 @@ bool Transfer::checkNumber(QString text) {
 }
 
 bool Transfer::checkBalance(long long int amount) {
-    if (bankAccounts.getBalance() >= amount)
+    if (bankAccounts.getBalance() >= amount + (amount * 0.0001))
         return false;
     return true;
 }
@@ -215,13 +217,19 @@ bool Transfer::checkAmount(long long int amount) {
 bool Transfer::check24HourTransfer(long long int amount) {
     tm last24HourDate = calculatePastDate(24);
 
-    if (isBefore(last24HourDate, bankAccounts.getLastTransferDate())) {
+    if (isAfter(bankAccounts.getLastTransferDate(), last24HourDate)) {
         if (bankAccounts.getLastTransferAmount() + amount > 6000000) {
             return true;
         }
     }
 
     return false;
+}
+
+void Transfer::openConfirmTransferPage() {
+    ConfirmTransfer *np = new ConfirmTransfer(users, bankAccountIdx, ui->destiCardNumberLE->text(), ui->amountLE->text().toLongLong());
+    np->show();
+    this->close();
 }
 
 void Transfer::openCreateBankAccountPage() {
@@ -266,19 +274,8 @@ bool Transfer::isBeforeNow(const tm& date) {
     return inputTime < now;
 }
 
-bool Transfer::isBefore(const tm& time12, const tm& time22) {
+bool Transfer::isAfter(const tm& time12, const tm& time22) {
     time_t time11 = mktime(const_cast<tm*>(&time12));
     time_t time21 = mktime(const_cast<tm*>(&time22));
     return time21 < time11;
-}
-
-void Transfer::setUserTransferData() {
-    //set to bank account
-    bankAccounts.setBankCard(cards);
-
-    //set to user
-    users.setSingleBankAccount(bankAccounts, bankAccountIdx);
-
-    //set to list of users
-    users.updateUserDataInList(users.getNationalCode());
 }

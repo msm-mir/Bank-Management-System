@@ -4,10 +4,19 @@
 #include "user.h"
 #include "mainpanel.h"
 
+#include <QApplication>
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QLineEdit>
+
 using namespace std;
 
 LoginSignin::LoginSignin(User users, QWidget *parent) : QWidget(parent), ui(new Ui::LoginSignin) {
     ui->setupUi(this);
+
+    //disable maximize
+    setWindowFlags(windowFlags() & ~Qt::WindowMaximizeButtonHint);
 
     this->users = users;
 
@@ -18,6 +27,26 @@ LoginSignin::LoginSignin(User users, QWidget *parent) : QWidget(parent), ui(new 
 
     //click to log in
     connect(ui->loginPB, SIGNAL(clicked()), this, SLOT(checkLogIn()));
+
+
+    //click enter for sign up
+    connect(ui->firstNameLE, SIGNAL(returnPressed()), ui->signUpPB, SLOT(click()));
+    connect(ui->lastNameLE, SIGNAL(returnPressed()), ui->signUpPB, SLOT(click()));
+    connect(ui->nationalCodeLE, SIGNAL(returnPressed()), ui->signUpPB, SLOT(click()));
+    connect(ui->ageLE, SIGNAL(returnPressed()), ui->signUpPB, SLOT(click()));
+    connect(ui->signUpUsernameLE, SIGNAL(returnPressed()), ui->signUpPB, SLOT(click()));
+    connect(ui->signUpPasswordLE, SIGNAL(returnPressed()), ui->signUpPB, SLOT(click()));
+
+    //click enter for log in
+    connect(ui->loginUsernameLE, SIGNAL(returnPressed()), ui->loginPB, SLOT(click()));
+    connect(ui->loginPasswordLE, SIGNAL(returnPressed()), ui->loginPB, SLOT(click()));
+
+    //secure password
+    connect(ui->showSignupPassword, SIGNAL(clicked()), this, SLOT(showSignupPasswordClicked()));
+    connect(ui->showLoginPassword, SIGNAL(clicked()), this, SLOT(showLoginPasswordClicked()));
+
+    //set cursor
+    ui->firstNameLE->setFocus();
 }
 
 LoginSignin::~LoginSignin() {
@@ -25,19 +54,17 @@ LoginSignin::~LoginSignin() {
 }
 
 void LoginSignin::signUpPBClick() {
-    users.setName(ui->firstNameLE->text());
-    users.setFamily(ui->lastNameLE->text());
-    users.setNationalCode(ui->nationalCodeLE->text());
-    users.setAge(ui->ageLE->text().toInt());
-    users.setUniqueUsername(ui->signUpUsernameLE->text());
-    users.setPassword(ui->signUpPasswordLE->text());
-
+    setUserData();
     users.addUser();
-
     clearLineEdits();
+
+    //set cursor
+    ui->loginUsernameLE->setFocus();
 }
 
 void LoginSignin::logInPBClick() {
+    users.setUserInfo(ui->loginUsernameLE->text());
+
     MainPanel *np = new MainPanel(users);
     np->show();
     this->close();
@@ -67,7 +94,7 @@ void LoginSignin::checkSignUp() {
         checkError = false;
     if (checkNationalCodeField())
         checkError = false;
-    if (checkAgeField() == false)
+    if (checkAgeField())
         checkError = false;
     if (checkSignupUsernameField())
         checkError = false;
@@ -90,11 +117,149 @@ void LoginSignin::checkLogIn() {
     if (checkLoginPasswordField())
         checkError = false;
 
-    users.setUserInfo(ui->loginUsernameLE->text(), ui->loginPasswordLE->text());
-
     if (checkError) {
         logInPBClick();
     }
+}
+
+bool LoginSignin::checkFirstNameField() {
+    if (ui->firstNameLE->text() == "") {
+        ui->firstNameError->setText("This field is empty");
+        ui->firstNameError->show();
+        return true;
+    }
+    else if (checkName(ui->firstNameLE->text())) {
+        ui->firstNameError->setText("This field is invalid");
+        ui->firstNameError->show();
+        return true;
+    }
+    return false;
+}
+
+bool LoginSignin::checkLastNameField() {
+    if (ui->lastNameLE->text() == "") {
+        ui->lastNameError->setText("This field is empty");
+        ui->lastNameError->show();
+        return true;
+    }
+    else if (checkName(ui->lastNameLE->text())) {
+        ui->lastNameError->setText("This field is invalid");
+        ui->lastNameError->show();
+        return true;
+    }
+    return false;
+}
+
+bool LoginSignin::checkNationalCodeField() {
+    if (ui->nationalCodeLE->text() == "") {
+        ui->nationalCodeError->setText("This field is empty");
+        ui->nationalCodeError->show();
+        return true;
+    }
+    else if (checkNationalCode(ui->nationalCodeLE->text())) {
+        ui->nationalCodeError->setText("This field is invalid");
+        ui->nationalCodeError->show();
+        return true;
+    }
+    else if (users.uniqueNationalCode(ui->nationalCodeLE->text())) {
+        ui->nationalCodeError->setText("The national code already exists");
+        ui->nationalCodeError->show();
+        if (users.uniqueName(ui->firstNameLE->text())) {
+            ui->firstNameError->setText("The first name already exists");
+            ui->firstNameError->show();
+        }
+        if (users.uniqueFamily(ui->lastNameLE->text())) {
+            ui->lastNameError->setText("The last name already exists");
+            ui->lastNameError->show();
+        }
+        return true;
+    }
+    return false;
+}
+
+bool LoginSignin::checkAgeField() {
+    if (ui->ageLE->text() == "") {
+        ui->ageError->setText("This field is empty");
+        ui->ageError->show();
+        return true;
+    }
+    else if (checkAge(ui->ageLE->text())) {
+        ui->ageError->setText("This field is invalid");
+        ui->ageError->show();
+        return true;
+    }
+    return false;
+}
+
+bool LoginSignin::checkSignupUsernameField() {
+    if (ui->signUpUsernameLE->text() == "") {
+        ui->signupUsernameError->setText("This field is empty");
+        ui->signupUsernameError->show();
+        return true;
+    }
+    else if (checkString(ui->signUpUsernameLE->text())) {
+        ui->signupUsernameError->setText("This field is invalid");
+        ui->signupUsernameError->show();
+        return true;
+    }
+    else if (users.uniqueUsername(ui->signUpUsernameLE->text())) {
+        ui->signupUsernameError->setText("The username already exists");
+        ui->signupUsernameError->show();
+        return true;
+    }
+    return false;
+}
+
+bool LoginSignin::checkSignupPasswordField() {
+    if (ui->signUpPasswordLE->text() == "") {
+        ui->signupPasswordError->setText("This field is empty");
+        ui->signupPasswordError->show();
+        return true;
+    }
+    else if (checkString(ui->signUpPasswordLE->text())) {
+        ui->signupPasswordError->setText("This field is invalid");
+        ui->signupPasswordError->show();
+        return true;
+    }
+    return false;
+}
+
+bool LoginSignin::checkLoginUsernameField() {
+    if (ui->loginUsernameLE->text() == "") {
+        ui->loginUsernameError->setText("This field is empty");
+        ui->loginUsernameError->show();
+        return true;
+    }
+    else if (checkString(ui->loginUsernameLE->text())) {
+        ui->loginUsernameError->setText("This field is invalid");
+        ui->loginUsernameError->show();
+        return true;
+    }
+    else if (users.loginFind(ui->loginUsernameLE->text(), ui->loginPasswordLE->text()) == "non-existence of username") {
+        ui->loginUsernameError->setText("The username doesn't exist");
+        ui->loginUsernameError->show();
+        return true;
+    }
+    return false;
+}
+
+bool LoginSignin::checkLoginPasswordField() {
+    if (ui->loginPasswordLE->text() == "") {
+        ui->loginPasswordError->setText("This field is empty");
+        ui->loginPasswordError->show();
+        return true;
+    }
+    else if (checkString(ui->loginPasswordLE->text())) {
+        ui->loginPasswordError->setText("This field is invalid");
+        ui->loginPasswordError->show();
+        return true;
+    }
+    else if (users.loginFind(ui->loginUsernameLE->text(), ui->loginPasswordLE->text()) == "incorrect password") {
+        ui->loginPasswordError->setText("The password is incorrect");
+        ui->loginPasswordError->show();
+        return true;
+    }
+    return false;
 }
 
 bool LoginSignin::checkString(QString text) {
@@ -164,152 +329,36 @@ void LoginSignin::clearLineEdits() {
     ui->signUpPasswordLE->clear();
 }
 
-bool LoginSignin::checkFirstNameField() {
-    if (ui->firstNameLE->text() == "") {
-        ui->firstNameError->setText("This field is empty");
-        ui->firstNameError->show();
-        return true;
+void LoginSignin::setUserData() {
+    users.setName(ui->firstNameLE->text());
+    users.setFamily(ui->lastNameLE->text());
+    users.setNationalCode(ui->nationalCodeLE->text());
+    users.setAge(ui->ageLE->text().toInt());
+    users.setUniqueUsername(ui->signUpUsernameLE->text());
+    users.setPassword(ui->signUpPasswordLE->text());
+
+    BankAccount bankAccount;
+    for (int i = 0; i < users.getBankAccountNum(); i++) {
+        users.setSingleBankAccount(bankAccount, i);
     }
-    else if (checkName(ui->firstNameLE->text())) {
-        ui->firstNameError->setText("This field is invalid");
-        ui->firstNameError->show();
-        return true;
-    }
-    return false;
+
+    users.setBankAccountNum(0);
 }
 
-bool LoginSignin::checkLastNameField() {
-    if (ui->lastNameLE->text() == "") {
-        ui->lastNameError->setText("This field is empty");
-        ui->lastNameError->show();
-        return true;
+void LoginSignin::showSignupPasswordClicked() {
+    if (ui->signUpPasswordLE->echoMode() == QLineEdit::Normal) {
+        ui->signUpPasswordLE->setEchoMode(QLineEdit::Password);
     }
-    else if (checkName(ui->lastNameLE->text())) {
-        ui->lastNameError->setText("This field is invalid");
-        ui->lastNameError->show();
-        return true;
+    else {
+        ui->signUpPasswordLE->setEchoMode(QLineEdit::Normal);
     }
-    return false;
 }
 
-bool LoginSignin::checkNationalCodeField() {
-    if (ui->nationalCodeLE->text() == "") {
-        ui->nationalCodeError->setText("This field is empty");
-        ui->nationalCodeError->show();
-        return true;
+void LoginSignin::showLoginPasswordClicked() {
+    if (ui->loginPasswordLE->echoMode() == QLineEdit::Normal) {
+        ui->loginPasswordLE->setEchoMode(QLineEdit::Password);
     }
-    else if (checkNationalCode(ui->nationalCodeLE->text())) {
-        ui->nationalCodeError->setText("This field is invalid");
-        ui->nationalCodeError->show();
-        return true;
+    else {
+        ui->loginPasswordLE->setEchoMode(QLineEdit::Normal);
     }
-    else if (users.uniqueNationalCode(ui->nationalCodeLE->text())) {
-        ui->nationalCodeError->setText("The national code already exists");
-        ui->nationalCodeError->show();
-        if (users.uniqueName(ui->firstNameLE->text()) || users.uniqueFamily(ui->lastNameLE->text())) {
-            if (users.uniqueName(ui->firstNameLE->text())) {
-                ui->firstNameError->setText("The first name already exists");
-                ui->firstNameError->show();
-            }
-            if (users.uniqueFamily(ui->lastNameLE->text())) {
-                ui->lastNameError->setText("The last name already exists");
-                ui->lastNameError->show();
-            }
-        }
-        return true;
-    }
-    return false;
-}
-
-bool LoginSignin::checkAgeField() {
-    if (ui->ageLE->text() == "") {
-        ui->ageError->setText("This field is empty");
-        ui->ageError->show();
-        return true;
-    }
-    else if (checkAge(ui->ageLE->text())) {
-        ui->ageError->setText("This field is invalid");
-        ui->ageError->show();
-        return true;
-    }
-    return false;
-}
-
-bool LoginSignin::checkSignupUsernameField() {
-    if (ui->signUpUsernameLE->text() == "") {
-        ui->signupUsernameError->setText("This field is empty");
-        ui->signupUsernameError->show();
-        return true;
-    }
-    else if (checkString(ui->signUpUsernameLE->text())) {
-        ui->signupUsernameError->setText("This field is invalid");
-        ui->signupUsernameError->show();
-        return true;
-    }
-    else if (users.uniqueUsername(ui->signUpUsernameLE->text())) {
-        ui->signupUsernameError->setText("The username already exists");
-        ui->signupUsernameError->show();
-        return true;
-    }
-    return false;
-}
-
-bool LoginSignin::checkSignupPasswordField() {
-    if (ui->signUpPasswordLE->text() == "") {
-        ui->signupPasswordError->setText("This field is empty");
-        ui->signupPasswordError->show();
-        return true;
-    }
-    else if (checkString(ui->signUpPasswordLE->text())) {
-        ui->signupPasswordError->setText("This field is invalid");
-        ui->signupPasswordError->show();
-        return true;
-    }
-    return false;
-}
-
-bool LoginSignin::checkLoginUsernameField() {
-    QString username = ui->loginUsernameLE->text();
-    QString password = ui->loginPasswordLE->text();
-    QString output = users.loginFind(username, password);
-
-    if (ui->loginUsernameLE->text() == "") {
-        ui->loginUsernameError->setText("This field is empty");
-        ui->loginUsernameError->show();
-        return true;
-    }
-    else if (checkString(ui->loginUsernameLE->text())) {
-        ui->loginUsernameError->setText("This field is invalid");
-        ui->loginUsernameError->show();
-        return true;
-    }
-    else if (output == "non-existence of username") {
-        ui->loginUsernameError->setText("The username doesn't exist");
-        ui->loginUsernameError->show();
-        return true;
-    }
-    return false;
-}
-
-bool LoginSignin::checkLoginPasswordField() {
-    QString username = ui->loginUsernameLE->text();
-    QString password = ui->loginPasswordLE->text();
-    QString output = users.loginFind(username, password);
-
-    if (ui->loginPasswordLE->text() == "") {
-        ui->loginPasswordError->setText("This field is empty");
-        ui->loginPasswordError->show();
-        return true;
-    }
-    else if (checkString(ui->loginPasswordLE->text())) {
-        ui->loginPasswordError->setText("This field is invalid");
-        ui->loginPasswordError->show();
-        return true;
-    }
-    else if (output == "incorrect password") {
-        ui->loginPasswordError->setText("The password is incorrect");
-        ui->loginPasswordError->show();
-        return true;
-    }
-    return false;
 }

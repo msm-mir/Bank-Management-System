@@ -17,7 +17,7 @@ class Transfer : public QWidget
 private:
     Ui::Transfer *ui;
 private slots:
-    void checkTransfer();
+    void confirmTransferPBClick();
     void openCreateBankAccountPage();
     void openChangePasswordPage();
     void openViewBalancePage();
@@ -32,7 +32,7 @@ public:
     ~Transfer();
 
     void addInfo();
-    void continuePBClick();
+    void openConfirmTransferPage();
     void hideError();
     void setIdx();
     bool checkSameCardNumbers();
@@ -47,10 +47,8 @@ public:
     bool check24HourTransfer(long long int);
     tm getCurrentTime();
     tm calculatePastDate(int);
-    tm calculateFutureDate(int);
     bool isBeforeNow(const tm&);
-    bool isBefore(const tm&, const tm&);
-    void setUserTransferData();
+    bool isAfter(const tm&, const tm&);
 };
 
 #endif // TRANSFER_H

@@ -72,7 +72,11 @@ font: 10pt &quot;MRT_Sozar&quot;;
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 255, 21);
 background-color: rgb(36, 36, 36);
-font: 9pt &quot;MRT_Sozar&quot;;</string>
+font: 9pt &quot;MRT_Sozar&quot;;
+border-color: 1px ,rgb(0, 0, 0);
+border-radius: 8px;
+border : 1px solid #000000;
+</string>
    </property>
    <property name="text">
     <string>Log out</string>
@@ -181,10 +185,13 @@ font: 12pt &quot;Tw Cen MT&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 255, 21);
-selection-background-color: rgb(36, 36, 36);
 background-color: rgb(36, 36, 36);
 font: 9pt &quot;MRT_Sozar&quot;;
-selection-color: rgb(0, 255, 21);</string>
+border-color: 1px ,rgb(0, 0, 0);
+border-radius: 5px;
+border : 1px solid #000000;
+padding: 5px 5px;
+</string>
    </property>
    <item>
     <property name="text">
@@ -231,7 +238,11 @@ font: 12pt &quot;Tw Cen MT&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 255, 174);
+border-color: 1px ,rgb(0, 0, 0);
 color: rgb(0, 0, 0);
+border-radius: 8px;
+padding: 5px 5px;
+border : 1px solid #000000;
 </string>
    </property>
    <property name="text">
@@ -250,10 +261,17 @@ color: rgb(0, 0, 0);
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 255, 21);
 background-color: rgb(36, 36, 36);
-font: 9pt &quot;MRT_Sozar&quot;;</string>
+font: 9pt &quot;MRT_Sozar&quot;;
+border-color: 1px ,rgb(0, 0, 0);
+border-radius: 8px;
+border : 1px solid #000000;
+</string>
    </property>
    <property name="text">
     <string>Create</string>
@@ -297,7 +315,11 @@ font: 12pt &quot;Tw Cen MT&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 255, 174);
+border-color: 1px ,rgb(0, 0, 0);
 color: rgb(0, 0, 0);
+border-radius: 8px;
+padding: 5px 5px;
+border : 1px solid #000000;
 </string>
    </property>
   </widget>
@@ -312,7 +334,11 @@ color: rgb(0, 0, 0);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 255, 174);
+border-color: 1px ,rgb(0, 0, 0);
 color: rgb(0, 0, 0);
+border-radius: 8px;
+padding: 5px 5px;
+border : 1px solid #000000;
 </string>
    </property>
    <property name="text">

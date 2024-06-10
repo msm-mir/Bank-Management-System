@@ -16,7 +16,10 @@ using namespace std;
 ConfirmTransfer::ConfirmTransfer(User originUser, int originBankAccountIdx, QString destiCardNumber, long long int amount, QWidget *parent) : QWidget(parent) , ui(new Ui::ConfirmTransfer) {
     ui->setupUi(this);
 
-    setUsersDataToThis(originUser, originBankAccountIdx, destiCardNumber, amount);
+    //disable maximize
+    setWindowFlags(windowFlags() & ~Qt::WindowMaximizeButtonHint);
+
+    initialUsersSet(originUser, originBankAccountIdx, destiCardNumber, amount);
     addInfo();
 
     hideError();
@@ -39,19 +42,28 @@ ConfirmTransfer::ConfirmTransfer(User originUser, int originBankAccountIdx, QStr
     connect(ui->PasswordReqPB, SIGNAL(clicked()), this, SLOT(passwordReqPBClick()));
 
     //click confirm push button
-    connect(ui->confirmPB, SIGNAL(clicked()), this, SLOT(checkConfirmTransfer()));
+    connect(ui->confirmPB, SIGNAL(clicked()), this, SLOT(confirmTransferPBClick()));
 
     //click cancel push button
     connect(ui->cancelPB, SIGNAL(clicked()), this, SLOT(openTransferPage()));
 
     //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
+
+    //click enter for request password
+    connect(ui->cvv2LE, SIGNAL(returnPressed()), ui->PasswordReqPB, SLOT(click()));
+
+    //click enter for confirm
+    connect(ui->passwordLE, SIGNAL(returnPressed()), ui->confirmPB, SLOT(click()));
+
+    //set cursor
+    ui->cvv2LE->setFocus();
 }
 ConfirmTransfer::~ConfirmTransfer() {
     delete ui;
 }
 
-void ConfirmTransfer::setUsersDataToThis(User originUser, int originBankAccountIdx, QString destiCardNumber, long long int amount) {
+void ConfirmTransfer::initialUsersSet(User originUser, int originBankAccountIdx, QString destiCardNumber, long long int amount) {
     this->originBankAccountIdx = originBankAccountIdx;
     this->originUser = originUser;
     this->originBankAccount = originUser.getSingleBankAccount(originBankAccountIdx);
@@ -74,20 +86,12 @@ void ConfirmTransfer::addInfo() {
     ui->amountLE->setText(QString::number(amount) + " T");
 }
 
-void ConfirmTransfer::confirmPBClick() {
-    setUsersTransferData();
-
-    MainPanel *np = new MainPanel(originUser);
-    np->show();
-    this->close();
-}
-
 void ConfirmTransfer::hideError() {
     ui->cvv2Error->hide();
     ui->passwordError->hide();
 }
 
-void ConfirmTransfer::checkConfirmTransfer() {
+void ConfirmTransfer::confirmTransferPBClick() {
     hideError();
 
     bool checkError = true;
@@ -101,7 +105,8 @@ void ConfirmTransfer::checkConfirmTransfer() {
         checkError = false;
 
     if (checkError) {
-        confirmPBClick();
+        finalUsersSet();
+        openMainPanelPage();
     }
 }
 
@@ -243,6 +248,12 @@ void ConfirmTransfer::openTransferPage() {
     this->close();
 }
 
+void ConfirmTransfer::openMainPanelPage() {
+    MainPanel *np = new MainPanel(originUser);
+    np->show();
+    this->close();
+}
+
 void ConfirmTransfer::openLogoutPage() {
     LoginSignin *np = new LoginSignin(originUser);
     np->show();
@@ -254,46 +265,48 @@ tm ConfirmTransfer::getCurrentTime() {
     return *std::localtime(&now);
 }
 
-void ConfirmTransfer::setUsersTransferData() {
-    //set origin card
-    originCard.setOneTimePassword("-");
-    originBankAccount.setBankCard(originCard);
+void ConfirmTransfer::finalUsersSet() {
+    //set origin bank account
+    originBankAccount.setBalance(originBankAccount.getBalance() - amount - (amount * 0.0001));
+
+    //set last transfer information
+    tm last24HourDate = calculatePastDate(24);
+    if (!isAfter(originBankAccount.getLastTransferDate(), last24HourDate)) {
+        originBankAccount.setLastTransferDate(getCurrentTime());
+        originBankAccount.setLastTransferAmount(0);
+    }
+    originBankAccount.setLastTransferAmount(originBankAccount.getLastTransferAmount() + amount);
+
+    originUser.setSingleBankAccount(originBankAccount, originBankAccountIdx);
+
+    //set destination bank account
+    destiBankAccount.setBalance(destiBankAccount.getBalance() + amount);
 
     if (originUser.getNationalCode() == destiUser.getNationalCode()) {
-        //set origin bank account
-        originBankAccount.setBalance(originBankAccount.getBalance() - amount - (amount * 0.0001));
-        originBankAccount.setLastTransferAmount(amount);
-        originBankAccount.setLastTransferDate(getCurrentTime());
-
-        //set origin user
-        originUser.setSingleBankAccount(originBankAccount, originBankAccountIdx);
-
-        //set destination bank account
-        destiBankAccount.setBalance(destiBankAccount.getBalance() + amount);
-
         //set destination user to origin user
         originUser.setSingleBankAccount(destiBankAccount, destiBankAccountIdx);
-
-        //set to list of users
-        originUser.updateUserDataInList(originUser.getNationalCode());
     }
     else {
-        //set origin bank account
-        originBankAccount.setBalance(originBankAccount.getBalance() - amount - (amount * 0.0001));
-        originBankAccount.setLastTransferAmount(amount);
-        originBankAccount.setLastTransferDate(getCurrentTime());
-
-        //set origin user
-        originUser.setSingleBankAccount(originBankAccount, originBankAccountIdx);
-
-        //set destination bank account
-        destiBankAccount.setBalance(destiBankAccount.getBalance() + amount);
-
         //set destination user
         destiUser.setSingleBankAccount(destiBankAccount, destiBankAccountIdx);
 
         //set to list of users
-        originUser.updateUserDataInList(originUser.getNationalCode());
         destiUser.updateUserDataInList(destiUser.getNationalCode());
     }
+
+    //set to list of users
+    originUser.updateUserDataInList(originUser.getNationalCode());
+}
+
+bool ConfirmTransfer::isAfter(const tm& time12, const tm& time22) {
+    time_t time11 = mktime(const_cast<tm*>(&time12));
+    time_t time21 = mktime(const_cast<tm*>(&time22));
+    return time21 < time11;
+}
+
+tm ConfirmTransfer::calculatePastDate(int hours) {
+    tm currentDate = getCurrentTime();
+    currentDate.tm_hour -= hours;
+    mktime(&currentDate);
+    return currentDate;
 }

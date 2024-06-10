@@ -17,6 +17,8 @@ class LoginSignin : public QWidget { Q_OBJECT
 private slots:
     void checkSignUp();
     void checkLogIn();
+    void showSignupPasswordClicked();
+    void showLoginPasswordClicked();
 private:
     Ui::LoginSignin *ui;
 public:
@@ -28,11 +30,6 @@ public:
     void signUpPBClick();
     void logInPBClick();
     void hideError();
-    bool checkString(QString);
-    bool checkName(QString);
-    bool checkAge(QString);
-    bool checkNationalCode(QString);
-    void clearLineEdits();
     bool checkFirstNameField();
     bool checkLastNameField();
     bool checkNationalCodeField();
@@ -41,6 +38,12 @@ public:
     bool checkSignupPasswordField();
     bool checkLoginUsernameField();
     bool checkLoginPasswordField();
+    bool checkString(QString);
+    bool checkName(QString);
+    bool checkAge(QString);
+    bool checkNationalCode(QString);
+    void clearLineEdits();
+    void setUserData();
 };
 
 #endif // LOGINSIGNIN_H

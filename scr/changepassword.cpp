@@ -10,7 +10,12 @@
 ChangePassword::ChangePassword(User users, QWidget *parent) : QWidget(parent) , ui(new Ui::ChangePassword) {
     ui->setupUi(this);
 
+    //disable maximize
+    setWindowFlags(windowFlags() & ~Qt::WindowMaximizeButtonHint);
+
+    //set user
     this->users = users;
+
     addInfo();
 
     hideError();
@@ -21,13 +26,22 @@ ChangePassword::ChangePassword(User users, QWidget *parent) : QWidget(parent) , 
     connect(ui->transferPB, SIGNAL(clicked()), this, SLOT(openTransferPage()));
 
     //click change 4 digit password push button
-    connect(ui->change4DigitPasswordsPB, SIGNAL(clicked()), this, SLOT(checkChange4DigitPassword()));
+    connect(ui->change4DigitPasswordsPB, SIGNAL(clicked()), this, SLOT(change4DigitPasswordPBClick()));
 
     //click change fixed password push button
-    connect(ui->changeFixedPasswordsPB, SIGNAL(clicked()), this, SLOT(checkChangeFixedPassword()));
+    connect(ui->changeFixedPasswordsPB, SIGNAL(clicked()), this, SLOT(changeFixedPasswordPBClick()));
 
     //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
+
+    //set enter for change 4 digit password
+    connect(ui->new4DigitPasswordLE, SIGNAL(returnPressed()), ui->change4DigitPasswordsPB, SLOT(click()));
+
+    //set enter for change fixed password
+    connect(ui->newFixedPasswordLE, SIGNAL(returnPressed()), ui->changeFixedPasswordsPB, SLOT(click()));
+
+    //set cursor
+    ui->cardNumberCB->setFocus();
 }
 ChangePassword::~ChangePassword() {
     delete ui;
@@ -44,22 +58,12 @@ void ChangePassword::addInfo() {
     }
 }
 
-void ChangePassword::change4DigitPasswordPBClick() {
-    setUserChange4DigitPasswordData();
-    openMainPanelPage();
-}
-
-void ChangePassword::changeFixedPasswordPBClick() {
-    setUserChangeFixedPasswordData();
-    openMainPanelPage();
-}
-
 void ChangePassword::hideError() {
     ui->new4DigitPasswordError->hide();
     ui->newFixedPasswordError->hide();
 }
 
-void ChangePassword::checkChange4DigitPassword() {
+void ChangePassword::change4DigitPasswordPBClick() {
     hideError();
 
     bool checkError = true;
@@ -72,11 +76,12 @@ void ChangePassword::checkChange4DigitPassword() {
         checkError = false;
 
     if (checkError) {
-        change4DigitPasswordPBClick();
+        finalUserSet4Digit();
+        openMainPanelPage();
     }
 }
 
-void ChangePassword::checkChangeFixedPassword() {
+void ChangePassword::changeFixedPasswordPBClick() {
     hideError();
 
     bool checkError = true;
@@ -89,7 +94,8 @@ void ChangePassword::checkChangeFixedPassword() {
         checkError = false;
 
     if (checkError) {
-        changeFixedPasswordPBClick();
+        finalUserSetFixed();
+        openMainPanelPage();
     }
 }
 
@@ -214,7 +220,7 @@ void ChangePassword::openLogoutPage() {
     this->close();
 }
 
-void ChangePassword::setUserChange4DigitPasswordData() {
+void ChangePassword::finalUserSet4Digit() {
     //set bank account and card to this
     bankAccounts = users.getSingleBankAccount(bankAccountIdx);
     cards = users.getSingleBankAccount(bankAccountIdx).getBankCard();
@@ -232,7 +238,7 @@ void ChangePassword::setUserChange4DigitPasswordData() {
     users.updateUserDataInList(users.getNationalCode());
 }
 
-void ChangePassword::setUserChangeFixedPasswordData() {
+void ChangePassword::finalUserSetFixed() {
     //set bank account and card to this
     bankAccounts = users.getSingleBankAccount(bankAccountIdx);
     cards = users.getSingleBankAccount(bankAccountIdx).getBankCard();

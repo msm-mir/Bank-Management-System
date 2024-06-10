@@ -105,7 +105,11 @@ font: 12pt &quot;Tw Cen MT&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 255, 174);
+border-color: 1px ,rgb(0, 0, 0);
 color: rgb(0, 0, 0);
+border-radius: 8px;
+padding: 5px 5px;
+border : 1px solid #000000;
 </string>
    </property>
    <property name="text">
@@ -141,7 +145,11 @@ font: 12pt &quot;Tw Cen MT&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 255, 174);
+border-color: 1px ,rgb(0, 0, 0);
 color: rgb(0, 0, 0);
+border-radius: 8px;
+padding: 5px 5px;
+border : 1px solid #000000;
 </string>
    </property>
    <property name="text">
@@ -177,7 +185,11 @@ font: 12pt &quot;Tw Cen MT&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 255, 174);
+border-color: 1px ,rgb(0, 0, 0);
 color: rgb(0, 0, 0);
+border-radius: 8px;
+padding: 5px 5px;
+border : 1px solid #000000;
 </string>
    </property>
    <property name="text">
@@ -213,7 +225,11 @@ font: 12pt &quot;Tw Cen MT&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 255, 174);
+border-color: 1px ,rgb(0, 0, 0);
 color: rgb(0, 0, 0);
+border-radius: 8px;
+padding: 5px 5px;
+border : 1px solid #000000;
 </string>
    </property>
    <property name="text">
@@ -249,8 +265,15 @@ font: 12pt &quot;Tw Cen MT&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 255, 174);
+border-color: 1px ,rgb(0, 0, 0);
 color: rgb(0, 0, 0);
+border-radius: 8px;
+padding: 5px 5px;
+border : 1px solid #000000;
 </string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
    </property>
   </widget>
   <widget class="QLabel" name="loginPasswordL">
@@ -282,8 +305,11 @@ font: 12pt &quot;Tw Cen MT&quot;;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 255, 174);
-selection-background-color: rgb(83, 83, 83);
+border-color: 1px ,rgb(0, 0, 0);
 color: rgb(0, 0, 0);
+border-radius: 8px;
+padding: 5px 5px;
+border : 1px solid #000000;
 </string>
    </property>
   </widget>
@@ -298,8 +324,15 @@ color: rgb(0, 0, 0);
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 255, 174);
+border-color: 1px ,rgb(0, 0, 0);
 color: rgb(0, 0, 0);
+border-radius: 8px;
+padding: 5px 5px;
+border : 1px solid #000000;
 </string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
    </property>
   </widget>
   <widget class="QLabel" name="loginUsernameL">
@@ -335,7 +368,11 @@ font: 12pt &quot;Tw Cen MT&quot;;
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 255, 21);
 background-color: rgb(36, 36, 36);
-font: 9pt &quot;MRT_Sozar&quot;;</string>
+font: 9pt &quot;MRT_Sozar&quot;;
+border-color: 1px ,rgb(0, 0, 0);
+border-radius: 8px;
+border : 1px solid #000000;
+</string>
    </property>
    <property name="text">
     <string>Log in</string>
@@ -365,7 +402,11 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
    <property name="styleSheet">
     <string notr="true">color: rgb(0, 255, 21);
 background-color: rgb(36, 36, 36);
-font: 9pt &quot;MRT_Sozar&quot;;</string>
+font: 9pt &quot;MRT_Sozar&quot;;
+border-color: 1px ,rgb(0, 0, 0);
+border-radius: 8px;
+border : 1px solid #000000;
+</string>
    </property>
    <property name="text">
     <string>Sign up</string>
@@ -407,7 +448,11 @@ font: 9pt &quot;MRT_Sozar&quot;;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 255, 174);
+border-color: 1px ,rgb(0, 0, 0);
 color: rgb(0, 0, 0);
+border-radius: 8px;
+padding: 5px 5px;
+border : 1px solid #000000;
 </string>
    </property>
    <property name="text">
@@ -550,6 +595,74 @@ font: 7pt &quot;Segoe UI&quot;;</string>
     <string>password error</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="showSignupPassword">
+   <property name="geometry">
+    <rect>
+     <x>606</x>
+     <y>293</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;MRT_Sozar&quot;;
+border-radius: 8px;
+</string>
+   </property>
+   <property name="text">
+    <string>Show</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="default">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showLoginPassword">
+   <property name="geometry">
+    <rect>
+     <x>186</x>
+     <y>199</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 9pt &quot;MRT_Sozar&quot;;
+border-radius: 8px;
+</string>
+   </property>
+   <property name="text">
+    <string>Show</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="default">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
   <zorder>background</zorder>
   <zorder>firstNameL</zorder>
   <zorder>signUpL</zorder>
@@ -579,6 +692,8 @@ font: 7pt &quot;Segoe UI&quot;;</string>
   <zorder>signupPasswordError</zorder>
   <zorder>loginUsernameError</zorder>
   <zorder>loginPasswordError</zorder>
+  <zorder>showSignupPassword</zorder>
+  <zorder>showLoginPassword</zorder>
  </widget>
  <resources>
   <include location="loginsignup.qrc"/>

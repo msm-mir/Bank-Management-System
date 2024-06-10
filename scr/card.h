@@ -12,7 +12,7 @@ private:
     QString fourDigitPassword = "";
     QString fixedPassword = "";
     bool haveFixedPassword;
-    QString oneTimePassword = "";
+    QString oneTimePassword = "-";
 public:
     Card();
     ~Card();

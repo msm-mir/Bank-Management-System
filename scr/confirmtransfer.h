@@ -22,7 +22,7 @@ private slots:
     void openViewBalancePage();
     void openTransferPage();
     void passwordReqPBClick();
-    void checkConfirmTransfer();
+    void confirmTransferPBClick();
     void openLogoutPage();
 public:
     User originUser;
@@ -40,9 +40,9 @@ public:
     explicit ConfirmTransfer(User, int, QString, long long int, QWidget *parent = nullptr);
     ~ConfirmTransfer();
 
-    void setUsersDataToThis(User, int, QString, long long int);
+    void initialUsersSet(User, int, QString, long long int);
     void addInfo();
-    void confirmPBClick();
+    void openMainPanelPage();
     void hideError();
     bool checkCvv2Field();
     bool checkFixedPasswordField();
@@ -52,7 +52,9 @@ public:
     bool checkFixedPassword(QString);
     bool checkOneTimePassword(QString);
     tm getCurrentTime();
-    void setUsersTransferData();
+    void finalUsersSet();
+    bool isAfter(const tm&, const tm&);
+    tm calculatePastDate(int);
 };
 
 #endif // CONFIRMTRANSFER_H

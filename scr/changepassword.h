@@ -17,8 +17,8 @@ class ChangePassword : public QWidget
 private:
     Ui::ChangePassword *ui;
 private slots:
-    void checkChange4DigitPassword();
-    void checkChangeFixedPassword();
+    void change4DigitPasswordPBClick();
+    void changeFixedPasswordPBClick();
     void openCreateBankAccountPage();
     void openViewBalancePage();
     void openTransferPage();
@@ -35,8 +35,6 @@ public:
 
     void addInfo();
     void hideError();
-    void change4DigitPasswordPBClick();
-    void changeFixedPasswordPBClick();
     void setIdx();
     bool checkNew4DigitPasswordField();
     bool checkNewFixedPasswordField();
@@ -45,8 +43,8 @@ public:
     bool checkFixedPassword(QString);
     bool equal4DigitPassword(QString);
     bool equalFixedPassword(QString);
-    void setUserChange4DigitPasswordData();
-    void setUserChangeFixedPasswordData();
+    void finalUserSet4Digit();
+    void finalUserSetFixed();
 };
 
 #endif // CHANGEPASSWORD_H

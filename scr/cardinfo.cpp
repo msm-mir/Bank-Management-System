@@ -10,15 +10,21 @@
 
 #include <bits/stdc++.h>
 #include <ctime>
+#include <QKeyEvent>
 
 using namespace std;
 
 CardInfo::CardInfo(User users, QWidget *parent) : QWidget(parent) , ui(new Ui::CardInfo) {
     ui->setupUi(this);
 
+    //disable maximize
+    setWindowFlags(windowFlags() & ~Qt::WindowMaximizeButtonHint);
+
+    //set user
     this->users = users;
-    this->bankAccounts = users.getSingleBankAccount(users.getBankAccountNum() - 1);
-    this->cards = users.getSingleBankAccount(users.getBankAccountNum() - 1).getBankCard();
+
+    initialUserSet();
+
     addInfo();
 
     //create card info
@@ -53,7 +59,7 @@ void CardInfo::createCardInfo() {
     createCardCvv2();
     createCardExpirationDate();
 
-    setUserCardInfo();
+    finalUserSet();
 }
 
 //shuffle national code digits
@@ -182,7 +188,15 @@ int CardInfo::getDay(const tm& date) {
     return date.tm_mday;
 }
 
-void CardInfo::setUserCardInfo() {
+void CardInfo::initialUserSet() {
+    //set bank account
+    this->bankAccounts = users.getSingleBankAccount(users.getBankAccountNum() - 1);
+
+    //set card
+    this->cards = users.getSingleBankAccount(users.getBankAccountNum() - 1).getBankCard();
+}
+
+void CardInfo::finalUserSet() {
     //set to card
     cards.setCardNumber(ui->cardNumberST->text());
     cards.setIbanNumber(ui->ibanNumberST->text());
@@ -197,4 +211,13 @@ void CardInfo::setUserCardInfo() {
 
     //set to list of users
     users.updateUserDataInList(users.getNationalCode());
+}
+
+void CardInfo::keyPressEvent(QKeyEvent *event) {
+    if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
+        ui->donePB->click();
+    }
+    else {
+        QWidget::keyPressEvent(event);
+    }
 }

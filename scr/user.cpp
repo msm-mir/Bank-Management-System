@@ -8,6 +8,8 @@ using namespace std;
 
 User::User() {}
 User::~User() {}
+
+//setter
 void User::setName(QString name) {
     this->name = name;
 }
@@ -32,6 +34,8 @@ void User::setSingleBankAccount(BankAccount singleBankAccount, int idx) {
 void User::setBankAccountNum(int bankAccountNum) {
     this->bankAccountNum = bankAccountNum;
 }
+
+//getter
 QString User::getName() {
     return this->name;
 }
@@ -57,10 +61,12 @@ int User::getBankAccountNum() {
     return this->bankAccountNum;
 }
 
+//add user to link list in sign up page
 void User::addUser() {
     listUsers.pushBack(*this);
 }
 
+//find user for log in page
 QString User::loginFind(QString username, QString password) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
@@ -74,6 +80,7 @@ QString User::loginFind(QString username, QString password) {
     return "non-existence of username";
 }
 
+//is name unique for sign up
 bool User::uniqueName(QString name) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
@@ -84,6 +91,7 @@ bool User::uniqueName(QString name) {
     return false;
 }
 
+//is family unique for sign up
 bool User::uniqueFamily(QString family) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
@@ -94,6 +102,7 @@ bool User::uniqueFamily(QString family) {
     return false;
 }
 
+//is national code unique for sign up
 bool User::uniqueNationalCode(QString nationalCode) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
@@ -104,6 +113,7 @@ bool User::uniqueNationalCode(QString nationalCode) {
     return false;
 }
 
+//is username unique for sign up
 bool User::uniqueUsername(QString username) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
@@ -114,23 +124,35 @@ bool User::uniqueUsername(QString username) {
     return false;
 }
 
-void User::setUserInfo(QString username, QString password) {
+//set user information in log in for other pages
+void User::setUserInfo(QString username) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
-        if (tmp->getData().getUniqueUsername() == username)
-            if (tmp->getData().getPassword() == password) {
-                this->setName(tmp->getData().getName());
-                this->setFamily(tmp->getData().getFamily());
-                this->setNationalCode(tmp->getData().getNationalCode());
-                this->setAge(tmp->getData().getAge());
-                this->setUniqueUsername(username);
-                this->setPassword(password);
-                return;
+        if (tmp->getData().getUniqueUsername() == username) {
+            this->setName(tmp->getData().getName());
+            this->setFamily(tmp->getData().getFamily());
+            this->setNationalCode(tmp->getData().getNationalCode());
+            this->setAge(tmp->getData().getAge());
+            this->setUniqueUsername(tmp->getData().getUniqueUsername());
+            this->setPassword(tmp->getData().getPassword());
+
+            BankAccount bankAccount;
+            for (int i = 0; i < this->getBankAccountNum(); i++) {
+                this->setSingleBankAccount(bankAccount, i);
             }
+
+            for (int i = 0; i < tmp->getData().getBankAccountNum(); i++)
+                this->setSingleBankAccount(tmp->getData().getSingleBankAccount(i), i);
+
+            this->setBankAccountNum(tmp->getData().getBankAccountNum());
+
+            return;
+        }
         tmp = tmp->getNextNode();
     }
 }
 
+//set user's new information to link list
 void User::updateUserDataInList(QString nationalCode) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
@@ -142,6 +164,7 @@ void User::updateUserDataInList(QString nationalCode) {
     }
 }
 
+//search destination card number for transfer page
 bool User::findCardNumber(QString cardNumber) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {
@@ -154,6 +177,7 @@ bool User::findCardNumber(QString cardNumber) {
     return true;
 }
 
+//is destination bank card expired for transfer
 bool User::checkDestiExpire(QString cardNumber) {
     Node<User> *tmp = listUsers.getHeadNode();
     while (tmp) {

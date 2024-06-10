@@ -43,7 +43,10 @@ public:
     int getYear(const tm&);
     int getMonth(const tm&);
     int getDay(const tm&);
-    void setUserCardInfo();
+    void initialUserSet();
+    void finalUserSet();
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 };
 
 #endif // CARDINFO_H

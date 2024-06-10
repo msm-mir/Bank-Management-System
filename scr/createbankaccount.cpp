@@ -7,10 +7,17 @@
 #include "viewbalance.h"
 #include "transfer.h"
 
+#include <QKeyEvent>
+
 CreateBankAccount::CreateBankAccount(User users, QWidget *parent) : QWidget(parent) , ui(new Ui::CreateBankAccount) {
     ui->setupUi(this);
 
+    //disable maximize
+    setWindowFlags(windowFlags() & ~Qt::WindowMaximizeButtonHint);
+
+    //set user
     this->users = users;
+
     addInfo();
 
     hideError();
@@ -23,11 +30,18 @@ CreateBankAccount::CreateBankAccount(User users, QWidget *parent) : QWidget(pare
     }
 
     //click create push button
-    connect(ui->createPB, SIGNAL(clicked()), this, SLOT(checkCreateAccount()));
+    connect(ui->createPB, SIGNAL(clicked()), this, SLOT(checkCreateBankAccount()));
 
     //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
 
+    //click enter for create
+    connect(ui->initialBalanceLE, SIGNAL(returnPressed()), ui->createPB, SLOT(click()));
+    connect(ui->fourDigitPasswordLE, SIGNAL(returnPressed()), ui->createPB, SLOT(click()));
+    connect(ui->fixedPasswordLE, SIGNAL(returnPressed()), ui->createPB, SLOT(click()));
+
+    //set cursor
+    ui->bankAccountTypeCB->setFocus();
 }
 CreateBankAccount::~CreateBankAccount() {
     delete ui;
@@ -41,8 +55,6 @@ void CreateBankAccount::addInfo() {
 }
 
 void CreateBankAccount::createPBClick() {
-    setUserBankAccountData();
-
     CardInfo *np = new CardInfo(users);
     np->show();
     this->close();
@@ -55,7 +67,7 @@ void CreateBankAccount::hideError() {
     ui->createNewBankAccountError->hide();
 }
 
-void CreateBankAccount::checkCreateAccount() {
+void CreateBankAccount::checkCreateBankAccount() {
     hideError();
 
     bool checkError = true;
@@ -76,6 +88,7 @@ void CreateBankAccount::checkCreateAccount() {
         checkError = false;
 
     if (checkError) {
+        finalUserSet();
         createPBClick();
     }
 }
@@ -186,7 +199,7 @@ void CreateBankAccount::openLogoutPage() {
     this->close();
 }
 
-void CreateBankAccount::setUserBankAccountData() {
+void CreateBankAccount::finalUserSet() {
     //set bank account number
     users.setBankAccountNum(users.getBankAccountNum() + 1);
 
@@ -220,4 +233,19 @@ void CreateBankAccount::setUserBankAccountData() {
 
     //set to list of users
     users.updateUserDataInList(users.getNationalCode());
+}
+
+void CreateBankAccount::keyPressEvent(QKeyEvent *event) {
+    QWidget *focusedWidget = QApplication::focusWidget();
+
+    if (focusedWidget == ui->bankAccountTypeCB) {
+        if(event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
+            int currentIndex = ui->bankAccountTypeCB->currentIndex();
+            int nextIndex = (currentIndex + 1) % ui->bankAccountTypeCB->count();
+            ui->bankAccountTypeCB->setCurrentIndex(nextIndex);
+        }
+    }
+    else {
+        QWidget::keyPressEvent(event);
+    }
 }

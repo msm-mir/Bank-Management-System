@@ -45,7 +45,7 @@ public:
     bool uniqueFamily(QString);
     bool uniqueNationalCode(QString);
     bool uniqueUsername(QString);
-    void setUserInfo(QString, QString);
+    void setUserInfo(QString);
     void updateUserDataInList(QString);
     bool findCardNumber(QString);
     bool checkDestiExpire(QString);

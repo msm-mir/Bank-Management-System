@@ -29,6 +29,8 @@ public:
     ~ViewBalance();
 
     void addInfo();
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 };
 
 #endif // VIEWBALANCE_H

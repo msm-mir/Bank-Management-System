@@ -7,8 +7,13 @@
 #include "changepassword.h"
 #include "transfer.h"
 
+#include <QKeyEvent>
+
 ViewBalance::ViewBalance(User users, QWidget *parent) : QWidget(parent) , ui(new Ui::ViewBalance) {
     ui->setupUi(this);
+
+    //disable maximize
+    setWindowFlags(windowFlags() & ~Qt::WindowMaximizeButtonHint);
 
     this->users = users;
     addInfo();
@@ -23,6 +28,9 @@ ViewBalance::ViewBalance(User users, QWidget *parent) : QWidget(parent) , ui(new
 
     //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
+
+    //set cursor
+    ui->cardNumberCB->setFocus();
 }
 ViewBalance::~ViewBalance() {
     delete ui;
@@ -71,4 +79,13 @@ void ViewBalance::openLogoutPage() {
     LoginSignin *np = new LoginSignin(users);
     np->show();
     this->close();
+}
+
+void ViewBalance::keyPressEvent(QKeyEvent *event) {
+    if(event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
+        ui->createNewBankAccountPB->click();
+    }
+    else {
+        QWidget::keyPressEvent(event);
+    }
 }

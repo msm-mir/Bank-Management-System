@@ -8,8 +8,14 @@
 #include "viewbalance.h"
 #include "transfer.h"
 
+#include <QKeyEvent>
+#include <QPushButton>
+
 MainPanel::MainPanel(User users, QWidget *parent) : QWidget(parent) , ui(new Ui::MainPanel) {
     ui->setupUi(this);
+
+    //disable maximize
+    setWindowFlags(windowFlags() & ~Qt::WindowMaximizeButtonHint);
 
     this->users = users;
     addInfo();
@@ -26,6 +32,9 @@ MainPanel::MainPanel(User users, QWidget *parent) : QWidget(parent) , ui(new Ui:
 
     //click logout push button
     connect(ui->logoutPB, SIGNAL(clicked()), this, SLOT(openLogoutPage()));
+
+    //set cursor focus
+    ui->logoutPB->setFocus();
 }
 MainPanel::~MainPanel() {
     delete ui;

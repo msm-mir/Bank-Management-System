@@ -17,7 +17,7 @@ class CreateBankAccount : public QWidget
 private:
     Ui::CreateBankAccount *ui;
 private slots:
-    void checkCreateAccount();
+    void checkCreateBankAccount();
     void openChangePasswordPage();
     void openViewBalancePage();
     void openTransferPage();
@@ -40,7 +40,9 @@ public:
     bool checkBalance(long long int);
     bool checkFourDigitPassword(QString);
     bool checkFixedPassword(QString);
-    void setUserBankAccountData();
+    void finalUserSet();
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 };
 
 #endif // CREATEBANKACCOUNT_H

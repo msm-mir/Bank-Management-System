@@ -98,5 +98,4 @@ int List<T>::getSize() {
     return size;
 }
 
-
 #endif // LIST_H
