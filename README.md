@@ -67,9 +67,9 @@ The aim of this project is to simulate a **real-world banking system** and imple
 ├── CreateBankAccount.h / .cpp / .ui
 ├── Form.h / .cpp/ .ui
 ├── List.h / .cpp
-├── LoginSignin.h / .cpp / .ui / .qrc
+├── LoginSignin.h / .cpp / .ui
 ├── MainPanel.h / .cpp / .ui
-├── Panel.h / .cpp / .ui / .qrc
+├── Panel.h / .cpp / .ui
 ├── scr.pro
 ├── Temp.h / .cpp
 ├── Transfer.h / .cpp / .ui
