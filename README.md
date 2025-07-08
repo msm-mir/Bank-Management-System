@@ -47,6 +47,7 @@ The aim of this project is to simulate a **real-world banking system** and imple
 ---
 
 ## 🛠 Technical Details
+
 - Implemented in **C++**
 - Uses **Qt framework** for GUI
 - Uses **Linked Lists with Templates** to manage users and their bank accounts
@@ -81,20 +82,16 @@ The aim of this project is to simulate a **real-world banking system** and imple
 
 ---
 
-## 🛠️ How to Run
+## 🚀 How to Run
 
-### Prerequisites:
 - **Qt Creator IDE** (used to develop the entire project)
 - **Qt libraries and dependencies**
-
-### Steps:
-1. Open the project in **Qt Creator**.
-2. Configure the appropriate **Qt Kit**.
-3. Build and run the project within the IDE.
+- Make sure the compiler is set to support C++17 or later.
 
 ---
 
 ## 📌 Notes
+
 - The entire project was developed using **Qt Creator**
 - The system requires Qt libraries to build and run correctly
 - All generated card/account details are **randomized**
@@ -103,4 +100,5 @@ The aim of this project is to simulate a **real-world banking system** and imple
 ---
 
 ## 👨‍💻 Author
+
 - Developed as part of a C++ Advanced Programming course mini project
