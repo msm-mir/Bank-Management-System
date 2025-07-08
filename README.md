@@ -1,4 +1,4 @@
-# 🏦 Simple Bank Management System (C++ with Qt GUI)
+# 🏦 Bank Management System (C++ with Qt GUI)
 
 This project is a **bank management system** implemented in **C++** using the **Qt GUI framework**, as part of an Advanced Programming course. It simulates the basic banking operations and user account management in a simple, object-oriented manner with a graphical user interface.
 
@@ -59,10 +59,23 @@ The aim of this project is to simulate a **real-world banking system** and imple
 ```
 /BankProject
 ├── main.cpp
+├── BankAccount.h / .cpp
+├── Card.h / .cpp
+├── CardInfo.h / .cpp / .ui
+├── ChangePassword.h / .cpp / .ui
+├── ConfirmTransfer.h / .cpp / .ui
+├── CreateBankAccount.h / .cpp / .ui
+├── Form.h / .cpp/ .ui
+├── List.h / .cpp
+├── LoginSignin.h / .cpp / .ui / .qrc
+├── MainPanel.h / .cpp / .ui
+├── Panel.h / .cpp / .ui / .qrc
+├── scr.pro
+├── Temp.h / .cpp
+├── Transfer.h / .cpp / .ui
 ├── User.h / .cpp
-├── Account.h / .cpp
-├── Transaction.h / .cpp
-├── gui/  # Qt GUI components
+├── UserPanel.h / .cpp / .ui
+├── ViewBalance.h / .cpp / .ui
 └── README.md
 ```
 
