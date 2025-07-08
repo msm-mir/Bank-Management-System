@@ -4,7 +4,7 @@ This project is a **bank management system** implemented in **C++** using the **
 
 ## 🎯 Project Goal
 
-The aim of this project is to simulate a **real-world banking system** and implement its functionalities using core C++ programming concepts like object-oriented programming (OOP), file handling, and user input validation. The system models real-life banking components such as users, accounts, and transactions.
+The aim of this project is to simulate a **real-world banking system** and implement its functionalities using core C++ programming concepts like object-oriented programming (OOP) and user input validation. The system models real-life banking components such as users, accounts, and transactions.
 
 ---
 
@@ -81,7 +81,7 @@ The aim of this project is to simulate a **real-world banking system** and imple
 
 ---
 
-## 🚀 How to Run
+## 🛠️ How to Run
 
 ### Prerequisites:
 - **Qt Creator IDE** (used to develop the entire project)
