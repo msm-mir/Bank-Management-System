@@ -74,5 +74,6 @@ CMakeLists.txt.user*
 
 time-help.cpp
 UIAP-Bank-Dr M.Mahdavi.pdf
-build/
 src/build/
+src/Panel.qrc
+src/loginsignup.qrc
