@@ -86,7 +86,7 @@ The aim of this project is to simulate a **real-world banking system** and imple
 
 - **Qt Creator IDE** (used to develop the entire project)
 - **Qt libraries and dependencies**
-- Make sure the compiler is set to support C++17 or later.
+- Make sure the compiler is set to support C++17 or later
 
 ---
 
