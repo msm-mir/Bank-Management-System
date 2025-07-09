@@ -90,6 +90,6 @@ The aim of this project is to simulate a **real-world banking system** and imple
 
 ---
 
-## 👨‍💻 Author
+## 👩🏻‍💻 Author
 
-- Developed as part of a C++ Advanced Programming course mini project
+Developed as part of a C++ Advanced Programming course mini project
