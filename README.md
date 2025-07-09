@@ -50,7 +50,7 @@ The aim of this project is to simulate a **real-world banking system** and imple
 
 - Implemented in **C++**
 - Uses **Qt framework** for GUI
-- Uses **Linked Lists with Templates** to manage bank accounts' lists
+- Uses **Linked Lists with Templates** to manage list of bank accounts
 - Simulates **realistic banking validations and constraints**
 
 ---
