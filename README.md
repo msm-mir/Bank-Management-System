@@ -85,15 +85,13 @@ The aim of this project is to simulate a **real-world banking system** and imple
 ## 🚀 How to Run
 
 - **Qt Creator IDE** (used to develop the entire project)
-- **Qt libraries and dependencies**
+- **Qt libraries and dependencies** (to build and run correctly)
 - Make sure the compiler is set to support C++17 or later
 
 ---
 
 ## 📌 Notes
 
-- The entire project was developed using **Qt Creator**
-- The system requires Qt libraries to build and run correctly
 - All generated card/account details are **randomized**
 - Each user’s account list is stored using **templated linked lists**
 
